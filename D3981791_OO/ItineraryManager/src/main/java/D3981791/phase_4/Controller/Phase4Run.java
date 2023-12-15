@@ -22,7 +22,7 @@ public class Phase4Run implements Serializable {
 
   public static void main(String[] args) throws IOException, ClassNotFoundException {
 
-    // new feature!!!
+    // develop branch confirmation
 
     ActivityRepository activityRepository = new ActivityRepository();
     List<Activity> availableActivities = activityRepository.getAllActivities();
