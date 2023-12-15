@@ -5,7 +5,7 @@
 package D3981791.phase_4.SwingUI;
 
 import D3981791.phase_1.Model.Itinerary;
-import D3981791.phase_1.Model.SaveItinerary;
+import D3981791.phase_3.Model.SaveItinerary;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -15,7 +15,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
 
-import static D3981791.phase_1.Model.SaveItinerary.deSerializeItineraries;
 
 /**
  *
@@ -31,7 +30,8 @@ public class ManagementScreen extends JFrame {
 
   public ManagementScreen() {
     super();
-    itineraries = deSerializeItineraries();
+    SaveItinerary save = new SaveItinerary();
+    itineraries = save.deSerializeItineraries();
     managementTable = new JTable();
     managementTable.setModel(new ItineraryTableModel(itineraries));
 
@@ -95,7 +95,7 @@ public class ManagementScreen extends JFrame {
             JMenuItem deleteMenuItem = new JMenuItem("Delete");
             deleteMenuItem.addActionListener(event -> {
               int selectedRow = managementTable.getSelectedRow();
-              SaveItinerary.deleteItinerary(selectedRow, itineraries);
+              save.deleteItinerary(selectedRow, itineraries);
               scrollPane.updateUI();
             });
             popupMenu.add(deleteMenuItem);

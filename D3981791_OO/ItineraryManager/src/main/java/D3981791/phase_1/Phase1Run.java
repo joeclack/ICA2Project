@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package D3981791.phase_1.Controller;
+package D3981791.phase_1;
 
 import D3981791.phase_1.Library.ActivityAddOnRepository;
 import D3981791.phase_1.Library.ActivityRepository;
@@ -57,6 +57,6 @@ public class Phase1Run {
     itinerary.calculateItineraryCost();
     itinerary.generateRefNum();
 
-    System.out.println("Itinerary created!");
+    System.out.println("Itinerary created! Reference number: " + itinerary.getRefNumber());
   }
 }

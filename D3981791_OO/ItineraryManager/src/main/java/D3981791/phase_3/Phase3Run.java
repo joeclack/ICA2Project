@@ -6,15 +6,15 @@ package D3981791.phase_3;
 
 import D3981791.phase_1.Model.*;
 import D3981791.phase_1.Library.*;
+import D3981791.phase_2.Model.ItineraryInput;
 import D3981791.phase_2.TextUI.*;
+import D3981791.phase_3.Model.SaveItinerary;
 
-import javax.swing.plaf.TextUI;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Scanner;
 
-import static D3981791.phase_1.Model.SaveItinerary.deSerializeItineraries;
 import static java.lang.System.exit;
 
 public class Phase3Run implements Serializable {
@@ -34,6 +34,7 @@ public class Phase3Run implements Serializable {
 
     Scanner scanner = new Scanner(System.in);
     ConsoleUI display = new ConsoleUI();
+    SaveItinerary save = new SaveItinerary();
 
     display.menu();
     Itinerary newItinerary = null;
@@ -45,11 +46,11 @@ public class Phase3Run implements Serializable {
         case 1:
           newItinerary = generate.generateItinerary(availableActivities, availableActivitiyAddOns, availableItineraryAddOns);
           display.fullItinerary(newItinerary);
-          SaveItinerary.serializeItinerary(newItinerary);
+          save.serializeItineraries(newItinerary);
           display.menu();
           break;
         case 2:
-          List<Itinerary> itineraries = deSerializeItineraries();
+          List<Itinerary> itineraries = save.deSerializeItineraries();
 
           if (itineraries.isEmpty()) {
             System.out.println("No itineraries");

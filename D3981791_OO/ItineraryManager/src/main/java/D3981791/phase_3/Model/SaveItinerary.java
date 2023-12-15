@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package D3981791.phase_1.Model;
+package D3981791.phase_3.Model;
+
+import D3981791.phase_1.Model.Itinerary;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -16,7 +18,7 @@ public class SaveItinerary implements Serializable {
    *
    * @param itinerary
    */
-  public static void serializeItineraries(Itinerary itinerary) {
+  public void serializeItineraries(Itinerary itinerary) {
     List<Itinerary> existingItineraries = deSerializeItineraries();
     existingItineraries.add(itinerary);
 
@@ -36,7 +38,7 @@ public class SaveItinerary implements Serializable {
    *
    * @return
    */
-  public static List<Itinerary> deSerializeItineraries() {
+  public List<Itinerary> deSerializeItineraries() {
     List<Itinerary> loadedItineraries = new ArrayList<>();
     try {
       File file = new File(filePath);
@@ -63,7 +65,7 @@ public class SaveItinerary implements Serializable {
    * @param index
    * @param itinerariesList
    */
-  public static void deleteItinerary(int index, List<Itinerary> itinerariesList) {
+  public void deleteItinerary(int index, List<Itinerary> itinerariesList) {
     for(int a = 0; a<itinerariesList.size(); a++) {
       if(a==index) {
         itinerariesList.remove(a);

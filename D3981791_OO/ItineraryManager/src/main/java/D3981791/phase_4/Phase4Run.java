@@ -6,7 +6,9 @@ package D3981791.phase_4;
 
 import D3981791.phase_1.Model.*;
 import D3981791.phase_1.Library.*;
+import D3981791.phase_2.Model.ItineraryInput;
 import D3981791.phase_2.TextUI.*;
+import D3981791.phase_3.Model.SaveItinerary;
 import D3981791.phase_4.SwingUI.*;
 
 import java.io.IOException;
@@ -14,7 +16,6 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Scanner;
 
-import static D3981791.phase_1.Model.SaveItinerary.serializeItineraries;
 import static java.lang.System.exit;
 
 public class Phase4Run implements Serializable {
@@ -41,6 +42,7 @@ public class Phase4Run implements Serializable {
     display.menu();
 
     Itinerary newItinerary = null;
+    SaveItinerary save = new SaveItinerary();
 
     boolean finished = false;
     while (!finished) {
@@ -51,7 +53,7 @@ public class Phase4Run implements Serializable {
         case 1:
           newItinerary = generate.generateItinerary(availableActivities, availableActivityAddOns, availableItineraryAddOns);
           System.out.println("Itinerary created!");
-          serializeItineraries(newItinerary);
+          save.serializeItineraries(newItinerary);
           java.awt.EventQueue.invokeLater(() -> {
             new ManagementScreen().setVisible(true);
           });

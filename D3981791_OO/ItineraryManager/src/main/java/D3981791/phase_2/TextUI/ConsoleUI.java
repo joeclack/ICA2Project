@@ -16,7 +16,7 @@ public class ConsoleUI {
     int firstStringLength = line1.length();
     int secondStringLength = line2.length();
 
-    int MAX_WIDTH = 50;
+    int MAX_WIDTH = 55;
     String LEFT_BORDER = "| ";
     String RIGHT_BORDER = " |";
     String whiteSpace = "";
@@ -33,7 +33,7 @@ public class ConsoleUI {
 
   private String generateFormattedSingleLine(String line) {
     int lineLength = line.length();
-    int MAX_WIDTH = 50;
+    int MAX_WIDTH = 55;
     String LEFT_BORDER = "| ";
     String RIGHT_BORDER = " |";
     String whiteSpace = "";
@@ -50,7 +50,7 @@ public class ConsoleUI {
 
   private String generateFormattedCostLine(String line) {
     int lineLength = line.length();
-    int MAX_WIDTH = 50;
+    int MAX_WIDTH = 55;
     String LEFT_BORDER = "| ";
     String RIGHT_BORDER = " |";
     String whiteSpace = "";
@@ -65,7 +65,7 @@ public class ConsoleUI {
     return formattedLine;
   }
 
-  private String WordOrNumeric(int number) {
+  private String wordOrNumeric(int number) {
     String value;
 
     if (number <= 5) {
@@ -77,95 +77,84 @@ public class ConsoleUI {
     return value;
   }
 
-  public void printItinerary(Itinerary itinerary) {
+  private void clientInfoSection(Itinerary itinerary) {
+    System.out.println(generateFormattedMultiLine(("Client name: " + itinerary.getLeadAttendeeFirstName().charAt(0) + " " + itinerary.getLeadAttendeeLastName()), ("Ref: " + itinerary.getRefNumber())));
+    System.out.println(generateFormattedMultiLine(("Total activities: " + wordOrNumeric(itinerary.getTotalActivities())), ("Total attendees: " + wordOrNumeric(itinerary.getTotalAttendees()))));
+    System.out.println(generateFormattedSingleLine("Date: " + itinerary.getDate()));
+  }
 
-    String topBottomBorder = topBottomBorder();
-    String printClientAndRef = generateFormattedMultiLine(("Client name: " + itinerary.getLeadAttendeeFirstName().charAt(0) + " " + itinerary.getLeadAttendeeLastName()), ("Ref: " + itinerary.getRefNumber()));
-
-    String printTotalAttendeesAndActivities = generateFormattedMultiLine(("Total activities: " + WordOrNumeric(itinerary.getTotalActivities())), ("Total attendees: " + WordOrNumeric(itinerary.getTotalAttendees())));
-    String printDate = generateFormattedSingleLine("Date: " + itinerary.getDate());
-    String printCostBreakDown = generateFormattedSingleLine("Cost break down");
-    String printItineraryAddOn = generateFormattedSingleLine("Itinerary add ons:");
-
-    String PRINT_EMPTY_LINE = generateFormattedSingleLine("");
-
-    System.out.println(topBottomBorder);
-    System.out.println(printClientAndRef);
-    System.out.println(printTotalAttendeesAndActivities);
-    System.out.println(printDate);
-    System.out.println(PRINT_EMPTY_LINE);
-    System.out.println(topBottomBorder);
-    System.out.println(PRINT_EMPTY_LINE);
-    System.out.println(printCostBreakDown);
-
-    System.out.println(PRINT_EMPTY_LINE);
-    System.out.println(printItineraryAddOn);
+  private void itineraryAddOnsSection(Itinerary itinerary) {
+    System.out.println(generateFormattedSingleLine("Itinerary add ons:"));
 
     for (ItineraryAddOn addOnItinerary : itinerary.getItineraryAddOnsList()) {
       double baseCost = addOnItinerary.getBaseCost() / 100;
       String formattedBaseCost = String.format("%.2f", baseCost);
       String addOnDetails = "     Add on: " + addOnItinerary.getName() + " @ £" + formattedBaseCost + " x " + itinerary.getTotalAttendees();
-      String formattedAddOnDetails = generateFormattedSingleLine(addOnDetails);
-      System.out.println(formattedAddOnDetails);
+      System.out.println(generateFormattedSingleLine(addOnDetails));
     }
 
-    double totalItineraryAddOnsCost = (itinerary.getTotalItineraryAddOnsCost() / 100.0) * itinerary.getTotalAttendees();
+    double totalItineraryAddOnsCost = (itinerary.getTotalItineraryAddOnsCost() / 100.0);
     String formattedTotalItineraryAddOnsCost = String.format("%.2f", totalItineraryAddOnsCost);
-    String printTotalItineraryAddOnsCost = generateFormattedCostLine("Sub total: £" + formattedTotalItineraryAddOnsCost);
-    System.out.println(printTotalItineraryAddOnsCost);
+    System.out.println(generateFormattedCostLine("Sub total: £" + formattedTotalItineraryAddOnsCost));
+  }
 
-    String printActivities = generateFormattedSingleLine("Activities");
-    System.out.println(printActivities);
-
-    System.out.println(PRINT_EMPTY_LINE);
+  private void activitySection(Itinerary itinerary) {
+    System.out.println(generateFormattedSingleLine("Activities"));
 
     for (int l = 0; l < itinerary.getTotalActivities(); l++) {
       double activityBaseCost = itinerary.getActivitiesList().get(l).getBaseCost() / 100.0;
       String formattedActivityBaseCost = String.format("%.2f", activityBaseCost);
       String activityDetails = (l + 1) + ". " + itinerary.getActivitiesList().get(l).getTitle() + " @ £" + formattedActivityBaseCost + " x " + itinerary.getTotalAttendees();
-      String printActivityDetails = generateFormattedSingleLine(activityDetails);
-      System.out.println(printActivityDetails);
+      System.out.println(generateFormattedSingleLine(activityDetails));
+      if(itinerary.getActivitiesList().get(l).isThirdPartyInsurance()) {
+        System.out.println(generateFormattedSingleLine("     * Third party insurance selected *"));
+      }
 
       for (int m = 0; m < itinerary.getActivitiesList().get(l).getActivityAddOnsList().size(); m++) {
+
         double activityAddOnBaseCost = itinerary.getActivitiesList().get(l).getActivityAddOnsList().get(m).getBaseCost() / 100.0;
         String formattedActivityAddOnBaseCost = String.format("%.2f", activityAddOnBaseCost);
         String addOnDetails = "     Add on: " + itinerary.getActivitiesList().get(l).getActivityAddOnsList().get(m).getName() + " @ £" + formattedActivityAddOnBaseCost + " x " + itinerary.getTotalAttendees();
-        String printAddOnDetails = generateFormattedSingleLine(addOnDetails);
-        System.out.println(printAddOnDetails);
+        System.out.println(generateFormattedSingleLine(addOnDetails));
       }
 
-      double totalActivityCost = (itinerary.getActivitiesList().get(l).getTotalCost() / 100.0) * itinerary.getTotalAttendees();
+      double totalActivityCost = (itinerary.getActivitiesList().get(l).getTotalCost() / 100.0);
       String formattedTotalActivityCost = String.format("%.2f", totalActivityCost);
-      String printTotalActivityCost = generateFormattedCostLine("Sub total: £" + formattedTotalActivityCost);
-      System.out.println(printTotalActivityCost);
+      System.out.println(generateFormattedCostLine("Sub total: £" + formattedTotalActivityCost));
     }
+  }
 
-    System.out.println(PRINT_EMPTY_LINE);
-    System.out.println(topBottomBorder);
-    System.out.println(PRINT_EMPTY_LINE);
-
-    double totalCostBeforeDiscount = ((itinerary.getItineraryCost() / 100.0) * itinerary.getTotalAttendees() / (1 - itinerary.getDiscountDecimal()));
+  private void totalCostsSection(Itinerary itinerary) {
+    double totalCostBeforeDiscount = ((itinerary.getItineraryCost() / 100.0) / (1 - itinerary.getDiscountDecimal()));
     String formattedTotalCost = String.format("%.2f", totalCostBeforeDiscount);
-    String printTotalCostBeforeDiscount = generateFormattedCostLine("Total cost before discount applied: £" + formattedTotalCost);
-    System.out.println(printTotalCostBeforeDiscount);
-
-    System.out.println(PRINT_EMPTY_LINE);
+    System.out.println(generateFormattedCostLine("Total cost before discount applied: £" + formattedTotalCost));
 
     double discountPercentage = itinerary.getDiscountDecimal() * 100.0;
     String formattedDiscountPercentage = String.format("%.2f", discountPercentage);
-    String printDiscountPercentage = generateFormattedCostLine("Discount: " + formattedDiscountPercentage + "%");
-    System.out.println(printDiscountPercentage);
+    System.out.println(generateFormattedCostLine("Discount: " + formattedDiscountPercentage + "%"));
 
-    System.out.println(PRINT_EMPTY_LINE);
-
-    double totalCostAfterDiscount = (itinerary.getItineraryCost() / 100.0) * itinerary.getTotalAttendees();
+    double totalCostAfterDiscount = (itinerary.getItineraryCost() / 100.0);
     String formattedTotalCostAfterDiscount = String.format("%.2f", totalCostAfterDiscount);
-    String printTotalCostAfterDiscount = generateFormattedCostLine("Total cost after discount applied: £" + formattedTotalCostAfterDiscount);
-    System.out.println(printTotalCostAfterDiscount);
-
-    System.out.println(topBottomBorder);
+    System.out.println(generateFormattedCostLine("Total cost after discount applied: £" + formattedTotalCostAfterDiscount));
   }
 
+  public void fullItinerary(Itinerary itinerary) {
+
+    System.out.println(topBottomBorder());
+
+    clientInfoSection(itinerary);
+
+    System.out.println(topBottomBorder());
+
+    itineraryAddOnsSection(itinerary);
+    activitySection(itinerary);
+
+    System.out.println(topBottomBorder());
+
+    totalCostsSection(itinerary);
+
+    System.out.println(topBottomBorder());
+  }
 
   public StringBuilder menu(){
     StringBuilder menuString = new StringBuilder();
