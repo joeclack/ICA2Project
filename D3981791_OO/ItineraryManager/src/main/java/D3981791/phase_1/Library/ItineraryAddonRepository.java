@@ -6,12 +6,13 @@ package D3981791.phase_1.Library;
 
 import D3981791.phase_1.Model.ItineraryAddOn;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItineraryAddonRepository {
+public class ItineraryAddonRepository implements Serializable {
 
-  private final List<ItineraryAddOn> availableItineraryAddOns;
+  private List<ItineraryAddOn> availableItineraryAddOns;
 
   public ItineraryAddonRepository() {
     availableItineraryAddOns = new ArrayList<>();
@@ -27,10 +28,10 @@ public class ItineraryAddonRepository {
     availableItineraryAddOns.add(IAO01);
     availableItineraryAddOns.add(IAO02);
     availableItineraryAddOns.add(IAO03);
-
   }
 
   public List<ItineraryAddOn> getAllItineraryAddOns() {
     return availableItineraryAddOns;
   }
+
 }

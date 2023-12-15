@@ -6,10 +6,11 @@ package D3981791.phase_1.Library;
 
 import D3981791.phase_1.Model.ActivityAddOn;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ActivityAddOnRepository {
+public class ActivityAddOnRepository implements Serializable {
 
   private List<ActivityAddOn> availableActivityAddOns;
 
@@ -33,4 +34,5 @@ public class ActivityAddOnRepository {
   public List<ActivityAddOn> getAllActivityAddOns() {
     return availableActivityAddOns;
   }
+
 }

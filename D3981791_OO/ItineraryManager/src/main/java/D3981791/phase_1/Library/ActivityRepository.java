@@ -6,13 +6,13 @@ package D3981791.phase_1.Library;
 
 import D3981791.phase_1.Model.Activity;
 
-import java.time.LocalTime;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ActivityRepository {
+public class ActivityRepository implements Serializable {
 
-  private final List<Activity> availableActivities;
+  private List<Activity> availableActivities;
 
   public ActivityRepository() {
     availableActivities = new ArrayList<>();
@@ -21,12 +21,11 @@ public class ActivityRepository {
   }
 
   private void initializeActivities() {
+    Activity PB01 = new Activity(2000, "Paper Bridge building", "Building a bridge from paper", "Location1", 30, false);
+    Activity AC02 = new Activity(4500, "Assault course", "SAS-style assault course", "Location2", 120, true);
+    Activity CC03 = new Activity(3000, "Cooking", "Cookery classes", "Location2", 120, false);
 
-    Activity BB01 = new Activity(2000, "Bridge building", "Building a bridge from paper", "Location1", LocalTime.of(13, 0), 30);
-    Activity AC02 = new Activity(4500, "Assault course", "SAS-style assault course", "Location2", LocalTime.of(9, 0), 120);
-    Activity CC03 = new Activity(3000, "Cooking", "Cookery classes", "Location2", LocalTime.of(14, 0), 120);
-
-    availableActivities.add(BB01);
+    availableActivities.add(PB01);
     availableActivities.add(AC02);
     availableActivities.add(CC03);
 
@@ -35,4 +34,5 @@ public class ActivityRepository {
   public List<Activity> getAllActivities() {
     return availableActivities;
   }
+
 }

@@ -27,7 +27,15 @@ public class Phase1Run {
     ItineraryAddonRepository itineraryAddOnRepository = new ItineraryAddonRepository();
     List<ItineraryAddOn> availableItineraryAddOns = itineraryAddOnRepository.getAllItineraryAddOns();
 
-    Itinerary itinerary = new Itinerary(10, 2, "Joe", "Clack", LocalDate.of(2023, 5, 8));
+
+    Itinerary itinerary = new Itinerary();
+
+    itinerary.setTotalAttendees(10);
+    itinerary.setTotalActivities(2);
+    itinerary.setLeadAttendeeFirstName("John");
+    itinerary.setLeadAttendeeLastName("Doe");
+    itinerary.setDate(LocalDate.now());
+
 
     itinerary.generateRefNum();
 
