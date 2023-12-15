@@ -8,15 +8,19 @@ import D3981791.phase_1.Model.*;
 
 public class ConsoleUI {
 
+  int MAX_WIDTH = 55;
+
   private String topBottomBorder() {
-    return "+------------------------------------------------+";
+    StringBuilder builder = new StringBuilder();
+      builder.append("-".repeat(Math.max(0, MAX_WIDTH-2)));
+    return "+" + builder + "+";
   }
 
   private String generateFormattedMultiLine(String line1, String line2) {
     int firstStringLength = line1.length();
     int secondStringLength = line2.length();
 
-    int MAX_WIDTH = 55;
+
     String LEFT_BORDER = "| ";
     String RIGHT_BORDER = " |";
     String whiteSpace = "";
@@ -33,7 +37,6 @@ public class ConsoleUI {
 
   private String generateFormattedSingleLine(String line) {
     int lineLength = line.length();
-    int MAX_WIDTH = 55;
     String LEFT_BORDER = "| ";
     String RIGHT_BORDER = " |";
     String whiteSpace = "";
@@ -50,7 +53,6 @@ public class ConsoleUI {
 
   private String generateFormattedCostLine(String line) {
     int lineLength = line.length();
-    int MAX_WIDTH = 55;
     String LEFT_BORDER = "| ";
     String RIGHT_BORDER = " |";
     String whiteSpace = "";

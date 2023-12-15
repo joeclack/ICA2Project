@@ -36,7 +36,7 @@ public class Phase3Run implements Serializable {
     ConsoleUI display = new ConsoleUI();
     SaveItinerary save = new SaveItinerary();
 
-    display.menu();
+    System.out.println(display.menu());
     Itinerary newItinerary = null;
     boolean finished = false;
     while (!finished) {
@@ -47,13 +47,14 @@ public class Phase3Run implements Serializable {
           newItinerary = generate.generateItinerary(availableActivities, availableActivitiyAddOns, availableItineraryAddOns);
           display.fullItinerary(newItinerary);
           save.serializeItineraries(newItinerary);
-          display.menu();
+          System.out.println(display.menu());
           break;
         case 2:
           List<Itinerary> itineraries = save.deSerializeItineraries();
 
           if (itineraries.isEmpty()) {
             System.out.println("No itineraries");
+            break;
           } else {
             System.out.println("Itineraries: ");
             for (int i = 0; i < itineraries.size(); i++) {
@@ -66,7 +67,7 @@ public class Phase3Run implements Serializable {
           Itinerary selectedItinerary = itineraries.get(viewItineraryNumber - 1);
           display.fullItinerary(selectedItinerary);
 
-          display.menu();
+          System.out.println(display.menu());
           break;
         case 3:
           exit(0);

@@ -38,7 +38,7 @@ public class ItineraryScreen extends JFrame {
     textArea.append("Lead attendee " + selectedItinerary.getLeadAttendeeFirstName().charAt(0) + selectedItinerary.getLeadAttendeeLastName() + "\n");
     textArea.append("Total attendees " + selectedItinerary.getTotalAttendees() + "\n");
     
-    textArea.append("Total cost £" + formatItineraryCost(selectedItinerary));
+    textArea.append("Total cost " + formatItineraryCost(selectedItinerary));
 
     
 

@@ -39,7 +39,7 @@ public class Phase4Run implements Serializable {
 
     ConsoleUI display = new ConsoleUI();
 
-    display.menu();
+    System.out.println(display.menu());
 
     Itinerary newItinerary = null;
     SaveItinerary save = new SaveItinerary();
