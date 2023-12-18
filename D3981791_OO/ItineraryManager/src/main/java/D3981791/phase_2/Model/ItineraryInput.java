@@ -16,29 +16,18 @@ public class ItineraryInput {
 
   public static Itinerary generateItinerary(List<Activity> availableActivities, List<ActivityAddOn> availableActivityAddOns, List<ItineraryAddOn> availableItineraryAddOns) {
 
-    Itinerary itinerary = new Itinerary();
+    Itinerary itinerary = new Itinerary(Validation.stringOnly("Enter first name: "), Validation.stringOnly("Enter last name: "), Validation.intOnly("Enter total attendees: ", 1, 100), Validation.intOnly("Enter total activities: ", 1, availableActivities.size()), Validation.getDateInput("Enter a date (DD-MM-YY): "));
 
     Scanner scanner = new Scanner(System.in);
 
     String Divider = "--------------------";
-
-    itinerary.setLeadAttendeeFirstName(Validation.stringOnly("Enter first name: "));
-
-    itinerary.setLeadAttendeeLastName(Validation.stringOnly("Enter last name: "));
-
-    itinerary.setTotalAttendees(Validation.intOnly("Enter total attendees: ", 1, 100));
-
-    int totalActivities = Validation.intOnly("Enter total activities: ", 1, availableActivities.size());
-    itinerary.setTotalActivities(totalActivities);
-
-    itinerary.setDate(Validation.getDateInput("Enter a date (DD-MM-YY): "));
 
     System.out.println(Divider);
     System.out.println();
     
     List<Activity> filteredActivities = availableActivities;
 
-    for (int i = 0; i < totalActivities; i++) {
+    for (int i = 0; i < itinerary.getTotalActivities(); i++) {
       System.out.println("Activity number " + (i+1));
 
       System.out.println("Available activities");

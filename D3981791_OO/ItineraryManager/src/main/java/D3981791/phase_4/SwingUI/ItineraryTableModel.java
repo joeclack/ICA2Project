@@ -57,7 +57,7 @@ public class ItineraryTableModel extends AbstractTableModel {
       case 0:
         return i.getRefNumber();
       case 1:
-        return i.getLeadAttendeeFirstName().charAt(0) + " " + i.getLeadAttendeeLastName();
+        return i.getLeadAttendeeFirstName() + " " + i.getLeadAttendeeLastName();
       case 2:
         return i.getTotalAttendees();
       case 3:

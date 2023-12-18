@@ -29,7 +29,7 @@ public class SaveItinerary implements Serializable {
       objOut.close();
       fileOut.close();
     } catch (IOException i) {
-        throw new RuntimeException(i);
+
     }
   }
 
@@ -49,7 +49,7 @@ public class SaveItinerary implements Serializable {
         fileIn.close();
       }
     } catch (IOException | ClassNotFoundException e) {
-        throw new RuntimeException(e);
+
     }
 
     return loadedItineraries;
@@ -74,9 +74,22 @@ public class SaveItinerary implements Serializable {
             throw new RuntimeException(i);
         }
       } 
-      
-      
+
     }
-    
+  }
+
+  public void deleteAll(List<Itinerary> itinerariesList) {
+    itinerariesList.clear();
+
+    try {
+      FileOutputStream fileOut = new FileOutputStream(filePath);
+      ObjectOutputStream objOut = new ObjectOutputStream(fileOut);
+
+      objOut.writeObject(itinerariesList);
+      objOut.close();
+      fileOut.close();
+    } catch (IOException i) {
+      throw new RuntimeException(i);
+    }
   }
 }

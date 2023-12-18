@@ -26,7 +26,14 @@ public class Itinerary implements Serializable {
   private String numberInWordFormat;
 
 
-  public Itinerary() {
+
+
+  public Itinerary(String leadAttendeeFirstName, String leadAttendeeLastName, int totalAttendees, int totalActivities, LocalDate date) {
+    this.totalAttendees = totalAttendees;
+    this.totalActivities = totalActivities;
+    this.leadAttendeeFirstName = leadAttendeeFirstName;
+    this.leadAttendeeLastName = leadAttendeeLastName;
+    this.date = date;
     this.activitiesList = new ArrayList<>();
     this.itineraryAddOnsList = new ArrayList<>();
   }

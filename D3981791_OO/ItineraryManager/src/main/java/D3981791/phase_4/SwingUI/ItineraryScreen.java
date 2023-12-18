@@ -24,11 +24,11 @@ public class ItineraryScreen extends JFrame {
 
     JTextArea textArea = new JTextArea();
     textArea.setEditable(false);
-    textArea.append("Lead attendee " + selectedItinerary.getLeadAttendeeFirstName().charAt(0) + selectedItinerary.getLeadAttendeeLastName() + "\n");
-    textArea.append("Total attendees " + selectedItinerary.getTotalAttendees() + "\n");
+    textArea.append("Lead attendee: " + selectedItinerary.getLeadAttendeeFirstName() + " " + selectedItinerary.getLeadAttendeeLastName() + "\n");
+    textArea.append("Total attendees: " + selectedItinerary.getTotalAttendees() + "\n");
     
-    textArea.append("Total cost " + formatItineraryCost(selectedItinerary));
-
+    textArea.append("Total cost: " + formatItineraryCost(selectedItinerary) + "\n");
+    textArea.append("Date: " + selectedItinerary.getDate().toString());
 
     JTable itineraryAddOnsTable = new JTable();
     itineraryAddOnsTable.setBackground(Color.LIGHT_GRAY);
