@@ -147,10 +147,8 @@ public class ConsoleUI {
     System.out.println(topBottomBorder());
   }
 
-  public StringBuilder menu(){
-    StringBuilder menuString = new StringBuilder();
-    menuString.append(" \n").append("New itinerary \n").append("1. New itinerary \n").append("2. View itineraries \n").append("3. Exit \n");
-    return menuString;
+  public void menu(){
+    System.out.println(" \n" + "New itinerary \n" + "1. New itinerary \n" + "2. View itineraries \n" + "3. Exit \n");
   }
 
 }

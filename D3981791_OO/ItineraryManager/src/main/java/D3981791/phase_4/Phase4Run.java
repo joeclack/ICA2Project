@@ -19,42 +19,35 @@ public class Phase4Run implements Serializable{
 
   public static void main(String[] args) {
 
-
     PreBuiltItems preBuiltItems = new PreBuiltItems();
-
 
     Scanner scanner = new Scanner(System.in);
 
     ConsoleUI display = new ConsoleUI();
 
-    System.out.println(display.menu());
+    display.menu();
 
     SaveItinerary save = new SaveItinerary();
 
-    boolean finished = false;
-    while (!finished) {
-      System.out.print(">");
-      int menuOption = scanner.nextInt();
+    System.out.print(">");
+    int menuOption = scanner.nextInt();
 
-      switch (menuOption) {
-        case 1:
-          Itinerary newItinerary = ItineraryInput.generateItinerary(preBuiltItems.getAvailableActivities(), preBuiltItems.getAvailableActivityAddOns(), preBuiltItems.getAvailableItineraryAddOns());
-          System.out.println("Itinerary created!");
-          save.serializeItineraries(newItinerary);
-          java.awt.EventQueue.invokeLater(() -> new ManagementScreen().setVisible(true));
-          finished = true;
-          break;
-        case 2:
-          java.awt.EventQueue.invokeLater(() -> new ManagementScreen().setVisible(true));
-          finished = true;
-          break;
-        case 3:
-          exit(0);
-          break;
-        default:
-          System.out.println("Invalid option");
-          break;
-      }
+    switch (menuOption) {
+      case 1:
+        Itinerary newItinerary = ItineraryInput.generateItinerary(preBuiltItems.getAvailableActivities(), preBuiltItems.getAvailableActivityAddOns(), preBuiltItems.getAvailableItineraryAddOns());
+        System.out.println("Itinerary created!");
+        save.serializeItineraries(newItinerary);
+        java.awt.EventQueue.invokeLater(() -> new ManagementScreen().setVisible(true));
+        break;
+      case 2:
+        java.awt.EventQueue.invokeLater(() -> new ManagementScreen().setVisible(true));
+        break;
+      case 3:
+        exit(0);
+        break;
+      default:
+        System.out.println("Invalid option");
+        break;
     }
   }
 

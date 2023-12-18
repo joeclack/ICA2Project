@@ -11,6 +11,8 @@ import D3981791.phase_1.Model.Itinerary;
 import D3981791.phase_1.Model.ItineraryAddOn;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Phase1Run {
@@ -49,6 +51,7 @@ public class Phase1Run {
     itinerary.calculateTotalItineraryAddOnsCost();
     itinerary.calculateItineraryCost();
     itinerary.generateRefNum();
+
 
     System.out.println("Itinerary created! Reference number: " + itinerary.getRefNumber());
   }

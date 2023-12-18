@@ -22,10 +22,12 @@ public class Phase3Run implements Serializable {
     PreBuiltItems preBuiltItems = new PreBuiltItems();
 
     Scanner scanner = new Scanner(System.in);
+
     ConsoleUI display = new ConsoleUI();
+
     SaveItinerary save = new SaveItinerary();
 
-    System.out.println(display.menu());
+    display.menu();
 
     int menuOption = scanner.nextInt();
 
@@ -34,11 +36,10 @@ public class Phase3Run implements Serializable {
         Itinerary newItinerary = ItineraryInput.generateItinerary(preBuiltItems.getAvailableActivities(), preBuiltItems.getAvailableActivityAddOns(), preBuiltItems.getAvailableItineraryAddOns());
         display.fullItinerary(newItinerary);
         save.serializeItineraries(newItinerary);
-        System.out.println(display.menu());
+        display.menu();
         break;
       case 2:
         List<Itinerary> itineraries = save.deSerializeItineraries();
-
         if (itineraries.isEmpty()) {
           System.out.println("No itineraries");
           break;
@@ -48,11 +49,8 @@ public class Phase3Run implements Serializable {
             System.out.println((i + 1) + ". " + itineraries.get(i).getRefNumber());
           }
         }
-        System.out.println("Enter the number of the itinerary you wish to view: ");
-        System.out.print("> ");
-        int viewItineraryNumber = scanner.nextInt();
-        Itinerary selectedItinerary = itineraries.get(viewItineraryNumber - 1);
-        display.fullItinerary(selectedItinerary);
+        int viewItineraryNumber = Validation.intOnly("Enter the number of the itinerary you wish to view: ", 1, itineraries.size());
+        display.fullItinerary(itineraries.get(viewItineraryNumber - 1));
         break;
       case 3:
         exit(0);

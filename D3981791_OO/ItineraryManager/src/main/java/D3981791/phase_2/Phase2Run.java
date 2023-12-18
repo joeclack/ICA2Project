@@ -14,8 +14,6 @@ public class Phase2Run {
 
     PreBuiltItems preBuiltItems = new PreBuiltItems();
 
-    Itinerary itinerary = ItineraryInput.generateItinerary(preBuiltItems.getAvailableActivities(), preBuiltItems.getAvailableActivityAddOns(), preBuiltItems.getAvailableItineraryAddOns());
-
-    new ConsoleUI().fullItinerary(itinerary);
+    new ConsoleUI().fullItinerary(ItineraryInput.generateItinerary(preBuiltItems.getAvailableActivities(), preBuiltItems.getAvailableActivityAddOns(), preBuiltItems.getAvailableItineraryAddOns()));
   }
 }
