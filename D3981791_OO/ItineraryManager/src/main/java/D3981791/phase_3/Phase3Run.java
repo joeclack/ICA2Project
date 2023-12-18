@@ -21,30 +21,21 @@ public class Phase3Run implements Serializable {
 
   public static void main(String[] args) throws IOException, ClassNotFoundException {
 
-    ActivityRepository activityRepository = new ActivityRepository();
-    List<Activity> availableActivities = activityRepository.getAllActivities();
-
-    ActivityAddOnRepository activityAddOnRepository = new ActivityAddOnRepository();
-    List<ActivityAddOn> availableActivitiyAddOns = activityAddOnRepository.getAllActivityAddOns();
-
-    ItineraryAddonRepository itineraryAddOnRepository = new ItineraryAddonRepository();
-    List<ItineraryAddOn> availableItineraryAddOns = itineraryAddOnRepository.getAllItineraryAddOns();
-
-    ItineraryInput generate = new ItineraryInput();
+    PreBuiltItems preBuiltItems = new PreBuiltItems();
 
     Scanner scanner = new Scanner(System.in);
     ConsoleUI display = new ConsoleUI();
     SaveItinerary save = new SaveItinerary();
 
     System.out.println(display.menu());
-    Itinerary newItinerary = null;
+
     boolean finished = false;
     while (!finished) {
       int menuOption = scanner.nextInt();
 
       switch (menuOption) {
         case 1:
-          newItinerary = generate.generateItinerary(availableActivities, availableActivitiyAddOns, availableItineraryAddOns);
+          Itinerary newItinerary = ItineraryInput.generateItinerary(preBuiltItems.getAvailableActivities(), preBuiltItems.getAvailableActivityAddOns(), preBuiltItems.getAvailableItineraryAddOns());
           display.fullItinerary(newItinerary);
           save.serializeItineraries(newItinerary);
           System.out.println(display.menu());

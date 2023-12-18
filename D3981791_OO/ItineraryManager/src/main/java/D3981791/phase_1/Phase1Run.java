@@ -4,9 +4,7 @@
  */
 package D3981791.phase_1;
 
-import D3981791.phase_1.Library.ActivityAddOnRepository;
-import D3981791.phase_1.Library.ActivityRepository;
-import D3981791.phase_1.Library.ItineraryAddonRepository;
+import D3981791.phase_1.Library.PreBuiltItems;
 import D3981791.phase_1.Model.Activity;
 import D3981791.phase_1.Model.ActivityAddOn;
 import D3981791.phase_1.Model.Itinerary;
@@ -18,15 +16,8 @@ import java.util.List;
 public class Phase1Run {
 
   public static void main(String[] args) {
-    ActivityRepository activityRepository = new ActivityRepository();
-    List<Activity> availableActivities = activityRepository.getAllActivities();
 
-    ActivityAddOnRepository activityAddOnRepository = new ActivityAddOnRepository();
-    List<ActivityAddOn> availableActivitiyAddOns = activityAddOnRepository.getAllActivityAddOns();
-
-    ItineraryAddonRepository itineraryAddOnRepository = new ItineraryAddonRepository();
-    List<ItineraryAddOn> availableItineraryAddOns = itineraryAddOnRepository.getAllItineraryAddOns();
-
+    PreBuiltItems preBuiltItems = new PreBuiltItems();
 
     Itinerary itinerary = new Itinerary();
 
@@ -35,23 +26,25 @@ public class Phase1Run {
     itinerary.setLeadAttendeeFirstName("John");
     itinerary.setLeadAttendeeLastName("Doe");
     itinerary.setDate(LocalDate.now());
-
-
     itinerary.generateRefNum();
 
-    Activity activity1 = availableActivities.get(0);
-    activity1.getActivityAddOnsList().add(availableActivitiyAddOns.get(0));
-    activity1.getActivityAddOnsList().add(availableActivitiyAddOns.get(2));
+    List<Activity> activities = preBuiltItems.getAvailableActivities();
+    List<ActivityAddOn> activityAddOns = preBuiltItems.getAvailableActivityAddOns();
+    List<ItineraryAddOn> itineraryAddOns = preBuiltItems.getAvailableItineraryAddOns();
+
+    Activity activity1 = activities.get(0);
+    activity1.getActivityAddOnsList().add(activityAddOns.get(0));
+    activity1.getActivityAddOnsList().add(activityAddOns.get(2));
     itinerary.getActivitiesList().add(activity1);
 
-    Activity activity2 = availableActivities.get(1);
-    activity2.getActivityAddOnsList().add(availableActivitiyAddOns.get(0));
-    activity2.getActivityAddOnsList().add(availableActivitiyAddOns.get(1));
-    activity2.getActivityAddOnsList().add(availableActivitiyAddOns.get(2));
+    Activity activity2 = activities.get(1);
+    activity2.getActivityAddOnsList().add(activityAddOns.get(0));
+    activity2.getActivityAddOnsList().add(activityAddOns.get(1));
+    activity2.getActivityAddOnsList().add(activityAddOns.get(2));
     itinerary.getActivitiesList().add(activity2);
 
-    itinerary.getItineraryAddOnsList().add(availableItineraryAddOns.get(0));
-    itinerary.getItineraryAddOnsList().add(availableItineraryAddOns.get(1));
+    itinerary.getItineraryAddOnsList().add(itineraryAddOns.get(0));
+    itinerary.getItineraryAddOnsList().add(itineraryAddOns.get(1));
 
     itinerary.calculateTotalItineraryAddOnsCost();
     itinerary.calculateItineraryCost();

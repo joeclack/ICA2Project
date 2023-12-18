@@ -22,7 +22,7 @@ public class ItineraryInput {
    * @param availableItineraryAddOns
    * @return
    */
-  public Itinerary generateItinerary(List<Activity> availableActivities, List<ActivityAddOn> availableActivityAddOns, List<ItineraryAddOn> availableItineraryAddOns) {
+  public static Itinerary generateItinerary(List<Activity> availableActivities, List<ActivityAddOn> availableActivityAddOns, List<ItineraryAddOn> availableItineraryAddOns) {
 
     Itinerary itinerary = new Itinerary();
 
@@ -232,7 +232,7 @@ public class ItineraryInput {
    * @param selectedActivity
    * @param scanner
    */
-  public void enterActivityAddOnNumbers(List<ActivityAddOn> listToAddFrom, Activity selectedActivity, Scanner scanner) {
+  public static void enterActivityAddOnNumbers(List<ActivityAddOn> listToAddFrom, Activity selectedActivity, Scanner scanner) {
     boolean validInput = false;
 
     while (!validInput) {

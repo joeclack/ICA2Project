@@ -18,22 +18,13 @@ import java.util.Scanner;
 
 import static java.lang.System.exit;
 
-public class Phase4Run implements Serializable {
+public class Phase4Run implements Serializable{
 
   public static void main(String[] args) throws IOException, ClassNotFoundException {
 
-    // develop branch confirmation
 
-    ActivityRepository activityRepository = new ActivityRepository();
-    List<Activity> availableActivities = activityRepository.getAllActivities();
+    PreBuiltItems preBuiltItems = new PreBuiltItems();
 
-    ActivityAddOnRepository activityAddOnRepository = new ActivityAddOnRepository();
-    List<ActivityAddOn> availableActivityAddOns = activityAddOnRepository.getAllActivityAddOns();
-
-    ItineraryAddonRepository itineraryAddOnRepository = new ItineraryAddonRepository();
-    List<ItineraryAddOn> availableItineraryAddOns = itineraryAddOnRepository.getAllItineraryAddOns();
-
-    ItineraryInput generate = new ItineraryInput();
 
     Scanner scanner = new Scanner(System.in);
 
@@ -41,7 +32,6 @@ public class Phase4Run implements Serializable {
 
     System.out.println(display.menu());
 
-    Itinerary newItinerary = null;
     SaveItinerary save = new SaveItinerary();
 
     boolean finished = false;
@@ -51,7 +41,7 @@ public class Phase4Run implements Serializable {
 
       switch (menuOption) {
         case 1:
-          newItinerary = generate.generateItinerary(availableActivities, availableActivityAddOns, availableItineraryAddOns);
+          Itinerary newItinerary = ItineraryInput.generateItinerary(preBuiltItems.getAvailableActivities(), preBuiltItems.getAvailableActivityAddOns(), preBuiltItems.getAvailableItineraryAddOns());
           System.out.println("Itinerary created!");
           save.serializeItineraries(newItinerary);
           java.awt.EventQueue.invokeLater(() -> {
