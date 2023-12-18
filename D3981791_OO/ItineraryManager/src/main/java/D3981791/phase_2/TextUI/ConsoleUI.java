@@ -8,12 +8,10 @@ import D3981791.phase_1.Model.*;
 
 public class ConsoleUI {
 
-  int MAX_WIDTH = 55;
+  final int MAX_WIDTH = 55;
 
   private String topBottomBorder() {
-    StringBuilder builder = new StringBuilder();
-      builder.append("-".repeat(Math.max(0, MAX_WIDTH-2)));
-    return "+" + builder + "+";
+    return "+" + "-".repeat(Math.max(0, MAX_WIDTH - 2)) + "+";
   }
 
   private String generateFormattedMultiLine(String line1, String line2) {
@@ -23,48 +21,39 @@ public class ConsoleUI {
 
     String LEFT_BORDER = "| ";
     String RIGHT_BORDER = " |";
-    String whiteSpace = "";
+    StringBuilder whiteSpace = new StringBuilder();
 
     int allCharLengthIncludingBorders = LEFT_BORDER.length() + firstStringLength + secondStringLength + RIGHT_BORDER.length();
     int whiteSpaceToFillLength = MAX_WIDTH - allCharLengthIncludingBorders;
-    for (int i = 0; i < whiteSpaceToFillLength; i++) {
-      whiteSpace += " ";
-    }
+      whiteSpace.append(" ".repeat(Math.max(0, whiteSpaceToFillLength)));
 
-    String formattedMultiLine = LEFT_BORDER + line1 + whiteSpace + line2 + RIGHT_BORDER;
-    return formattedMultiLine;
+      return LEFT_BORDER + line1 + whiteSpace + line2 + RIGHT_BORDER;
   }
 
   private String generateFormattedSingleLine(String line) {
-    int lineLength = line.length();
+    @SuppressWarnings("DuplicatedCode") int lineLength = line.length();
     String LEFT_BORDER = "| ";
     String RIGHT_BORDER = " |";
-    String whiteSpace = "";
+    StringBuilder whiteSpace = new StringBuilder();
 
     int allCharLengthIncludingBorders = LEFT_BORDER.length() + lineLength + RIGHT_BORDER.length();
     int whiteSpaceToFillLength = MAX_WIDTH - allCharLengthIncludingBorders;
-    for (int i = 0; i < whiteSpaceToFillLength; i++) {
-      whiteSpace += " ";
-    }
+      whiteSpace.append(" ".repeat(Math.max(0, whiteSpaceToFillLength)));
 
-    String formattedLine = LEFT_BORDER + line + whiteSpace + RIGHT_BORDER;
-    return formattedLine;
+      return LEFT_BORDER + line + whiteSpace + RIGHT_BORDER;
   }
 
   private String generateFormattedCostLine(String line) {
-    int lineLength = line.length();
+    @SuppressWarnings("DuplicatedCode") int lineLength = line.length();
     String LEFT_BORDER = "| ";
     String RIGHT_BORDER = " |";
-    String whiteSpace = "";
+    StringBuilder whiteSpace = new StringBuilder();
 
     int allCharLengthIncludingBorders = LEFT_BORDER.length() + lineLength + RIGHT_BORDER.length();
     int whiteSpaceToFillLength = MAX_WIDTH - allCharLengthIncludingBorders;
-    for (int i = 0; i < whiteSpaceToFillLength; i++) {
-      whiteSpace += " ";
-    }
+      whiteSpace.append(" ".repeat(Math.max(0, whiteSpaceToFillLength)));
 
-    String formattedLine = LEFT_BORDER + whiteSpace + line + RIGHT_BORDER;
-    return formattedLine;
+      return LEFT_BORDER + whiteSpace + line + RIGHT_BORDER;
   }
 
   private String wordOrNumeric(int number) {
@@ -89,7 +78,7 @@ public class ConsoleUI {
     System.out.println(generateFormattedSingleLine("Itinerary add ons:"));
 
     for (ItineraryAddOn addOnItinerary : itinerary.getItineraryAddOnsList()) {
-      double baseCost = addOnItinerary.getBaseCost() / 100;
+      double baseCost = (double) addOnItinerary.getBaseCost() / 100;
       String formattedBaseCost = String.format("%.2f", baseCost);
       String addOnDetails = "     Add on: " + addOnItinerary.getName() + " @ £" + formattedBaseCost + " x " + itinerary.getTotalAttendees();
       System.out.println(generateFormattedSingleLine(addOnDetails));
@@ -160,7 +149,7 @@ public class ConsoleUI {
 
   public StringBuilder menu(){
     StringBuilder menuString = new StringBuilder();
-    menuString.append(" \n").append("New itinerary \n").append("1. New itinerary \n").append("2. View itineraries \n").append("3. Exit \n").append("");
+    menuString.append(" \n").append("New itinerary \n").append("1. New itinerary \n").append("2. View itineraries \n").append("3. Exit \n");
     return menuString;
   }
 

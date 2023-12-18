@@ -15,13 +15,12 @@ import java.util.List;
  */
 public class ItineraryAddOnTableModel extends AbstractTableModel {
 
-  private String[] columnNames = {"Itinerary Add-Ons"};
+  private final String[] columnNames = {"Itinerary Add-Ons"};
 
-  private List<ItineraryAddOn> selectedItineraryAddOnsList;
+  private final List<ItineraryAddOn> selectedItineraryAddOnsList;
 
   /**
    *
-   * @param selectedItineraryAddOnsList
    */
   public ItineraryAddOnTableModel(List<ItineraryAddOn> selectedItineraryAddOnsList) {
     this.selectedItineraryAddOnsList = selectedItineraryAddOnsList;
@@ -46,18 +45,15 @@ public class ItineraryAddOnTableModel extends AbstractTableModel {
    *
    * @param rowIndex        the row whose value is to be queried
    * @param columnIndex     the column whose value is to be queried
-   * @return
    */
   @Override
   public Object getValueAt(int rowIndex, int columnIndex) {
     ItineraryAddOn i = selectedItineraryAddOnsList.get(rowIndex);
 
-    switch (columnIndex) {
-      case 0:
-        return i.getName();
-      default:
-        return null;
-    }
+      if (columnIndex == 0) {
+          return i.getName();
+      }
+      return null;
   }
 
 }

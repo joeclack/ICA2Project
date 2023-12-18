@@ -8,8 +8,8 @@ import java.io.Serializable;
 
 public class AddOn implements Serializable {
 
-  private String name;
-  private int baseCost;
+  private final String name;
+  private final int baseCost;
 
   public AddOn(String name, int baseCost) {
     this.name = name;

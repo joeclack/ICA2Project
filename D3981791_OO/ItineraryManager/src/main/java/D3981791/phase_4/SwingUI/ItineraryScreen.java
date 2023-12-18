@@ -19,30 +19,18 @@ import static D3981791.phase_4.SwingUI.Format.formatItineraryCost;
  */
 public class ItineraryScreen extends JFrame {
 
-  private JTable itineraryAddOnsTable;
-  private JTable activitiesTable;
-  private JPanel panel;
-  private JScrollPane scrollPane1;
-  private JScrollPane scrollPane2;
-  private JTextArea textArea;
-
-  /**
-   *
-   * @param selectedItinerary
-   */
   public ItineraryScreen(Itinerary selectedItinerary) {
     super();
-    
-    textArea = new JTextArea();
+
+    JTextArea textArea = new JTextArea();
     textArea.setEditable(false);
     textArea.append("Lead attendee " + selectedItinerary.getLeadAttendeeFirstName().charAt(0) + selectedItinerary.getLeadAttendeeLastName() + "\n");
     textArea.append("Total attendees " + selectedItinerary.getTotalAttendees() + "\n");
     
     textArea.append("Total cost " + formatItineraryCost(selectedItinerary));
 
-    
 
-    itineraryAddOnsTable = new JTable();
+    JTable itineraryAddOnsTable = new JTable();
     itineraryAddOnsTable.setBackground(Color.LIGHT_GRAY);
     itineraryAddOnsTable.setGridColor(Color.DARK_GRAY);
     itineraryAddOnsTable.setSelectionBackground(new Color(192, 217, 237));
@@ -52,7 +40,7 @@ public class ItineraryScreen extends JFrame {
     addOnHeader.setBackground(Color.DARK_GRAY);
     addOnHeader.setForeground(Color.white);
 
-    activitiesTable = new JTable();
+    JTable activitiesTable = new JTable();
     activitiesTable.setBackground(Color.LIGHT_GRAY);
     activitiesTable.setGridColor(Color.DARK_GRAY);
     activitiesTable.setSelectionBackground(new Color(192, 217, 237));
@@ -63,10 +51,10 @@ public class ItineraryScreen extends JFrame {
     activityHeader.setForeground(Color.white);
 
     itineraryAddOnsTable.setModel(new ItineraryAddOnTableModel(selectedItinerary.getItineraryAddOnsList()));
-    scrollPane1 = new JScrollPane(itineraryAddOnsTable);
+    JScrollPane scrollPane1 = new JScrollPane(itineraryAddOnsTable);
 
     activitiesTable.setModel(new ActivitiesTableModel(selectedItinerary.getActivitiesList()));
-    scrollPane2 = new JScrollPane(activitiesTable);
+    JScrollPane scrollPane2 = new JScrollPane(activitiesTable);
 
     scrollPane1.setPreferredSize(new Dimension(380, 200));
     scrollPane2.setPreferredSize(new Dimension(380, 200));
@@ -74,7 +62,7 @@ public class ItineraryScreen extends JFrame {
     itineraryAddOnsTable.setPreferredScrollableViewportSize(new Dimension(360, 180));
     activitiesTable.setPreferredScrollableViewportSize(new Dimension(360, 180));
 
-    panel = new JPanel();
+    JPanel panel = new JPanel();
     panel.setLayout(new BorderLayout());
 
     panel.add(textArea, BorderLayout.NORTH);

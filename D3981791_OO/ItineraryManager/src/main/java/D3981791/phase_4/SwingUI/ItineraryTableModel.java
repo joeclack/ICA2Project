@@ -17,13 +17,12 @@ import static D3981791.phase_4.SwingUI.Format.formatItineraryCost;
  */
 public class ItineraryTableModel extends AbstractTableModel {
 
-  private String[] columnNames = {"Ref", "Lead", "Attendees", "Activities", "Cost"};
+  private final String[] columnNames = {"Ref", "Lead", "Attendees", "Activities", "Cost"};
 
-  private List<Itinerary> itineraries;
+  private final List<Itinerary> itineraries;
 
   /**
    *
-   * @param itineraries
    */
   public ItineraryTableModel(List<Itinerary> itineraries) {
     this.itineraries = itineraries;
@@ -48,7 +47,6 @@ public class ItineraryTableModel extends AbstractTableModel {
    *
    * @param rowIndex        the row whose value is to be queried
    * @param columnIndex     the column whose value is to be queried
-   * @return
    */
   @Override
   public Object getValueAt(int rowIndex, int columnIndex) {

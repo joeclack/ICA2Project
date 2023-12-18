@@ -17,13 +17,12 @@ import java.util.List;
 public class ActivitiesTableModel extends AbstractTableModel {
 
 
-  private String[] columnNames = {"Activites", "Add-Ons"};
+  private final String[] columnNames = {"Activities", "Add-Ons"};
 
-  private List<Activity> selectedItineraryActivitiesList;
+  private final List<Activity> selectedItineraryActivitiesList;
 
   /**
    *
-   * @param selectedItineraryActivitiesList
    */
   public ActivitiesTableModel(List<Activity> selectedItineraryActivitiesList) {
     this.selectedItineraryActivitiesList = selectedItineraryActivitiesList;
@@ -48,7 +47,6 @@ public class ActivitiesTableModel extends AbstractTableModel {
    *
    * @param rowIndex        the row whose value is to be queried
    * @param columnIndex     the column whose value is to be queried
-   * @return
    */
   @Override
   public Object getValueAt(int rowIndex, int columnIndex) {

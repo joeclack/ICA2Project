@@ -17,8 +17,8 @@ public class Itinerary implements Serializable {
   private String refNumber;
   private String leadAttendeeFirstName;
   private String leadAttendeeLastName;
-  private List<Activity> activitiesList;
-  private List<ItineraryAddOn> itineraryAddOnsList;
+  private final List<Activity> activitiesList;
+  private final List<ItineraryAddOn> itineraryAddOnsList;
   private LocalDate date;
   private double totalItineraryAddOnsCost;
   private double itineraryCost;
@@ -42,7 +42,7 @@ public class Itinerary implements Serializable {
   }
 
   public void calculateItineraryCost() {
-    int cost = 0;
+    double cost = 0;
 
     calculateTotalItineraryAddOnsCost();
 
@@ -64,7 +64,7 @@ public class Itinerary implements Serializable {
     int randLetterIndex = random.nextInt(alphabet.length());
     char lastChar = alphabet.charAt(randLetterIndex);
 
-    this.refNumber = String.valueOf(this.leadAttendeeFirstName.charAt(0)) + String.valueOf(this.leadAttendeeLastName.charAt(0)) + threeNums + lastChar;
+    this.refNumber = this.leadAttendeeFirstName.charAt(0) + String.valueOf(this.leadAttendeeLastName.charAt(0)) + threeNums + lastChar;
   }
 
   public void calculateDiscount() {

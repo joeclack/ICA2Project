@@ -12,19 +12,19 @@ import java.util.List;
 
 public class Activity implements Serializable {
 
-  private int baseCost;
-  private String title;
-  private String description;
-  private String location;
+  private final int baseCost;
+  private final String title;
+  private final String description;
+  private final String location;
   private LocalTime time;
-  private int expectedDuration;
-  private List<ActivityAddOn> activityAddOnsList;
+  private final int expectedDuration;
+  private final List<ActivityAddOn> activityAddOnsList;
   private int totalCost;
-  private boolean requireInsurance;
+  private final boolean requireInsurance;
   private boolean thirdPartyInsurance;
 
   public Activity(int baseCost, String title, String description,
-          String location, int expectedDuration, boolean requireInsurance) {
+                  String location, int expectedDuration, boolean requireInsurance) {
     this.baseCost = baseCost;
     this.title = title;
     this.description = description;

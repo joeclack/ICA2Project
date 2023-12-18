@@ -5,11 +5,14 @@
 package D3981791.phase_1.Model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
 public class Validation implements Serializable {
 
-  public static int intOnly(String prompt) {
+  public static int intOnly(String prompt, int min, int max) {
     Scanner scanner = new Scanner(System.in);
     int input = 0;
     boolean isValid = false;
@@ -20,7 +23,12 @@ public class Validation implements Serializable {
 
       try {
         input = Integer.parseInt(userInput);
-        isValid = true;
+
+        if (input >= min && input <= max) {
+          isValid = true;
+        } else {
+          System.err.println("Invalid input. Please enter an integer between " + min + " and " + max + ".");
+        }
       } catch (NumberFormatException e) {
         System.err.println("Invalid input. Please enter an integer.");
       }
@@ -29,5 +37,42 @@ public class Validation implements Serializable {
     return input;
   }
 
+  public static String stringOnly(String prompt) {
+    Scanner scanner = new Scanner(System.in);
+    String input;
+
+    do {
+      System.out.print(prompt);
+      input = scanner.nextLine().trim();
+
+      if (!input.matches("[a-zA-Z]+")) {
+        System.err.println("Invalid input. Please enter a string containing only alphabetical characters.");
+        input = "";
+      }
+    } while (input.isEmpty());
+
+    return input;
+  }
+
+  public static LocalDate getDateInput(String prompt) {
+    Scanner scanner = new Scanner(System.in);
+    LocalDate inputDate = null;
+    boolean isValid = false;
+    DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yy");
+
+    do {
+      System.out.print(prompt);
+      String userInput = scanner.nextLine().trim();
+
+      try {
+        inputDate = LocalDate.parse(userInput, dateFormatter);
+        isValid = true;
+      } catch (DateTimeParseException e) {
+        System.err.println("Invalid input. Please enter a date in the format DD-MM-YY.");
+      }
+    } while (!isValid);
+
+    return inputDate;
+  }
 
 }

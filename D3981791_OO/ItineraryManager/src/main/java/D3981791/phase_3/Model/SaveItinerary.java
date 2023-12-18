@@ -12,11 +12,10 @@ import java.util.List;
 
 public class SaveItinerary implements Serializable {
 
-  static String filePath = "itineraries.txt";
+  static final String filePath = "itineraries.txt";
 
   /**
    *
-   * @param itinerary
    */
   public void serializeItineraries(Itinerary itinerary) {
     List<Itinerary> existingItineraries = deSerializeItineraries();
@@ -30,13 +29,12 @@ public class SaveItinerary implements Serializable {
       objOut.close();
       fileOut.close();
     } catch (IOException i) {
-
+        throw new RuntimeException(i);
     }
   }
 
   /**
    *
-   * @return
    */
   public List<Itinerary> deSerializeItineraries() {
     List<Itinerary> loadedItineraries = new ArrayList<>();
@@ -54,7 +52,7 @@ public class SaveItinerary implements Serializable {
         fileIn.close();
       }
     } catch (IOException | ClassNotFoundException e) {
-
+        throw new RuntimeException(e);
     }
 
     return loadedItineraries;
@@ -62,8 +60,6 @@ public class SaveItinerary implements Serializable {
 
   /**
    *
-   * @param index
-   * @param itinerariesList
    */
   public void deleteItinerary(int index, List<Itinerary> itinerariesList) {
     for(int a = 0; a<itinerariesList.size(); a++) {
@@ -78,7 +74,7 @@ public class SaveItinerary implements Serializable {
           objOut.close();
           fileOut.close();
         } catch (IOException i) {
-
+            throw new RuntimeException(i);
         }
       } 
       

@@ -6,7 +6,6 @@ package D3981791.phase_2.Model;
 
 import D3981791.phase_1.Model.*;
 
-import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
 import java.util.List;
@@ -15,13 +14,6 @@ import java.util.stream.Collectors;
 
 public class ItineraryInput {
 
-  /**
-   *
-   * @param availableActivities
-   * @param availableActivityAddOns
-   * @param availableItineraryAddOns
-   * @return
-   */
   public static Itinerary generateItinerary(List<Activity> availableActivities, List<ActivityAddOn> availableActivityAddOns, List<ItineraryAddOn> availableItineraryAddOns) {
 
     Itinerary itinerary = new Itinerary();
@@ -30,63 +22,16 @@ public class ItineraryInput {
 
     String Divider = "--------------------";
 
-    String firstName = "";
-    while (firstName.trim().isEmpty()) {
-      System.out.print("Enter first name: ");
-      firstName = scanner.nextLine().trim();
+    itinerary.setLeadAttendeeFirstName(Validation.stringOnly("Enter first name: "));
 
-      if (firstName.isEmpty()) {
-        System.out.println("First name cannot be empty. Please enter again.");
-      }
-    }
+    itinerary.setLeadAttendeeLastName(Validation.stringOnly("Enter last name: "));
 
-    itinerary.setLeadAttendeeFirstName(firstName.toUpperCase());
+    itinerary.setTotalAttendees(Validation.intOnly("Enter total attendees: ", 1, 100));
 
-    String lastName = "";
-    while (lastName.trim().isEmpty()) {
-      System.out.print("Enter last name: ");
-      lastName = scanner.nextLine().trim();
-
-      if (lastName.isEmpty()) {
-        System.out.println("Last name cannot be empty. Please enter again.");
-      }
-    }
-
-    itinerary.setLeadAttendeeLastName(lastName.toUpperCase());
-
-    int totalAttendees = Validation.intOnly("Enter total attendees: ");
-
-    itinerary.setTotalAttendees(totalAttendees);
-
-    int totalActivities = 0;
-
-    while (true) {
-      totalActivities = Validation.intOnly("Enter total activities: ");
-
-      if (totalActivities <= 0) {
-        System.out.println("Please enter a number greater than 0.");
-      } else if (totalActivities >= availableActivities.size() + 1) {
-        System.out.println("Please enter a number less than the total available activities.");
-      } else {
-        break;
-      }
-    }
-
+    int totalActivities = Validation.intOnly("Enter total activities: ", 1, availableActivities.size());
     itinerary.setTotalActivities(totalActivities);
 
-    LocalDate inputDate;
-
-    while (true) {
-      try {
-        System.out.print("Enter a date (YYYY-MM-DD): ");
-        String userInput = scanner.nextLine();
-        inputDate = LocalDate.parse(userInput);
-        itinerary.setDate(inputDate);
-        break;
-      } catch (DateTimeParseException e) {
-        System.out.println("Invalid input! Please enter a date in the format YYYY-MM-DD.");
-      }
-    }
+    itinerary.setDate(Validation.getDateInput("Enter a date (DD-MM-YY): "));
 
     System.out.println(Divider);
     System.out.println();
@@ -99,8 +44,6 @@ public class ItineraryInput {
       System.out.println("Available activities");
       System.out.println(Divider);
       
-      
-      
       for (int count = 0; count < filteredActivities.size(); count++) {
         Activity activity = filteredActivities.get(count);
         System.out.println((count + 1) + ". " + activity.getTitle());
@@ -108,7 +51,7 @@ public class ItineraryInput {
 
       System.out.println();
 
-      int activityNumber = Validation.intOnly("Enter activity number to add: ");
+      int activityNumber = Validation.intOnly("Enter activity number to add: ", 1, filteredActivities.size());
 
       
       Activity selectedActivity = filteredActivities.get(activityNumber - 1);
@@ -116,9 +59,7 @@ public class ItineraryInput {
       filteredActivities = filteredActivities.stream()
                 .filter(activity -> !activity.getTitle().equals(selectedActivity.getTitle()))
                 .collect(Collectors.toList());
-      
- 
-      
+
       LocalTime inputTime;
 
       while (true) {
@@ -140,7 +81,7 @@ public class ItineraryInput {
         System.out.println("** Insurance is required for this activity **");
         boolean validChoice = false;
         while (!validChoice) {
-          int insuranceResult = Validation.intOnly("Which insurance is required? \n 1. Exciting Activities insurance \n 2. Third party insurance \n> ");
+          int insuranceResult = Validation.intOnly("Which insurance is required? \n 1. Exciting Activities insurance \n 2. Third party insurance \n> ", 1, 2);
           switch (insuranceResult) {
             case 1:
               selectedActivity.getActivityAddOnsList().add(availableActivityAddOns.get(1)); 
@@ -152,7 +93,6 @@ public class ItineraryInput {
               validChoice = true;
               break;
             default:
-              validChoice = false;
           }
         }
         List<ActivityAddOn> filteredAddOns = availableActivityAddOns.stream()
@@ -227,12 +167,6 @@ public class ItineraryInput {
     return itinerary;
   }
 
-  /**
-   *
-   * @param listToAddFrom
-   * @param selectedActivity
-   * @param scanner
-   */
   public static void enterActivityAddOnNumbers(List<ActivityAddOn> listToAddFrom, Activity selectedActivity, Scanner scanner) {
     boolean validInput = false;
 

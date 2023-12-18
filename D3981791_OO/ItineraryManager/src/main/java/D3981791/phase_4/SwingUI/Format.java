@@ -15,16 +15,13 @@ import java.text.DecimalFormat;
 public class Format {
   /**
    *
-   * @param itinerary
-   * @return
    */
   public static String formatItineraryCost(Itinerary itinerary) {
     double cost = itinerary.getItineraryCost() / 100.0;
     
     DecimalFormat decimalFormat = new DecimalFormat("£0.00");
-    String formattedCost = decimalFormat.format(cost);
-    
-    return formattedCost;
+
+      return decimalFormat.format(cost);
   }
 
 }

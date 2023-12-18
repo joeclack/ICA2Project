@@ -10,7 +10,6 @@ import D3981791.phase_2.TextUI.*;
 import D3981791.phase_3.Model.SaveItinerary;
 import D3981791.phase_4.SwingUI.*;
 
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.Scanner;
 
@@ -18,7 +17,7 @@ import static java.lang.System.exit;
 
 public class Phase4Run implements Serializable{
 
-  public static void main(String[] args) throws IOException, ClassNotFoundException {
+  public static void main(String[] args) {
 
 
     PreBuiltItems preBuiltItems = new PreBuiltItems();
@@ -42,15 +41,11 @@ public class Phase4Run implements Serializable{
           Itinerary newItinerary = ItineraryInput.generateItinerary(preBuiltItems.getAvailableActivities(), preBuiltItems.getAvailableActivityAddOns(), preBuiltItems.getAvailableItineraryAddOns());
           System.out.println("Itinerary created!");
           save.serializeItineraries(newItinerary);
-          java.awt.EventQueue.invokeLater(() -> {
-            new ManagementScreen().setVisible(true);
-          });
+          java.awt.EventQueue.invokeLater(() -> new ManagementScreen().setVisible(true));
           finished = true;
           break;
         case 2:
-          java.awt.EventQueue.invokeLater(() -> {
-            new ManagementScreen().setVisible(true);
-          });
+          java.awt.EventQueue.invokeLater(() -> new ManagementScreen().setVisible(true));
           finished = true;
           break;
         case 3:

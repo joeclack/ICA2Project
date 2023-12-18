@@ -22,10 +22,10 @@ import java.util.List;
  */
 public class ManagementScreen extends JFrame {
 
-  private JTable managementTable;
-  private JScrollPane scrollPane;
+  private final JTable managementTable;
+  private final JScrollPane scrollPane;
 
-  private List<Itinerary> itineraries;
+  private final List<Itinerary> itineraries;
 
 
   public ManagementScreen() {
