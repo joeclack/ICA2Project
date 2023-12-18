@@ -33,9 +33,6 @@ public class SaveItinerary implements Serializable {
     }
   }
 
-  /**
-   *
-   */
   public List<Itinerary> deSerializeItineraries() {
     List<Itinerary> loadedItineraries = new ArrayList<>();
     try {
