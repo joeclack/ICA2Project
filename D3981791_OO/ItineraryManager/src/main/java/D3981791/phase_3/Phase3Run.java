@@ -53,8 +53,6 @@ public class Phase3Run implements Serializable {
         int viewItineraryNumber = scanner.nextInt();
         Itinerary selectedItinerary = itineraries.get(viewItineraryNumber - 1);
         display.fullItinerary(selectedItinerary);
-
-        System.out.println(display.menu());
         break;
       case 3:
         exit(0);
