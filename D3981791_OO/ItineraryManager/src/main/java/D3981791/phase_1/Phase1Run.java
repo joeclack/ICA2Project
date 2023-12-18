@@ -4,7 +4,7 @@
  */
 package D3981791.phase_1;
 
-import D3981791.phase_1.Library.PreBuiltItems;
+import D3981791.phase_1.Model.PreBuiltItems;
 import D3981791.phase_1.Model.Activity;
 import D3981791.phase_1.Model.ActivityAddOn;
 import D3981791.phase_1.Model.Itinerary;

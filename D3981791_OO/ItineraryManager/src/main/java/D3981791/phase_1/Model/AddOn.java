@@ -11,11 +11,6 @@ public class AddOn implements Serializable {
   private String name;
   private int baseCost;
 
-  /**
-   *
-   * @param name
-   * @param baseCost
-   */
   public AddOn(String name, int baseCost) {
     this.name = name;
     this.baseCost = baseCost;
@@ -25,16 +20,8 @@ public class AddOn implements Serializable {
     return name;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
   public int getBaseCost() {
     return baseCost;
-  }
-
-  public void setBaseCost(int baseCost) {
-    this.baseCost = baseCost;
   }
 
 }

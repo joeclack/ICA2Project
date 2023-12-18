@@ -8,11 +8,6 @@ import java.io.Serializable;
 
 public class ItineraryAddOn extends AddOn implements Serializable {
 
-  /**
-   *
-   * @param name
-   * @param baseCost
-   */
   public ItineraryAddOn(String name, int baseCost) {
     super(name, baseCost);
   }

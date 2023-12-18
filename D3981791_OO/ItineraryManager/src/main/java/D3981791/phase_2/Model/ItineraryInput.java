@@ -55,6 +55,7 @@ public class ItineraryInput {
     itinerary.setLeadAttendeeLastName(lastName.toUpperCase());
 
     int totalAttendees = Validation.intOnly("Enter total attendees: ");
+
     itinerary.setTotalAttendees(totalAttendees);
 
     int totalActivities = 0;

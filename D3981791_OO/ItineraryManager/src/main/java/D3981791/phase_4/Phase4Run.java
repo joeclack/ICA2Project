@@ -5,7 +5,6 @@
 package D3981791.phase_4;
 
 import D3981791.phase_1.Model.*;
-import D3981791.phase_1.Library.*;
 import D3981791.phase_2.Model.ItineraryInput;
 import D3981791.phase_2.TextUI.*;
 import D3981791.phase_3.Model.SaveItinerary;
@@ -13,7 +12,6 @@ import D3981791.phase_4.SwingUI.*;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.List;
 import java.util.Scanner;
 
 import static java.lang.System.exit;

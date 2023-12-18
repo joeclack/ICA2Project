@@ -31,7 +31,6 @@ public class Itinerary implements Serializable {
     this.itineraryAddOnsList = new ArrayList<>();
   }
 
-
   public void calculateTotalItineraryAddOnsCost() {
     int cost = 0;
 
@@ -41,7 +40,6 @@ public class Itinerary implements Serializable {
 
     this.totalItineraryAddOnsCost = cost * this.totalAttendees;
   }
-
 
   public void calculateItineraryCost() {
     int cost = 0;
@@ -59,7 +57,6 @@ public class Itinerary implements Serializable {
     this.itineraryCost = (cost * (1.0 - this.discountDecimal));
   }
 
-
   public void generateRefNum() {
     Random random = new Random();
     String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -69,7 +66,6 @@ public class Itinerary implements Serializable {
 
     this.refNumber = String.valueOf(this.leadAttendeeFirstName.charAt(0)) + String.valueOf(this.leadAttendeeLastName.charAt(0)) + threeNums + lastChar;
   }
-
 
   public void calculateDiscount() {
     double[][] discountTable = {
@@ -102,11 +98,6 @@ public class Itinerary implements Serializable {
     this.discountDecimal = discountTable[colIndex][rowIndex];
   }
 
-  /**
-   *
-   * @param numToConvert
-   * @return
-   */
   public static String numberToWordConverter(int numToConvert) {
 
     String wordVersionNumber = "";
@@ -172,17 +163,11 @@ public class Itinerary implements Serializable {
     return refNumber;
   }
 
-  public void setRefNumber(String refNumber) {
-    this.refNumber = refNumber;
-  }
-
   public String getLeadAttendeeFirstName() {
     return leadAttendeeFirstName;
   }
 
-  public void setLeadAttendeeFirstName(String leadAttendeeFirstName) {
-    this.leadAttendeeFirstName = leadAttendeeFirstName;
-  }
+  public void setLeadAttendeeFirstName(String leadAttendeeFirstName) { this.leadAttendeeFirstName = leadAttendeeFirstName; }
 
   public String getLeadAttendeeLastName() {
     return leadAttendeeLastName;
@@ -196,48 +181,20 @@ public class Itinerary implements Serializable {
     return activitiesList;
   }
 
-  public void setActivitiesList(List<Activity> activitiesList) {
-    this.activitiesList = activitiesList;
-  }
-
   public List<ItineraryAddOn> getItineraryAddOnsList() {
     return itineraryAddOnsList;
-  }
-
-  public void setItineraryAddOnsList(List<ItineraryAddOn> itineraryAddOnsList) {
-    this.itineraryAddOnsList = itineraryAddOnsList;
   }
 
   public double getItineraryCost() {
     return itineraryCost;
   }
 
-  public void setItineraryCost(double itineraryCost) {
-    this.itineraryCost = itineraryCost;
-  }
-
   public double getTotalItineraryAddOnsCost() {
     return totalItineraryAddOnsCost;
   }
 
-  public void setTotalItineraryAddOnsCost(double totalItineraryAddOnsCost) {
-    this.totalItineraryAddOnsCost = totalItineraryAddOnsCost;
-  }
-
   public double getDiscountDecimal() {
     return discountDecimal;
-  }
-
-  public void setDiscountDecimal(double discountDecimal) {
-    this.discountDecimal = discountDecimal;
-  }
-
-  public String getNumberInWordFormat() {
-    return numberInWordFormat;
-  }
-
-  public void setNumberInWordFormat(String numberInWordFormat) {
-    this.numberInWordFormat = numberInWordFormat;
   }
 
 }

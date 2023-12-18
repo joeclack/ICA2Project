@@ -23,15 +23,6 @@ public class Activity implements Serializable {
   private boolean requireInsurance;
   private boolean thirdPartyInsurance;
 
-  /**
-   *
-   * @param baseCost
-   * @param title
-   * @param description
-   * @param location
-   * @param expectedDuration
-   * @param requireInsurance
-   */
   public Activity(int baseCost, String title, String description,
           String location, int expectedDuration, boolean requireInsurance) {
     this.baseCost = baseCost;
@@ -43,18 +34,6 @@ public class Activity implements Serializable {
     this.requireInsurance = requireInsurance;
   }
 
-  /**
-   *
-   * @param selectedActivityAddOns
-   */
-  public void addAddOns(List<ActivityAddOn> selectedActivityAddOns) {
-    this.activityAddOnsList.addAll(selectedActivityAddOns);
-  }
-
-  /**
-   *
-   * @param totalAttendees
-   */
   public void calculateTotalCost(int totalAttendees) {
     int cost = 0;
 
@@ -70,32 +49,8 @@ public class Activity implements Serializable {
     return baseCost;
   }
 
-  public void setBaseCost(int baseCost) {
-    this.baseCost = baseCost;
-  }
-
   public String getTitle() {
     return title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public String getLocation() {
-    return location;
-  }
-
-  public void setLocation(String location) {
-    this.location = location;
   }
 
   public LocalTime getTime() {
@@ -105,37 +60,16 @@ public class Activity implements Serializable {
   public void setTime(LocalTime time) {
     this.time = time;
   }
-
-  public int getExpectedDuration() {
-    return expectedDuration;
-  }
-
-  public void setExpectedDuration(int expectedDuration) {
-    this.expectedDuration = expectedDuration;
-  }
-
   public List<ActivityAddOn> getActivityAddOnsList() {
     return activityAddOnsList;
-  }
-
-  public void setActivityAddOnsList(List<ActivityAddOn> activityAddOnsList) {
-    this.activityAddOnsList = activityAddOnsList;
   }
 
   public int getTotalCost() {
     return totalCost;
   }
 
-  public void setTotalCost(int totalCost) {
-    this.totalCost = totalCost;
-  }
-
   public boolean isRequireInsurance() {
     return requireInsurance;
-  }
-
-  public void setRequireInsurance(boolean requireInsurance) {
-    this.requireInsurance = requireInsurance;
   }
 
   public boolean isThirdPartyInsurance() {
@@ -146,5 +80,4 @@ public class Activity implements Serializable {
     this.thirdPartyInsurance = thirdPartyInsurance;
   }
 
-  
 }
