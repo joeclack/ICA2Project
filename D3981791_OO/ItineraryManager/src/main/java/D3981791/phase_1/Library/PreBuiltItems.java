@@ -14,45 +14,23 @@ import java.util.Arrays;
 import java.util.List;
 
 public class PreBuiltItems implements Serializable {
+  private final List<Activity> availableActivities = new ArrayList<>(Arrays.asList(
+          new Activity(2000, "Paper Bridge building", "Building a bridge from paper", "Location1", 30, false),
+          new Activity(4500, "Assault course", "SAS-style assault course", "Location2", 120, true),
+          new Activity(3000, "Cooking", "Cookery classes", "Location2", 120, false)
+  ));
 
-  private List<Activity> availableActivities;
-  private List<ActivityAddOn> availableActivityAddOns;
-  private List<ItineraryAddOn> availableItineraryAddOns;
+  private final List<ItineraryAddOn> availableItineraryAddOns = new ArrayList<>(Arrays.asList(
+          new ItineraryAddOn("Accommodation", 1200),
+          new ItineraryAddOn("Coffee/Tea Breaks", 200),
+          new ItineraryAddOn("Lunch", 400)
+  ));
 
-  public PreBuiltItems() {
-    availableActivities = new ArrayList<>();
-    availableActivityAddOns = new ArrayList<>();
-    availableItineraryAddOns = new ArrayList<>();
-
-    initializeActivities();
-    initializeItineraryAddOns();
-    initializeActivityAddOns();
-  }
-
-  private void initializeActivities() {
-    availableActivities.addAll(Arrays.asList(
-            new Activity(2000, "Paper Bridge building", "Building a bridge from paper", "Location1", 30, false),
-            new Activity(4500, "Assault course", "SAS-style assault course", "Location2", 120, true),
-            new Activity(3000, "Cooking", "Cookery classes", "Location2", 120, false)
-    ));
-  }
-
-  private void initializeItineraryAddOns() {
-    availableItineraryAddOns.addAll(Arrays.asList(
-            new ItineraryAddOn("Accommodation", 1200),
-            new ItineraryAddOn("Coffee/Tea Breaks", 200),
-            new ItineraryAddOn("Lunch", 400)
-    ));
-  }
-
-  private void initializeActivityAddOns() {
-    availableActivityAddOns.addAll(Arrays.asList(
-            new ActivityAddOn("Lunch", 400),
-            new ActivityAddOn("Dinner", 800),
-            new ActivityAddOn("Coffee/Tea Breaks", 200)
-    ));
-
-  }
+  private final List<ActivityAddOn> availableActivityAddOns = new ArrayList<>(Arrays.asList(
+          new ActivityAddOn("Travel", 700),
+          new ActivityAddOn("Insurance", 500),
+          new ActivityAddOn("Photography", 1100)
+  ));
 
   public List<Activity> getAvailableActivities() {
     return availableActivities;
