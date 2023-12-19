@@ -9,14 +9,10 @@ import D3981791.phase_1.Model.Activity;
 import D3981791.phase_1.Model.ActivityAddOn;
 import D3981791.phase_1.Model.Itinerary;
 import D3981791.phase_1.Model.ItineraryAddOn;
-import D3981791.phase_3.Model.SaveItinerary;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class Phase1Run {
 
@@ -55,8 +51,6 @@ public class Phase1Run {
     itinerary.calculateItineraryCost();
     itinerary.generateRefNum();
 
-    SaveItinerary save = new SaveItinerary();
-    save.serializeItineraries(itinerary);
     System.out.println("Itinerary created! Reference number: " + itinerary.getRefNumber());
   }
 }
