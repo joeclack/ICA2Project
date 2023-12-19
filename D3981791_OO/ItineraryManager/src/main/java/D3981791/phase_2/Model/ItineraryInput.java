@@ -14,9 +14,10 @@ import java.util.stream.Collectors;
 
 public class ItineraryInput {
 
-  public static Itinerary generateItinerary(List<Activity> availableActivities, List<ActivityAddOn> availableActivityAddOns, List<ItineraryAddOn> availableItineraryAddOns) {
+  private static final PreBuiltItems preBuiltItems = new PreBuiltItems();
+  public static Itinerary generateItinerary() {
 
-    Itinerary itinerary = new Itinerary(Validation.stringOnly("Enter first name: "), Validation.stringOnly("Enter last name: "), Validation.intOnly("Enter total attendees: ", 1, 100), Validation.intOnly("Enter total activities: ", 1, availableActivities.size()), Validation.getDateInput("Enter a date (DD-MM-YY): "));
+    Itinerary itinerary = new Itinerary(Validation.stringOnly("Enter first name: "), Validation.stringOnly("Enter last name: "), Validation.intOnly("Enter total attendees: ", 1, 100), Validation.intOnly("Enter total activities: ", 1, preBuiltItems.getAvailableActivities().size()), Validation.getDateInput("Enter a date (DD-MM-YY): "));
 
     Scanner scanner = new Scanner(System.in);
 
@@ -25,7 +26,7 @@ public class ItineraryInput {
     System.out.println(Divider);
     System.out.println();
     
-    List<Activity> filteredActivities = availableActivities;
+    List<Activity> filteredActivities = preBuiltItems.getAvailableActivities();
 
     for (int i = 0; i < itinerary.getTotalActivities(); i++) {
       System.out.println("Activity number " + (i+1));
@@ -73,7 +74,7 @@ public class ItineraryInput {
           int insuranceResult = Validation.intOnly("Which insurance is required? \n 1. Exciting Activities insurance \n 2. Third party insurance \n> ", 1, 2);
           switch (insuranceResult) {
             case 1:
-              selectedActivity.getActivityAddOnsList().add(availableActivityAddOns.get(1)); 
+              selectedActivity.getActivityAddOnsList().add(preBuiltItems.getAvailableActivityAddOns().get(1));
               selectedActivity.setThirdPartyInsurance(false);
               validChoice = true;
               break;
@@ -84,7 +85,7 @@ public class ItineraryInput {
             default:
           }
         }
-        List<ActivityAddOn> filteredAddOns = availableActivityAddOns.stream()
+        List<ActivityAddOn> filteredAddOns = preBuiltItems.getAvailableActivityAddOns().stream()
                 .filter(addOn -> !addOn.getName().equals("Insurance"))
                 .collect(Collectors.toList());
 
@@ -93,10 +94,10 @@ public class ItineraryInput {
         }
         enterActivityAddOnNumbers(filteredAddOns, selectedActivity, scanner);
       } else {
-        for (int j = 0; j < availableActivityAddOns.size(); j++) {
-          System.out.println((j + 1) + ". " + availableActivityAddOns.get(j).getName());
+        for (int j = 0; j < preBuiltItems.getAvailableActivityAddOns().size(); j++) {
+          System.out.println((j + 1) + ". " + preBuiltItems.getAvailableActivityAddOns().get(j).getName());
         }
-        enterActivityAddOnNumbers(availableActivityAddOns, selectedActivity, scanner);
+        enterActivityAddOnNumbers(preBuiltItems.getAvailableActivityAddOns(), selectedActivity, scanner);
       }
 
       System.out.println();
@@ -108,8 +109,8 @@ public class ItineraryInput {
 
     System.out.println("Available add-ons for the itinerary:");
     System.out.println(Divider);
-    for (int num = 0; num < availableItineraryAddOns.size(); num++) {
-      System.out.println((num + 1) + ". " + availableItineraryAddOns.get(num).getName());
+    for (int num = 0; num < preBuiltItems.getAvailableItineraryAddOns().size(); num++) {
+      System.out.println((num + 1) + ". " + preBuiltItems.getAvailableItineraryAddOns().get(num).getName());
     }
 
     System.out.println();
@@ -130,8 +131,8 @@ public class ItineraryInput {
         for (String addOnNumber : itineraryAddOnNumbers) {
           try {
             int index = Integer.parseInt(addOnNumber) - 1;
-            if (index >= 0 && index < availableItineraryAddOns.size()) {
-              itinerary.getItineraryAddOnsList().add(availableItineraryAddOns.get(index));
+            if (index >= 0 && index < preBuiltItems.getAvailableItineraryAddOns().size()) {
+              itinerary.getItineraryAddOnsList().add(preBuiltItems.getAvailableItineraryAddOns().get(index));
             } else {
               System.out.println("Invalid add-on number: " + addOnNumber);
               validInputNumbers = false;

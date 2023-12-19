@@ -46,7 +46,7 @@ public class Phase3Run implements Serializable {
 
     switch (menuOption) {
       case 1:
-        Itinerary newItinerary = ItineraryInput.generateItinerary(preBuiltItems.getAvailableActivities(), preBuiltItems.getAvailableActivityAddOns(), preBuiltItems.getAvailableItineraryAddOns());
+        Itinerary newItinerary = ItineraryInput.generateItinerary();
         display.fullItinerary(newItinerary);
         save.serializeItineraries(newItinerary);
         display.menu();

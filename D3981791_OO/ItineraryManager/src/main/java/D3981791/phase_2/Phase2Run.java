@@ -27,6 +27,6 @@ public class Phase2Run {
             "                                                                    aa,    ,88                                                                                                     \n" +
             "                                                                     \"Y8bbdP\"                                                                                                      \n");
 
-    new ConsoleUI().fullItinerary(ItineraryInput.generateItinerary(preBuiltItems.getAvailableActivities(), preBuiltItems.getAvailableActivityAddOns(), preBuiltItems.getAvailableItineraryAddOns()));
+    new ConsoleUI().fullItinerary(ItineraryInput.generateItinerary());
   }
 }

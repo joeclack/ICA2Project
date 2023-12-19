@@ -1,17 +1,15 @@
 package D3981791.phase_4.SwingUI;
 
-import D3981791.phase_1.Model.*;
+import D3981791.phase_1.Model.Activity;
+import D3981791.phase_1.Model.Itinerary;
+import D3981791.phase_1.Model.PreBuiltItems;
 import D3981791.phase_3.Model.SaveItinerary;
-
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -19,19 +17,17 @@ public class ItineraryForm extends JFrame {
 
     private final JLabel totalActivities;
     private Itinerary itinerary;
-    JButton submit = new JButton("Submit");
-    private JLabel firstNameLabel, lastNameLabel, attendeesLabel, activitiesLabel, dateLabel;
-    private JTextField firstNameField, lastNameField, attendeesField, activitiesField, dateField;
-    private JButton addActivitiesButton;
-    private JComboBox<String> activityComboBox;
-    private JCheckBox[] addOnCheckboxes;
-    private List<String> availableActivities = List.of("Paper Bridge Building", "Assault Course", "Cooking");
-    private List<String> availableAddOns = List.of("Travel", "Insurance", "Photography");
-    private List<String> availableItineraryAddOns = List.of("Accommodation", "Coffee/Tea breaks", "Lunch");
+    final JButton submit = new JButton("Submit");
+    private final JTextField firstNameField;
+    private final JTextField lastNameField;
+    private final JTextField attendeesField;
+    private final JTextField dateField;
+    private final JButton addActivitiesButton;
+    private final List<String> availableActivities = List.of("Paper Bridge Building", "Assault Course", "Cooking");
+    private final List<String> availableAddOns = List.of("Travel", "Insurance", "Photography");
     private int activityCount = 0;
-    private PreBuiltItems preBuiltItems = new PreBuiltItems();
-    private boolean yep = false;
-    private List<Activity> listOfActivities;
+    private final PreBuiltItems preBuiltItems = new PreBuiltItems();
+    private final List<Activity> listOfActivities;
 
     public ItineraryForm() {
         super();
@@ -45,27 +41,27 @@ public class ItineraryForm extends JFrame {
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(5, 2));
 
-        firstNameLabel = new JLabel("First Name:");
+        JLabel firstNameLabel = new JLabel("First Name:");
         firstNameField = new JTextField();
         panel.add(firstNameLabel);
         panel.add(firstNameField);
 
-        lastNameLabel = new JLabel("Last Name:");
+        JLabel lastNameLabel = new JLabel("Last Name:");
         lastNameField = new JTextField();
         panel.add(lastNameLabel);
         panel.add(lastNameField);
 
-        attendeesLabel = new JLabel("Total Attendees:");
+        JLabel attendeesLabel = new JLabel("Total Attendees:");
         attendeesField = new JTextField();
         panel.add(attendeesLabel);
         panel.add(attendeesField);
 
-        activitiesLabel = new JLabel("Total Activities:");
+        JLabel activitiesLabel = new JLabel("Total Activities:");
         totalActivities = new JLabel(String.valueOf(activityCount));
         panel.add(activitiesLabel);
         panel.add(totalActivities);
 
-        dateLabel = new JLabel("Date (DD-MM-YY):");
+        JLabel dateLabel = new JLabel("Date (DD-MM-YY):");
         dateField = new JTextField();
         panel.add(dateLabel);
         panel.add(dateField);
@@ -76,8 +72,9 @@ public class ItineraryForm extends JFrame {
 //        itineraryAddOnsPanel.setBackground(Color.RED);
 
         List<JCheckBox> itineraryAddOnCheckboxes = new ArrayList<>();
-        for (int j = 0; j < availableItineraryAddOns.size(); j++) {
-            JCheckBox checkBox = new JCheckBox(availableItineraryAddOns.get(j));
+        List<String> availableItineraryAddOns = List.of("Accommodation", "Coffee/Tea breaks", "Lunch");
+        for (String availableItineraryAddOn : availableItineraryAddOns) {
+            JCheckBox checkBox = new JCheckBox(availableItineraryAddOn);
             itineraryAddOnsPanel.add(checkBox);
             itineraryAddOnCheckboxes.add(checkBox);
         }
@@ -107,64 +104,68 @@ public class ItineraryForm extends JFrame {
         setLocationRelativeTo(null);
 
         // submit event listener
-        submit.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (firstNameField.getText().isEmpty() || lastNameField.getText().isEmpty() || attendeesField.getText().isEmpty() || dateField.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(getContentPane(), "Please fill in all fields", "Error", JOptionPane.ERROR_MESSAGE);
-                    return;
-                }
-                if (activityCount == 0) {
-                    JOptionPane.showMessageDialog(getContentPane(), "Please add at least one activity", "Error", JOptionPane.ERROR_MESSAGE);
-                    return;
-                }
-                if (Integer.parseInt(attendeesField.getText()) < 1 || Integer.parseInt(attendeesField.getText()) > 100) {
-                    JOptionPane.showMessageDialog(getContentPane(), "Please enter a number between 1 and 100 for total attendees", "Error", JOptionPane.ERROR_MESSAGE);
-                    return;
-                }
-                if (Integer.parseInt(attendeesField.getText()) < activityCount) {
-                    JOptionPane.showMessageDialog(getContentPane(), "Please enter a number greater than or equal to the total number of activities", "Error", JOptionPane.ERROR_MESSAGE);
-                    return;
-                }
-//                if (!dateField.getText().matches("\\d{2}-\\d{2}-\\d{2}")) {
-//                    JOptionPane.showMessageDialog(getContentPane(), "Please enter a date in the format DD-MM-YY", "Error", JOptionPane.ERROR_MESSAGE);
-//                    return;
-//                }
-
-                itinerary = new Itinerary(firstNameField.getText(), lastNameField.getText(), Integer.parseInt(attendeesField.getText()), activityCount, LocalDate.parse(dateField.getText()));
-                for (int i = 0; i < itineraryAddOnCheckboxes.size(); i++) {
-                    if (itineraryAddOnCheckboxes.get(i).isSelected()) {
-                        itinerary.getItineraryAddOnsList().add(preBuiltItems.getAvailableItineraryAddOns().get(i));
-                    }
-                }
-                itinerary.getActivitiesList().addAll(listOfActivities);
-                itinerary.calculateItineraryCost();
-                itinerary.generateRefNum();
-                System.out.println("Total cost: " + itinerary.getItineraryCost());
-                System.out.println("Discount: " + itinerary.getDiscountDecimal());
-                new SaveItinerary().serializeItineraries(itinerary);
+        submit.addActionListener(e -> {
+            if (firstNameField.getText().isEmpty() || lastNameField.getText().isEmpty() || attendeesField.getText().isEmpty() || dateField.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(getContentPane(), "Please fill in all fields", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
             }
-        });
-        addActivitiesButton.addActionListener(new ActionListener() {
-            @Override
-
-            public void actionPerformed(ActionEvent e) {
-                System.out.println(activityCount);
-                JPanel newActivityAddPanel = newActivity();
-                add(newActivityAddPanel, BorderLayout.CENTER);
-                newActivityAddPanel.setVisible(true);
-                newActivityAddPanel.setBorder(BorderFactory.createTitledBorder("Activities"));
-
-                JPanel submitPanel = new JPanel();
-                submitPanel.setBackground(Color.BLUE);
-                submitPanel.setLayout(new BoxLayout(submitPanel, BoxLayout.X_AXIS));
-                submitPanel.add(submit);
-
-                add(submitPanel, BorderLayout.SOUTH);
-
-                pack();
+            if (activityCount == 0) {
+                JOptionPane.showMessageDialog(getContentPane(), "Please add at least one activity", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
             }
+            if (Integer.parseInt(attendeesField.getText()) < 1 || Integer.parseInt(attendeesField.getText()) > 100) {
+                JOptionPane.showMessageDialog(getContentPane(), "Please enter a number between 1 and 100 for total attendees", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            if (Integer.parseInt(attendeesField.getText()) < activityCount) {
+                JOptionPane.showMessageDialog(getContentPane(), "Please enter a number greater than or equal to the total number of activities", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+
+            itinerary = new Itinerary(firstNameField.getText(), lastNameField.getText(), Integer.parseInt(attendeesField.getText()), activityCount, LocalDate.parse(dateField.getText()));
+            for (int i = 0; i < itineraryAddOnCheckboxes.size(); i++) {
+                if (itineraryAddOnCheckboxes.get(i).isSelected()) {
+                    itinerary.getItineraryAddOnsList().add(preBuiltItems.getAvailableItineraryAddOns().get(i));
+                }
+            }
+            itinerary.getActivitiesList().addAll(listOfActivities);
+            itinerary.calculateItineraryCost();
+            itinerary.generateRefNum();
+            System.out.println("Total cost: " + itinerary.getItineraryCost());
+            System.out.println("Discount: " + itinerary.getDiscountDecimal());
+            new SaveItinerary().serializeItineraries(itinerary);
+            java.awt.EventQueue.invokeLater(() -> new ItineraryScreen(itinerary).setVisible(true));
+            // clear all fields
+            firstNameField.setText("");
+            lastNameField.setText("");
+            attendeesField.setText("");
+            dateField.setText("");
+            totalActivities.setText("0");
+            activityCount = 0;
+            listOfActivities.clear();
+            addActivitiesButton.setVisible(true);
+            pack(); // resize window to fit new components
+
         });
+        addActivitiesButton.addActionListener(e -> {
+            System.out.println(activityCount);
+            JPanel newActivityAddPanel = newActivity();
+            add(newActivityAddPanel, BorderLayout.CENTER);
+            newActivityAddPanel.setVisible(true);
+            newActivityAddPanel.setBorder(BorderFactory.createTitledBorder("Activities"));
+
+            JPanel submitPanel = new JPanel();
+            submitPanel.setBackground(Color.BLUE);
+            submitPanel.setLayout(new BoxLayout(submitPanel, BoxLayout.X_AXIS));
+            submitPanel.add(submit);
+
+            add(submitPanel, BorderLayout.SOUTH);
+
+            pack();
+
+        });
+        setAlwaysOnTop(true);
     }
 
     public JPanel newActivity() {
@@ -194,8 +195,8 @@ public class ItineraryForm extends JFrame {
 
 
         List<JCheckBox> addOnCheckboxes = new ArrayList<>();
-        for (int j = 0; j < availableAddOns.size(); j++) {
-            JCheckBox checkBox = new JCheckBox(availableAddOns.get(j));
+        for (String availableAddOn : availableAddOns) {
+            JCheckBox checkBox = new JCheckBox(availableAddOn);
             activityPanel.add(checkBox);
             addOnCheckboxes.add(checkBox);
         }
@@ -213,47 +214,44 @@ public class ItineraryForm extends JFrame {
 
         mainPanel.add(buttonPanel, BorderLayout.SOUTH);
         mainPanel.setBackground(Color.RED);
-        addActivityButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (activityComboBox.getSelectedIndex() == -1) {
-                    JOptionPane.showMessageDialog(getContentPane(), "Please select an activity", "Error", JOptionPane.ERROR_MESSAGE);
-                    return;
-                }
-                int selectedActivityIndex = activityComboBox.getSelectedIndex() - 1; // -1 to account for placeholder item
-
-
-
-                Activity selectedActivity = preBuiltItems.getAvailableActivities().get(selectedActivityIndex);
-                selectedActivity.setTime(LocalTime.parse(timeField.getText()));
-                for(int i = 0; i < addOnCheckboxes.size(); i++) {
-                    if(addOnCheckboxes.get(i).isSelected()) {
-                        selectedActivity.getActivityAddOnsList().add(preBuiltItems.getAvailableActivityAddOns().get(i));
-                        System.out.println("Added add-on: " + preBuiltItems.getAvailableActivityAddOns().get(i).getName());
-                    }
-                }
-                selectedActivity.calculateTotalCost(Integer.parseInt(attendeesField.getText()));
-                selectedActivity.setThirdPartyInsurance(false);
-                listOfActivities.add(selectedActivity);
-
-
-                // clear for new activity
-                System.out.println("Added activity: " + selectedActivity.getTitle() + " at " + selectedActivity.getTime() + " with " + selectedActivity.getTotalCost() + " cost");
-                activityComboBox.setSelectedIndex(-1);
-                timeField.setText("");
-                for (JCheckBox checkBox : addOnCheckboxes) {
-                    checkBox.setSelected(false);
-                }
-                activityCount++;
-
-                totalActivities.setText(String.valueOf(activityCount));
-                if(activityCount==availableActivities.size()){
-                    addActivitiesButton.setVisible(false);
-                    mainPanel.setVisible(false);
-                    pack();
-                }
-
+        addActivityButton.addActionListener(e -> {
+            if (activityComboBox.getSelectedIndex() == -1) {
+                JOptionPane.showMessageDialog(getContentPane(), "Please select an activity", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
             }
+            int selectedActivityIndex = activityComboBox.getSelectedIndex() - 1; // -1 to account for placeholder item
+
+
+
+            Activity selectedActivity = preBuiltItems.getAvailableActivities().get(selectedActivityIndex);
+            selectedActivity.setTime(LocalTime.parse(timeField.getText()));
+            for(int i = 0; i < addOnCheckboxes.size(); i++) {
+                if(addOnCheckboxes.get(i).isSelected()) {
+                    selectedActivity.getActivityAddOnsList().add(preBuiltItems.getAvailableActivityAddOns().get(i));
+                    System.out.println("Added add-on: " + preBuiltItems.getAvailableActivityAddOns().get(i).getName());
+                }
+            }
+            selectedActivity.calculateTotalCost(Integer.parseInt(attendeesField.getText()));
+            selectedActivity.setThirdPartyInsurance(false);
+            listOfActivities.add(selectedActivity);
+
+
+            // clear for new activity
+            System.out.println("Added activity: " + selectedActivity.getTitle() + " at " + selectedActivity.getTime() + " with " + selectedActivity.getTotalCost() + " cost");
+            activityComboBox.setSelectedIndex(-1);
+            timeField.setText("");
+            for (JCheckBox checkBox : addOnCheckboxes) {
+                checkBox.setSelected(false);
+            }
+            activityCount++;
+
+            totalActivities.setText(String.valueOf(activityCount));
+            if(activityCount==availableActivities.size()){
+                addActivitiesButton.setVisible(false);
+                mainPanel.setVisible(false);
+                pack();
+            }
+
         });
 
         return mainPanel;

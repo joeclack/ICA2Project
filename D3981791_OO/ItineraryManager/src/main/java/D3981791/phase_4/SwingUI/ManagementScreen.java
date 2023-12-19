@@ -124,6 +124,7 @@ public class ManagementScreen extends JFrame {
       }
 
     });
+
   }
 
   public static LocalDate randomDateGenerator() {
