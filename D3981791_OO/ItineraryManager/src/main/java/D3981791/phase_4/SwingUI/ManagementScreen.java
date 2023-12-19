@@ -5,7 +5,6 @@
 package D3981791.phase_4.SwingUI;
 
 import D3981791.phase_1.Model.*;
-import D3981791.phase_1.Phase1Run;
 import D3981791.phase_3.Model.SaveItinerary;
 
 import javax.swing.*;
@@ -54,10 +53,9 @@ public class ManagementScreen extends JFrame {
     JButton deleteAllButton = new JButton("Delete all");
     deleteAllButton.addActionListener(event -> {
       save.deleteAll(itineraries);
-      scrollPane.updateUI();
+      managementTable.updateUI();
     });
 
-    add(deleteAllButton, BorderLayout.SOUTH);
 
     JButton addItineraryButton = new JButton("Add itinerary");
 
@@ -69,12 +67,16 @@ public class ManagementScreen extends JFrame {
       scrollPane.updateUI();
     });
 
-    add(addItineraryButton, BorderLayout.NORTH);
 
     Border border = BorderFactory.createLineBorder(Color.BLACK, 1);
     ((JComponent) getContentPane()).setBorder(BorderFactory.createCompoundBorder(border,
             BorderFactory.createEmptyBorder(10, 10, 10, 10)));
 
+    JPanel toolBar = new JPanel();
+    toolBar.setLayout(new BorderLayout());
+    toolBar.add(deleteAllButton, BorderLayout.WEST);
+    toolBar.add(addItineraryButton, BorderLayout.EAST);
+    add(toolBar, BorderLayout.SOUTH);
 
     managementTable.addMouseListener(new MouseAdapter() {
       @Override
@@ -112,7 +114,7 @@ public class ManagementScreen extends JFrame {
             deleteMenuItem.addActionListener(event -> {
               int selectedRow = managementTable.getSelectedRow();
               save.deleteItinerary(selectedRow, itineraries);
-              scrollPane.updateUI();
+              managementTable.updateUI();
             });
             popupMenu.add(deleteMenuItem);
 

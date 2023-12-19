@@ -28,7 +28,7 @@ public class ItineraryScreen extends JFrame {
     textArea.append("Total attendees: " + selectedItinerary.getTotalAttendees() + "\n");
     
     textArea.append("Total cost: " + formatItineraryCost(selectedItinerary) + "\n");
-    textArea.append("Date: " + selectedItinerary.getDate().toString());
+    textArea.append("Date: " + selectedItinerary.getDate());
 
     JTable itineraryAddOnsTable = new JTable();
     itineraryAddOnsTable.setBackground(Color.LIGHT_GRAY);
