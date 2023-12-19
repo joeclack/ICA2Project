@@ -19,18 +19,11 @@ import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.List;
 
-
-/**
- *
- * @author d3981791
- */
 public class ManagementScreen extends JFrame {
 
   private final JTable managementTable;
   private final JScrollPane scrollPane;
-
   private final List<Itinerary> itineraries;
-
 
   public ManagementScreen() {
     super();
@@ -42,8 +35,6 @@ public class ManagementScreen extends JFrame {
     managementTable.setBackground(Color.LIGHT_GRAY);
     managementTable.setGridColor(Color.DARK_GRAY);
     managementTable.setSelectionBackground(new Color(192, 217, 237));
-
-
 
     JTableHeader header = managementTable.getTableHeader();
     header.setBackground(Color.DARK_GRAY);
@@ -68,27 +59,17 @@ public class ManagementScreen extends JFrame {
 
     add(deleteAllButton, BorderLayout.SOUTH);
 
-
-    // add a button that generates test data and adds it to the table
-//    JButton generateTestDataButton = new JButton("Generate test data");
-//    generateTestDataButton.addActionListener(event -> {
-//      for (int i = 0; i < 10; i++) {
-//        save.serializeItineraries(testWithDifferentAttendeeNames(randomFirstnameGenerator(), randomSurnameGenerator(), randomAttendeeGenerator(), randomDateGenerator()));
-//      }
-//      scrollPane.updateUI();
-//
-//
-//    });
-//
-//    add(generateTestDataButton, BorderLayout.NORTH);
-// button to add an itinerary
     JButton addItineraryButton = new JButton("Add itinerary");
+
     addItineraryButton.addActionListener(event -> {
-      testWithDifferentAttendeeNames(randomFirstnameGenerator(), randomSurnameGenerator(), randomAttendeeGenerator(), randomDateGenerator());
+      Itinerary newItinerary = testWithDifferentAttendeeNames(randomFirstnameGenerator(), randomSurnameGenerator(), randomAttendeeGenerator(), randomDateGenerator());
+      itineraries.add(newItinerary);
+      new SaveItinerary().serializeItineraries(newItinerary);
+      managementTable.setModel(new ItineraryTableModel(itineraries));
       scrollPane.updateUI();
     });
-    add(addItineraryButton, BorderLayout.NORTH);
 
+    add(addItineraryButton, BorderLayout.NORTH);
 
     Border border = BorderFactory.createLineBorder(Color.BLACK, 1);
     ((JComponent) getContentPane()).setBorder(BorderFactory.createCompoundBorder(border,
@@ -97,7 +78,6 @@ public class ManagementScreen extends JFrame {
 
     managementTable.addMouseListener(new MouseAdapter() {
       @Override
-
       public void mousePressed(MouseEvent e) {
         if (e.getButton() == MouseEvent.BUTTON1) { // Left mouse button clicked
           int selectedRow = managementTable.getSelectedRow();
@@ -142,9 +122,6 @@ public class ManagementScreen extends JFrame {
       }
 
     });
-
-
-
   }
 
   public static LocalDate randomDateGenerator() {
@@ -158,19 +135,17 @@ public class ManagementScreen extends JFrame {
     return (int) (Math.random() * 10) + 1;
   }
 
-
   public static String randomFirstnameGenerator() {
-    List<String> names = Arrays.asList("John", "Jane", "Jack", "Jill", "James", "Ben", "Bella", "Bobby", "Bart", "Bridget", "Brenda");
+    List<String> names = Arrays.asList("John", "Sam", "Jack", "Jill", "James", "Ben", "Henry", "Bobby", "Dave", "Bridget", "Alice", "Sarah", "Jane", "Kate", "Mary", "Emily", "Emma", "Olivia", "Jessica", "Sophie");
     return names.get((int) (Math.random() * names.size()));
   }
 
   public static String randomSurnameGenerator() {
-    List<String> surnames = Arrays.asList("Doe", "Smith", "Jones", "Brown", "Wilson", "Taylor", "Johnson", "White", "Martin", "Anderson", "Thompson", "Nguyen", "Thomas", "Walker", "Harris", "Lee", "Ryan", "Robinson", "Kelly", "King");
+    List<String> surnames = Arrays.asList("Doe", "Smith", "Jones", "Brown", "Wilson", "Taylor", "Johnson", "White", "Martin", "Anderson", "Thompson", "Nguyen", "Thomas", "Walker", "Harris", "Lee", "Ryan", "Robinson");
     return surnames.get((int) (Math.random() * surnames.size()));
   }
 
-
-  public void testWithDifferentAttendeeNames(String firstName, String lastName, int attendees, LocalDate date) {
+  public Itinerary testWithDifferentAttendeeNames(String firstName, String lastName, int attendees, LocalDate date) {
     PreBuiltItems preBuiltItems = new PreBuiltItems();
 
     Itinerary itinerary = new Itinerary(firstName, lastName, attendees, 2, date);
@@ -201,8 +176,7 @@ public class ManagementScreen extends JFrame {
     itinerary.calculateItineraryCost();
     itinerary.generateRefNum();
 
-    SaveItinerary save = new SaveItinerary();
-    save.serializeItineraries(itinerary);
 
+    return itinerary;
   }
 }
