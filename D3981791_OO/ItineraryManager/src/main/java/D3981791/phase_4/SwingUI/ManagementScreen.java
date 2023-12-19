@@ -147,6 +147,10 @@ public class ManagementScreen extends JFrame {
     return surnames.get((int) (Math.random() * surnames.size()));
   }
 
+  public static int randomNumGenerator(int min, int max) {
+    return (int) (Math.random() * (max - min)) + min;
+  }
+
   public Itinerary testWithDifferentAttendeeNames(String firstName, String lastName, int attendees, LocalDate date) {
     PreBuiltItems preBuiltItems = new PreBuiltItems();
 
@@ -162,6 +166,7 @@ public class ManagementScreen extends JFrame {
     activity1.setTime(LocalTime.of(10, 0));
     activity1.getActivityAddOnsList().add(activityAddOns.get(0));
     activity1.getActivityAddOnsList().add(activityAddOns.get(2));
+    activity1.calculateTotalCost(attendees);
     itinerary.getActivitiesList().add(activity1);
 
     Activity activity2 = activities.get(1);
@@ -169,10 +174,12 @@ public class ManagementScreen extends JFrame {
     activity2.getActivityAddOnsList().add(activityAddOns.get(0));
     activity2.getActivityAddOnsList().add(activityAddOns.get(1));
     activity2.getActivityAddOnsList().add(activityAddOns.get(2));
+    activity2.calculateTotalCost(attendees);
     itinerary.getActivitiesList().add(activity2);
 
     itinerary.getItineraryAddOnsList().add(itineraryAddOns.get(0));
     itinerary.getItineraryAddOnsList().add(itineraryAddOns.get(1));
+
 
     itinerary.calculateTotalItineraryAddOnsCost();
     itinerary.calculateItineraryCost();

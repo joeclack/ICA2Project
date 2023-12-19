@@ -35,6 +35,7 @@ public class Phase1Run {
     activity1.setTime(LocalTime.of(10, 0));
     activity1.getActivityAddOnsList().add(activityAddOns.get(0));
     activity1.getActivityAddOnsList().add(activityAddOns.get(2));
+    activity1.calculateTotalCost(10);
     itinerary.getActivitiesList().add(activity1);
 
     Activity activity2 = activities.get(1);
@@ -42,6 +43,7 @@ public class Phase1Run {
     activity2.getActivityAddOnsList().add(activityAddOns.get(0));
     activity2.getActivityAddOnsList().add(activityAddOns.get(1));
     activity2.getActivityAddOnsList().add(activityAddOns.get(2));
+    activity2.calculateTotalCost(10);
     itinerary.getActivitiesList().add(activity2);
 
     itinerary.getItineraryAddOnsList().add(itineraryAddOns.get(0));
