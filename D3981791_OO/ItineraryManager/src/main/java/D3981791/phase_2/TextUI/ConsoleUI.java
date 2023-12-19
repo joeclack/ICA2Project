@@ -9,63 +9,50 @@ import D3981791.phase_1.Model.*;
 public class ConsoleUI {
 
   final int MAX_WIDTH = 55;
+  final String LEFT_BORDER = "| ";
+  final String RIGHT_BORDER = " |";
+  public StringBuilder whiteSpace;
+
+  public int lineLength(String line) {
+    return line.length();
+  }
 
   private String topBottomBorder() {
     return "+" + "-".repeat(Math.max(0, MAX_WIDTH - 2)) + "+";
   }
 
   private String generateFormattedMultiLine(String line1, String line2) {
-    int firstStringLength = line1.length();
-    int secondStringLength = line2.length();
+    whiteSpace = new StringBuilder();
 
-
-    String LEFT_BORDER = "| ";
-    String RIGHT_BORDER = " |";
-    StringBuilder whiteSpace = new StringBuilder();
-
-    int allCharLengthIncludingBorders = LEFT_BORDER.length() + firstStringLength + secondStringLength + RIGHT_BORDER.length();
+    int allCharLengthIncludingBorders = LEFT_BORDER.length() + lineLength(line1) + lineLength(line2) + RIGHT_BORDER.length();
     int whiteSpaceToFillLength = MAX_WIDTH - allCharLengthIncludingBorders;
-      whiteSpace.append(" ".repeat(Math.max(0, whiteSpaceToFillLength)));
+    whiteSpace.append(" ".repeat(Math.max(0, whiteSpaceToFillLength)));
 
-      return LEFT_BORDER + line1 + whiteSpace + line2 + RIGHT_BORDER;
+    return LEFT_BORDER + line1 + whiteSpace + line2 + RIGHT_BORDER;
   }
 
   private String generateFormattedSingleLine(String line) {
-    @SuppressWarnings("DuplicatedCode") int lineLength = line.length();
-    String LEFT_BORDER = "| ";
-    String RIGHT_BORDER = " |";
-    StringBuilder whiteSpace = new StringBuilder();
+    whiteSpace = new StringBuilder();
 
-    int allCharLengthIncludingBorders = LEFT_BORDER.length() + lineLength + RIGHT_BORDER.length();
+    int allCharLengthIncludingBorders = LEFT_BORDER.length() + lineLength(line) + RIGHT_BORDER.length();
     int whiteSpaceToFillLength = MAX_WIDTH - allCharLengthIncludingBorders;
-      whiteSpace.append(" ".repeat(Math.max(0, whiteSpaceToFillLength)));
+    whiteSpace.append(" ".repeat(Math.max(0, whiteSpaceToFillLength)));
 
-      return LEFT_BORDER + line + whiteSpace + RIGHT_BORDER;
+    return LEFT_BORDER + line + whiteSpace + RIGHT_BORDER;
   }
 
   private String generateFormattedCostLine(String line) {
-    @SuppressWarnings("DuplicatedCode") int lineLength = line.length();
-    String LEFT_BORDER = "| ";
-    String RIGHT_BORDER = " |";
-    StringBuilder whiteSpace = new StringBuilder();
+    whiteSpace = new StringBuilder();
 
-    int allCharLengthIncludingBorders = LEFT_BORDER.length() + lineLength + RIGHT_BORDER.length();
+    int allCharLengthIncludingBorders = LEFT_BORDER.length() + lineLength(line) + RIGHT_BORDER.length();
     int whiteSpaceToFillLength = MAX_WIDTH - allCharLengthIncludingBorders;
-      whiteSpace.append(" ".repeat(Math.max(0, whiteSpaceToFillLength)));
+    whiteSpace.append(" ".repeat(Math.max(0, whiteSpaceToFillLength)));
 
-      return LEFT_BORDER + whiteSpace + line + RIGHT_BORDER;
+    return LEFT_BORDER + whiteSpace + line + RIGHT_BORDER;
   }
 
   private String wordOrNumeric(int number) {
-    String value;
-
-    if (number <= 5) {
-      value = Itinerary.numberToWordConverter(number);
-    } else {
-      return String.valueOf(number);
-    }
-
-    return value;
+    return (number <= 5) ? Itinerary.numberToWordConverter(number) : String.valueOf(number);
   }
 
   private void clientInfoSection(Itinerary itinerary) {
@@ -76,57 +63,36 @@ public class ConsoleUI {
 
   private void itineraryAddOnsSection(Itinerary itinerary) {
     System.out.println(generateFormattedSingleLine("Itinerary add ons:"));
+    int itineraryAddOnCount = 1;
 
     for (ItineraryAddOn addOnItinerary : itinerary.getItineraryAddOnsList()) {
-      double baseCost = (double) addOnItinerary.getBaseCost() / 100;
-      String formattedBaseCost = String.format("%.2f", baseCost);
-      String addOnDetails = "     Add on: " + addOnItinerary.getName() + " @ £" + formattedBaseCost + " x " + itinerary.getTotalAttendees();
-      System.out.println(generateFormattedSingleLine(addOnDetails));
+      System.out.println(generateFormattedSingleLine((itineraryAddOnCount++) + ". Add on: " + addOnItinerary.getName() + " @ £" + String.format("%.2f", (addOnItinerary.getBaseCost() / 100.0)) + " x " + itinerary.getTotalAttendees()));
     }
+    System.out.println(generateFormattedCostLine("Sub total: £" + String.format("%.2f", (itinerary.getTotalItineraryAddOnsCost() / 100.0))));
 
-    double totalItineraryAddOnsCost = (itinerary.getTotalItineraryAddOnsCost() / 100.0);
-    String formattedTotalItineraryAddOnsCost = String.format("%.2f", totalItineraryAddOnsCost);
-    System.out.println(generateFormattedCostLine("Sub total: £" + formattedTotalItineraryAddOnsCost));
   }
 
   private void activitySection(Itinerary itinerary) {
     System.out.println(generateFormattedSingleLine("Activities"));
+    int activityCount = 1;
+    int activityAddOnCount = 1;
 
-    for (int l = 0; l < itinerary.getTotalActivities(); l++) {
-      double activityBaseCost = itinerary.getActivitiesList().get(l).getBaseCost() / 100.0;
-      String formattedActivityBaseCost = String.format("%.2f", activityBaseCost);
-      String activityDetails = (l + 1) + ". " + itinerary.getActivitiesList().get(l).getTitle() + " @ £" + formattedActivityBaseCost + " x " + itinerary.getTotalAttendees();
-      System.out.println(generateFormattedSingleLine(activityDetails));
-      if(itinerary.getActivitiesList().get(l).isThirdPartyInsurance()) {
-        System.out.println(generateFormattedSingleLine("     * Third party insurance selected *"));
+    for(Activity activity : itinerary.getActivitiesList()) {
+      System.out.println(generateFormattedSingleLine((activityCount++) + ". " + activity.getTitle() + " @ £" + String.format("%.2f", (activity.getBaseCost() / 100.0)) + " x " + itinerary.getTotalAttendees()));
+      for(ActivityAddOn addOnActivity : activity.getActivityAddOnsList()) {
+        System.out.println(generateFormattedSingleLine("     " + (activityAddOnCount++) + ". Add on: " + addOnActivity.getName() + " @ £" + String.format("%.2f", (addOnActivity.getBaseCost() / 100.0)) + " x " + itinerary.getTotalAttendees()));
       }
-
-      for (int m = 0; m < itinerary.getActivitiesList().get(l).getActivityAddOnsList().size(); m++) {
-
-        double activityAddOnBaseCost = itinerary.getActivitiesList().get(l).getActivityAddOnsList().get(m).getBaseCost() / 100.0;
-        String formattedActivityAddOnBaseCost = String.format("%.2f", activityAddOnBaseCost);
-        String addOnDetails = "     Add on: " + itinerary.getActivitiesList().get(l).getActivityAddOnsList().get(m).getName() + " @ £" + formattedActivityAddOnBaseCost + " x " + itinerary.getTotalAttendees();
-        System.out.println(generateFormattedSingleLine(addOnDetails));
-      }
-
-      double totalActivityCost = (itinerary.getActivitiesList().get(l).getTotalCost() / 100.0);
-      String formattedTotalActivityCost = String.format("%.2f", totalActivityCost);
-      System.out.println(generateFormattedCostLine("Sub total: £" + formattedTotalActivityCost));
+      activityAddOnCount = 1;
+      System.out.println(generateFormattedCostLine("     Sub total: £" + String.format("%.2f", (activity.getTotalCost() / 100.0))));
     }
   }
 
   private void totalCostsSection(Itinerary itinerary) {
-    double totalCostBeforeDiscount = ((itinerary.getItineraryCost() / 100.0) / (1 - itinerary.getDiscountDecimal()));
-    String formattedTotalCost = String.format("%.2f", totalCostBeforeDiscount);
-    System.out.println(generateFormattedCostLine("Total cost before discount applied: £" + formattedTotalCost));
+    System.out.println(generateFormattedCostLine("Total cost before discount applied: £" + String.format("%.2f", ((itinerary.getItineraryCost() / 100.0) / (1 - itinerary.getDiscountDecimal())))));
 
-    double discountPercentage = itinerary.getDiscountDecimal() * 100.0;
-    String formattedDiscountPercentage = String.format("%.2f", discountPercentage);
-    System.out.println(generateFormattedCostLine("Discount: " + formattedDiscountPercentage + "%"));
+    System.out.println(generateFormattedCostLine("Discount: " + String.format("%.2f", itinerary.getDiscountDecimal() * 100.0) + "%"));
 
-    double totalCostAfterDiscount = (itinerary.getItineraryCost() / 100.0);
-    String formattedTotalCostAfterDiscount = String.format("%.2f", totalCostAfterDiscount);
-    System.out.println(generateFormattedCostLine("Total cost after discount applied: £" + formattedTotalCostAfterDiscount));
+    System.out.println(generateFormattedCostLine("Total cost after discount applied: £" + String.format("%.2f", (itinerary.getItineraryCost() / 100.0))));
   }
 
   public void fullItinerary(Itinerary itinerary) {
