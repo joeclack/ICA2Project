@@ -114,7 +114,7 @@ public class ConsoleUI {
   }
 
   public void menu(){
-    System.out.println(" \n" + "New itinerary \n" + "1. New itinerary \n" + "2. View itineraries \n" + "3. Exit \n");
+    System.out.println("New itinerary \n" + "1. New itinerary \n" + "2. View itineraries \n" + "3. Exit \n");
   }
 
 }
