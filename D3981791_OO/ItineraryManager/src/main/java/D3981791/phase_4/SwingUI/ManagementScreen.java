@@ -17,10 +17,15 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class ManagementScreen extends JFrame {
 
+  private final PreBuiltItems preBuiltItems = new PreBuiltItems();
   private final JTable managementTable;
+  private final JTable preBuiltActivitiesTable;
+  private final JTable preBuiltActivityAddOnsTable;
+  private final JTable preBuiltItineraryAddOnsTable;
   private final JScrollPane scrollPane;
   private final List<Itinerary> itineraries;
 
@@ -42,22 +47,50 @@ public class ManagementScreen extends JFrame {
 
     scrollPane = new JScrollPane(managementTable);
 
-    add(scrollPane);
-    setSize(800, 450);
-    setTitle("Management Screen");
-    setDefaultCloseOperation(EXIT_ON_CLOSE);
-    setAlwaysOnTop(true);
-    setResizable(false);
-    setLocationRelativeTo(null);
+    setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
+
+    preBuiltActivitiesTable = new JTable();
+    preBuiltActivitiesTable.setModel(new PreBuiltActivitiesTableModel(preBuiltItems.getAvailableActivities()));
+    JTableHeader header2 = preBuiltActivitiesTable.getTableHeader();
+    header2.setBackground(Color.DARK_GRAY);
+    header2.setForeground(Color.white);
+
+    preBuiltActivityAddOnsTable = new JTable();
+    preBuiltActivityAddOnsTable.setModel(new PreBuiltActivitiesAddOnsTableModel(preBuiltItems.getAvailableActivityAddOns()));
+    JTableHeader header3 = preBuiltActivityAddOnsTable.getTableHeader();
+    header3.setBackground(Color.DARK_GRAY);
+    header3.setForeground(Color.white);
+
+    preBuiltItineraryAddOnsTable = new JTable();
+    preBuiltItineraryAddOnsTable.setModel(new PreBuiltItineraryAddOnsTableModel(preBuiltItems.getAvailableItineraryAddOns()));
+    JTableHeader header4 = preBuiltItineraryAddOnsTable.getTableHeader();
+    header4.setBackground(Color.DARK_GRAY);
+    header4.setForeground(Color.white);
+
+    JPanel preBuiltItemsTablePanel = new JPanel();
+    preBuiltItemsTablePanel.setLayout(new BoxLayout(preBuiltItemsTablePanel, BoxLayout.X_AXIS));
+    preBuiltItemsTablePanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 5, 0));
+    preBuiltItemsTablePanel.add(new JScrollPane(preBuiltActivitiesTable));
+    preBuiltItemsTablePanel.add(new JScrollPane(preBuiltActivityAddOnsTable));
+    preBuiltItemsTablePanel.add(new JScrollPane(preBuiltItineraryAddOnsTable));
+
+
+
+
+
+    JLabel totalItinerariesLabel = new JLabel("Total Itineraries - (" + itineraries.size() + ")");
 
     JButton deleteAllButton = new JButton("Delete all");
     deleteAllButton.addActionListener(event -> {
       save.deleteAll(itineraries);
       managementTable.updateUI();
+      totalItinerariesLabel.setText("Total Itineraries - (" + itineraries.size() + ")");
     });
 
+    JPanel toolBar = new JPanel();
 
     JButton addItineraryButton = new JButton("Add itinerary");
+
 
     addItineraryButton.addActionListener(event -> {
       Itinerary newItinerary = testWithDifferentAttendeeNames(randomFirstnameGenerator(), randomSurnameGenerator(), randomAttendeeGenerator(), randomDateGenerator());
@@ -65,6 +98,8 @@ public class ManagementScreen extends JFrame {
       new SaveItinerary().serializeItineraries(newItinerary);
       managementTable.setModel(new ItineraryTableModel(itineraries));
       scrollPane.updateUI();
+      totalItinerariesLabel.setText("Total Itineraries - (" + itineraries.size() + ")");
+
     });
 
 
@@ -72,11 +107,15 @@ public class ManagementScreen extends JFrame {
     ((JComponent) getContentPane()).setBorder(BorderFactory.createCompoundBorder(border,
             BorderFactory.createEmptyBorder(10, 10, 10, 10)));
 
-    JPanel toolBar = new JPanel();
-    toolBar.setLayout(new BorderLayout());
-    toolBar.add(deleteAllButton, BorderLayout.WEST);
-    toolBar.add(addItineraryButton, BorderLayout.EAST);
-    add(toolBar, BorderLayout.SOUTH);
+
+
+    toolBar.setLayout(new BoxLayout(toolBar, BoxLayout.X_AXIS));
+    toolBar.add(deleteAllButton);
+    toolBar.add(totalItinerariesLabel);
+    toolBar.add(addItineraryButton);
+    toolBar.setBackground(Color.LIGHT_GRAY);
+
+
 
     managementTable.addMouseListener(new MouseAdapter() {
       @Override
@@ -94,14 +133,7 @@ public class ManagementScreen extends JFrame {
               }
             }
           }
-        }
-      }
-    });
-
-    managementTable.addMouseListener(new MouseAdapter() {
-      @Override
-      public void mousePressed(MouseEvent e) {
-        if (SwingUtilities.isRightMouseButton(e)) {
+        } else if (SwingUtilities.isRightMouseButton(e)) {
           int row = managementTable.rowAtPoint(e.getPoint());
           int column = managementTable.columnAtPoint(e.getPoint());
 
@@ -115,6 +147,8 @@ public class ManagementScreen extends JFrame {
               int selectedRow = managementTable.getSelectedRow();
               save.deleteItinerary(selectedRow, itineraries);
               managementTable.updateUI();
+              managementTable.clearSelection();
+              totalItinerariesLabel.setText("Total Itineraries - (" + itineraries.size() + ")");
             });
             popupMenu.add(deleteMenuItem);
 
@@ -122,8 +156,33 @@ public class ManagementScreen extends JFrame {
           }
         }
       }
-
     });
+
+    JButton togglePreBuiltItemsButton = new JButton("Show pre-built items");
+    togglePreBuiltItemsButton.addActionListener(event -> {
+      if (preBuiltItemsTablePanel.isVisible()) {
+        preBuiltItemsTablePanel.setVisible(false);
+        togglePreBuiltItemsButton.setText("Show pre-built items");
+      } else {
+        preBuiltItemsTablePanel.setVisible(true);
+        togglePreBuiltItemsButton.setText("Hide pre-built items");
+      }
+    });
+
+    preBuiltItemsTablePanel.setVisible(false);
+    toolBar.add(togglePreBuiltItemsButton);
+    add(scrollPane, BorderLayout.NORTH);
+    add(toolBar, BorderLayout.CENTER);
+    add(preBuiltItemsTablePanel, BorderLayout.SOUTH);
+
+    setSize(1000, 500);
+
+    setTitle("Management Screen");
+    setDefaultCloseOperation(EXIT_ON_CLOSE);
+    setAlwaysOnTop(true);
+    setResizable(true);
+    setLocationRelativeTo(null);
+
   }
 
   public static LocalDate randomDateGenerator() {

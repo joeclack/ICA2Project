@@ -80,4 +80,19 @@ public class Activity implements Serializable {
     this.thirdPartyInsurance = thirdPartyInsurance;
   }
 
+  public String getDescription() {
+    return description;
+  }
+
+  public String getLocation() {
+    return location;
+  }
+
+  public int getExpectedDuration() {
+    return expectedDuration;
+  }
+
+  public void setTotalCost(int totalCost) {
+    this.totalCost = totalCost;
+  }
 }

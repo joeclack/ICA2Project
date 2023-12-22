@@ -9,6 +9,7 @@ import D3981791.phase_1.Model.Itinerary;
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
 
+import static D3981791.phase_4.SwingUI.Format.formatCost;
 import static D3981791.phase_4.SwingUI.Format.formatItineraryCost;
 
 /**
@@ -21,9 +22,6 @@ public class ItineraryTableModel extends AbstractTableModel {
 
   private final List<Itinerary> itineraries;
 
-  /**
-   *
-   */
   public ItineraryTableModel(List<Itinerary> itineraries) {
     this.itineraries = itineraries;
   }
@@ -63,7 +61,7 @@ public class ItineraryTableModel extends AbstractTableModel {
       case 3:
         return i.getTotalActivities();
       case 4:
-        return formatItineraryCost(i);
+        return Format.formatCost(i.getItineraryCost());
       default:
         return null;
     }

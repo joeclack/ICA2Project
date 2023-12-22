@@ -36,30 +36,33 @@ public class Phase4Run implements Serializable{
             "                                                                    aa,    ,88                                                                                                     \n" +
             "                                                                     \"Y8bbdP\"                                                                                                      \n");
 
-    display.menu();
+//    display.menu();
 
     SaveItinerary save = new SaveItinerary();
 
-    System.out.print(">");
-    int menuOption = scanner.nextInt();
-
-    switch (menuOption) {
-      case 1:
-        Itinerary newItinerary = ItineraryInput.generateItinerary();
-        System.out.println("Itinerary created!");
-        save.serializeItineraries(newItinerary);
-        java.awt.EventQueue.invokeLater(() -> new ManagementScreen().setVisible(true));
-        break;
-      case 2:
-        java.awt.EventQueue.invokeLater(() -> new ManagementScreen().setVisible(true));
-        break;
-      case 3:
-        exit(0);
-        break;
-      default:
-        System.out.println("Invalid option");
-        break;
-    }
+//    System.out.print(">");
+//    int menuOption = scanner.nextInt();
+//
+//
+//
+//    switch (menuOption) {
+//      case 1:
+//        Itinerary newItinerary = ItineraryInput.generateItinerary();
+//        System.out.println("Itinerary created!");
+//        save.serializeItineraries(newItinerary);
+//        java.awt.EventQueue.invokeLater(() -> new ManagementScreen().setVisible(true));
+//        break;
+//      case 2:
+//        java.awt.EventQueue.invokeLater(() -> new ManagementScreen().setVisible(true));
+//        break;
+//      case 3:
+//        exit(0);
+//        break;
+//      default:
+//        System.out.println("Invalid option");
+//        break;
+//    }
+    java.awt.EventQueue.invokeLater(() -> new ManagementScreen().setVisible(true));
   }
 
 }

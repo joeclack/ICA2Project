@@ -14,7 +14,15 @@ public class Format {
     
     DecimalFormat decimalFormat = new DecimalFormat("£0.00");
 
-      return decimalFormat.format(cost);
+    return decimalFormat.format(cost);
+  }
+
+  public static String formatCost(int cost) {
+    double costDouble = cost / 100.0;
+
+    DecimalFormat decimalFormat = new DecimalFormat("£0.00");
+
+    return decimalFormat.format(costDouble);
   }
 
 }

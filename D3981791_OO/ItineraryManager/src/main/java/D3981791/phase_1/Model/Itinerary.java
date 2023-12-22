@@ -20,8 +20,8 @@ public class Itinerary implements Serializable {
   private final List<Activity> activitiesList;
   private final List<ItineraryAddOn> itineraryAddOnsList;
   private LocalDate date;
-  private double totalItineraryAddOnsCost;
-  private double itineraryCost;
+  private int totalItineraryAddOnsCost;
+  private int itineraryCost;
   private double discountDecimal;
   private String numberInWordFormat;
 
@@ -49,7 +49,7 @@ public class Itinerary implements Serializable {
   }
 
   public void calculateItineraryCost() {
-    double cost = 0;
+    int cost = 0;
 
     calculateTotalItineraryAddOnsCost();
 
@@ -61,7 +61,7 @@ public class Itinerary implements Serializable {
 
     cost += totalItineraryAddOnsCost;
 
-    this.itineraryCost = (cost * (1.0 - this.discountDecimal));
+    this.itineraryCost = (int) (cost * (1.0 - this.discountDecimal));
   }
 
   public void generateRefNum() {
@@ -192,7 +192,7 @@ public class Itinerary implements Serializable {
     return itineraryAddOnsList;
   }
 
-  public double getItineraryCost() {
+  public int getItineraryCost() {
     return itineraryCost;
   }
 

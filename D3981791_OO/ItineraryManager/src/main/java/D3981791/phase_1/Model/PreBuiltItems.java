@@ -17,7 +17,8 @@ public class PreBuiltItems implements Serializable {
   private final List<Activity> availableActivities = new ArrayList<>(Arrays.asList(
           new Activity(2000, "Paper Bridge building", "Building a bridge from paper", "Location1", 30, false),
           new Activity(4500, "Assault course", "SAS-style assault course", "Location2", 120, true),
-          new Activity(3000, "Cooking", "Cookery classes", "Location2", 120, false)
+          new Activity(3000, "Cooking", "Cookery classes", "Location3", 120, false)
+
   ));
 
   private final List<ItineraryAddOn> availableItineraryAddOns = new ArrayList<>(Arrays.asList(
