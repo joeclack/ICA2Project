@@ -14,9 +14,6 @@ public class SaveItinerary implements Serializable {
 
   static final String filePath = "itineraries.txt";
 
-  /**
-   *
-   */
   public void serializeItineraries(Itinerary itinerary) {
     List<Itinerary> existingItineraries = deSerializeItineraries();
     existingItineraries.add(itinerary);

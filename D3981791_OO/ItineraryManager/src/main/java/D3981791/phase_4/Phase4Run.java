@@ -19,8 +19,6 @@ public class Phase4Run implements Serializable{
 
   public static void main(String[] args) {
 
-    PreBuiltItems preBuiltItems = new PreBuiltItems();
-
     Scanner scanner = new Scanner(System.in);
 
     ConsoleUI display = new ConsoleUI();
@@ -44,8 +42,6 @@ public class Phase4Run implements Serializable{
 
     System.out.print(">");
     int menuOption = scanner.nextInt();
-
-
 
     switch (menuOption) {
       case 1:

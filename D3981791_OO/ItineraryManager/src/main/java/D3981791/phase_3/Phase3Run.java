@@ -19,7 +19,6 @@ public class Phase3Run implements Serializable {
 
   public static void main(String[] args) {
 
-
     Scanner scanner = new Scanner(System.in);
 
     ConsoleUI display = new ConsoleUI();
