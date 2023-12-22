@@ -10,8 +10,8 @@ import java.util.Objects;
 public class NewItemForm extends JFrame{
     private final PreBuiltItems preBuiltItems = new PreBuiltItems();
     private final Object type = null;
-    private JTextField nameField, costField, locationField, durationField, insuranceField, expectedDurationField, descriptionField;
-    private JLabel nameLabel, costLabel, locationLabel, durationLabel, insuranceLabel, expectedDurationLabel, descriptionLabel;
+    private JTextField nameField, titleField , costField, actCostField, locationField, durationField, insuranceField, expectedDurationField, descriptionField;
+    private JLabel nameLabel, titleLabel, costLabel, actCostLabel, locationLabel, durationLabel, insuranceLabel, expectedDurationLabel, descriptionLabel;
     private JComboBox typeComboBox;
     private JCheckBox insuranceCheckBox;
     private JButton submitButton;
@@ -21,17 +21,21 @@ public class NewItemForm extends JFrame{
     public NewItemForm() {
         super();
 
-        nameField = new JTextField();
-        costField = new JTextField();
+        titleField = new JTextField();
+        actCostField = new JTextField();
         locationField = new JTextField();
         durationField = new JTextField();
         expectedDurationField = new JTextField();
         descriptionField = new JTextField();
+        costField = new JTextField();
+        nameField = new JTextField();
 
         insuranceCheckBox = new JCheckBox();
 
         nameLabel = new JLabel("Name");
-        costLabel = new JLabel("Cost");
+        costLabel = new JLabel("Cost (pence)");
+        titleLabel = new JLabel("Name");
+        actCostLabel = new JLabel("Cost (pence)");
         locationLabel = new JLabel("Location");
         durationLabel = new JLabel("Duration");
         insuranceLabel = new JLabel("Insurance");
@@ -46,12 +50,12 @@ public class NewItemForm extends JFrame{
 
         JPanel activityForm = new JPanel();
         activityForm.setLayout(new GridLayout(6, 2));
-        activityForm.add(nameLabel);
-        activityForm.add(nameField);
+        activityForm.add(titleLabel);
+        activityForm.add(titleField);
+        activityForm.add(actCostLabel);
+        activityForm.add(actCostField);
         activityForm.add(descriptionLabel);
         activityForm.add(descriptionField);
-        activityForm.add(costLabel);
-        activityForm.add(costField);
         activityForm.add(locationLabel);
         activityForm.add(locationField);
         activityForm.add(durationLabel);
@@ -66,20 +70,15 @@ public class NewItemForm extends JFrame{
         addOnForm.add(costLabel);
         addOnForm.add(costField);
 
-
-
-        // make a listener for when the type is changed
         typeComboBox.addActionListener(e -> {
             String type = (String) typeComboBox.getSelectedItem();
             if(Objects.equals(type, "Activity")) {
                 formGrid.removeAll();
                 formGrid.add(activityForm, BorderLayout.CENTER);
-
                 formGrid.updateUI();
             } else if(Objects.equals(type, "Activity Add-On") || Objects.equals(type, "Itinerary Add-On")) {
                 formGrid.removeAll();
                 formGrid.add(addOnForm, BorderLayout.CENTER);
-
                 formGrid.updateUI();
             }
         });
