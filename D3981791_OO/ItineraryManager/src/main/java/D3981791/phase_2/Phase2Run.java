@@ -12,8 +12,6 @@ public class Phase2Run {
 
   public static void main(String[] args) {
 
-    PreBuiltItems preBuiltItems = new PreBuiltItems();
-
     System.out.println("\n" +
             "                                                                                                                                                                                   \n" +
             "88888888888                          88           88                                       db                             88               88           88                         \n" +
@@ -27,6 +25,6 @@ public class Phase2Run {
             "                                                                    aa,    ,88                                                                                                     \n" +
             "                                                                     \"Y8bbdP\"                                                                                                      \n");
 
-    new ConsoleUI().fullItinerary(ItineraryInput.generateItinerary(preBuiltItems.getAvailableActivities(), preBuiltItems.getAvailableActivityAddOns(), preBuiltItems.getAvailableItineraryAddOns()));
+    new ConsoleUI().fullItinerary(ItineraryInput.generateItinerary());
   }
 }

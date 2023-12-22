@@ -49,7 +49,7 @@ public class Phase4Run implements Serializable{
 
     switch (menuOption) {
       case 1:
-        Itinerary newItinerary = ItineraryInput.generateItinerary(preBuiltItems.getAvailableActivities(), preBuiltItems.getAvailableActivityAddOns(), preBuiltItems.getAvailableItineraryAddOns());
+        Itinerary newItinerary = ItineraryInput.generateItinerary();
         System.out.println("Itinerary created!");
         save.serializeItineraries(newItinerary);
         java.awt.EventQueue.invokeLater(() -> new ManagementScreen().setVisible(true));
