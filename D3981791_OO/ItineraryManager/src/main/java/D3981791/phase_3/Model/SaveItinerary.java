@@ -46,7 +46,11 @@ public class SaveItinerary implements Serializable {
         fileIn.close();
       }
     } catch (IOException | ClassNotFoundException e) {
+      System.err.printf(e.getMessage() + "\n");
+      System.out.println("File corrupted, please delete itineraries.txt and run program again.");
 
+      System.out.println("Closing program...");
+      System.exit(0);
     }
 
     return loadedItineraries;
