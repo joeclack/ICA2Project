@@ -5,11 +5,13 @@
 package D3981791.phase_4;
 
 import D3981791.phase_2.TextUI.*;
-import D3981791.phase_3.Model.SaveItinerary;
 import D3981791.phase_4.GUI.UI.ManagementScreen;
+import D3981791.phase_4.GUI.UI.NewItineraryForm;
 
 import java.io.Serializable;
 import java.util.Scanner;
+
+import static java.lang.System.exit;
 
 public class Phase4Run implements Serializable{
 
@@ -32,33 +34,25 @@ public class Phase4Run implements Serializable{
             "                                                                    aa,    ,88                                                                                                     \n" +
             "                                                                     \"Y8bbdP\"                                                                                                      \n");
 
-//    display.menu();
+    display.menu();
 
-    SaveItinerary save = new SaveItinerary();
+    System.out.print(">");
+    int menuOption = scanner.nextInt();
 
-//    System.out.print(">");
-//    int menuOption = scanner.nextInt();
-//
-//
-//
-//    switch (menuOption) {
-//      case 1:
-//        Itinerary newItinerary = ItineraryInput.generateItinerary();
-//        System.out.println("Itinerary created!");
-//        save.serializeItineraries(newItinerary);
-//        java.awt.EventQueue.invokeLater(() -> new ManagementScreen().setVisible(true));
-//        break;
-//      case 2:
-//        java.awt.EventQueue.invokeLater(() -> new ManagementScreen().setVisible(true));
-//        break;
-//      case 3:
-//        exit(0);
-//        break;
-//      default:
-//        System.out.println("Invalid option");
-//        break;
-//    }
-    java.awt.EventQueue.invokeLater(() -> new ManagementScreen().setVisible(true));
+    switch (menuOption) {
+      case 1:
+        java.awt.EventQueue.invokeLater(() -> new NewItineraryForm().setVisible(true));
+        break;
+      case 2:
+        java.awt.EventQueue.invokeLater(() -> new ManagementScreen().setVisible(true));
+        break;
+      case 3:
+        exit(0);
+        break;
+      default:
+        System.out.println("Invalid option");
+        break;
+    }
   }
 
 }

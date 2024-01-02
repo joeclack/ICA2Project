@@ -9,8 +9,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class NewItineraryForm extends JFrame {
 
@@ -64,6 +67,7 @@ public class NewItineraryForm extends JFrame {
         dateField = new JTextField();
         panel.add(dateLabel);
         panel.add(dateField);
+
 
         JPanel itineraryAddOnsPanel = new JPanel();
         itineraryAddOnsPanel.setLayout(new BoxLayout(itineraryAddOnsPanel, BoxLayout.X_AXIS));
@@ -121,7 +125,13 @@ public class NewItineraryForm extends JFrame {
             }
 
 
-            itinerary = new Itinerary(firstNameField.getText(), lastNameField.getText(), Integer.parseInt(attendeesField.getText()), activityCount, LocalDate.parse(dateField.getText()));
+            try {
+                LocalDate.parse(dateField.getText(), DateTimeFormatter.ofPattern("dd-MM-yy"));
+            } catch (DateTimeParseException ex) {
+                JOptionPane.showMessageDialog(getContentPane(), "Please enter a valid date in the format DD-MM-YY", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            itinerary = new Itinerary(firstNameField.getText(), lastNameField.getText(), Integer.parseInt(attendeesField.getText()), activityCount, LocalDate.parse(dateField.getText(), DateTimeFormatter.ofPattern("dd-MM-yy")));
             for (int i = 0; i < itineraryAddOnCheckboxes.size(); i++) {
                 if (itineraryAddOnCheckboxes.get(i).isSelected()) {
                     itinerary.getItineraryAddOnsList().add(preBuiltItems.getAvailableItineraryAddOns().get(i));
