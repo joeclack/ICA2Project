@@ -1,8 +1,7 @@
-package D3981791.phase_4.SwingUI;
+package D3981791.phase_4.GUI.Models;
 
-import D3981791.phase_1.Model.ActivityAddOn;
 import D3981791.phase_1.Model.ItineraryAddOn;
-import D3981791.phase_1.Model.PreBuiltItems;
+import D3981791.phase_4.GUI.UI.Format;
 
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
@@ -10,20 +9,19 @@ import java.util.List;
 /**
  * @author d3981791
  */
-public class PreBuiltActivitiesAddOnsTableModel extends AbstractTableModel {
+public class PreBuiltItineraryAddOnsTableModel extends AbstractTableModel {
 
     private String[] columnNames = {"Name", "Base Cost"};
 
-    private final List<ActivityAddOn> activityAddOns;
+    private final List<ItineraryAddOn> itineraryAddOns;
 
-    public PreBuiltActivitiesAddOnsTableModel(List<ActivityAddOn> activityAddOns) {
-        this.activityAddOns = activityAddOns;
-
+    public PreBuiltItineraryAddOnsTableModel(List<ItineraryAddOn> itineraryAddOns) {
+        this.itineraryAddOns = itineraryAddOns;
     }
 
     @Override
     public int getRowCount() {
-        return this.activityAddOns.size();
+        return itineraryAddOns.size();
     }
 
     @Override
@@ -42,13 +40,14 @@ public class PreBuiltActivitiesAddOnsTableModel extends AbstractTableModel {
      */
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        ActivityAddOn a = activityAddOns.get(rowIndex);
+
+        ItineraryAddOn i = itineraryAddOns.get(rowIndex);
 
         switch (columnIndex) {
             case 0:
-                return a.getName();
+                return i.getName();
             case 1:
-                return Format.formatCost(a.getBaseCost());
+                return Format.formatCost(i.getBaseCost());
             default:
                 return null;
         }

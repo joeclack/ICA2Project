@@ -2,16 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package D3981791.phase_4.SwingUI;
+package D3981791.phase_4.GUI.UI;
 
 import D3981791.phase_1.Model.Itinerary;
+import D3981791.phase_4.GUI.Models.ActivitiesTableModel;
+import D3981791.phase_4.GUI.Models.ItineraryAddOnTableModel;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
 
-import static D3981791.phase_4.SwingUI.Format.formatItineraryCost;
+import static D3981791.phase_4.GUI.UI.Format.formatItineraryCost;
 
 /**
  *

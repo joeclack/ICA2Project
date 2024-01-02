@@ -2,10 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package D3981791.phase_4.SwingUI;
+package D3981791.phase_4.GUI.UI;
 
 import D3981791.phase_1.Model.*;
 import D3981791.phase_3.Model.SaveItinerary;
+import D3981791.phase_4.GUI.Models.ItineraryTableModel;
+import D3981791.phase_4.GUI.Models.PreBuiltActivitiesAddOnsTableModel;
+import D3981791.phase_4.GUI.Models.PreBuiltActivitiesTableModel;
+import D3981791.phase_4.GUI.Models.PreBuiltItineraryAddOnsTableModel;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -17,7 +21,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class ManagementScreen extends JFrame {
 
