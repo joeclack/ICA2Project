@@ -6,7 +6,11 @@ package D3981791.phase_1.Model;
 
 import java.io.Serializable;
 
-public class ActivityAddOn extends AddOn implements Serializable {
+/**
+ * ActivityAddOn class that stores information about an activity add-on.
+ */
+
+public class ActivityAddOn extends AddOn {
 
   public ActivityAddOn(String name, int baseCost) {
     super(name, baseCost);

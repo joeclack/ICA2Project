@@ -10,10 +10,6 @@ import D3981791.phase_4.GUI.UI.Format;
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
 
-/**
- *
- * @author d3981791
- */
 public class ItineraryTableModel extends AbstractTableModel {
 
   private final String[] columnNames = {"Ref", "Lead", "Attendees", "Activities", "Cost"};

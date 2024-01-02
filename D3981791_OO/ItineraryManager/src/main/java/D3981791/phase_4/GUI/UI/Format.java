@@ -9,14 +9,12 @@ import D3981791.phase_1.Model.Itinerary;
 import java.text.DecimalFormat;
 
 public class Format {
-  public static String formatItineraryCost(Itinerary itinerary) {
-    double cost = itinerary.getItineraryCost() / 100.0;
-    
-    DecimalFormat decimalFormat = new DecimalFormat("£0.00");
 
-    return decimalFormat.format(cost);
-  }
-
+  /**
+   * Formats the cost to a string
+   * @param cost the cost to format
+   * @return the formatted cost
+   */
   public static String formatCost(int cost) {
     double costDouble = cost / 100.0;
 

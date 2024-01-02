@@ -10,20 +10,12 @@ import D3981791.phase_1.Model.ActivityAddOn;
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
 
-/**
- *
- * @author d3981791
- */
 public class ActivitiesTableModel extends AbstractTableModel {
-
 
   private final String[] columnNames = {"Activities", "Add-Ons"};
 
   private final List<Activity> selectedItineraryActivitiesList;
 
-  /**
-   *
-   */
   public ActivitiesTableModel(List<Activity> selectedItineraryActivitiesList) {
     this.selectedItineraryActivitiesList = selectedItineraryActivitiesList;
   }

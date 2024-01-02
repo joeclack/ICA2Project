@@ -9,19 +9,12 @@ import D3981791.phase_1.Model.ItineraryAddOn;
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
 
-/**
- *
- * @author d3981791
- */
 public class ItineraryAddOnTableModel extends AbstractTableModel {
 
   private final String[] columnNames = {"Itinerary Add-Ons"};
 
   private final List<ItineraryAddOn> selectedItineraryAddOnsList;
 
-  /**
-   *
-   */
   public ItineraryAddOnTableModel(List<ItineraryAddOn> selectedItineraryAddOnsList) {
     this.selectedItineraryAddOnsList = selectedItineraryAddOnsList;
   }

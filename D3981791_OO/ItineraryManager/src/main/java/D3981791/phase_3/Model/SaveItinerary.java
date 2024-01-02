@@ -14,6 +14,10 @@ public class SaveItinerary implements Serializable {
 
   static final String filePath = "itineraries.txt";
 
+  /**
+   * Serializes the itinerary.
+   * @param itinerary The itinerary to be serialized.
+   */
   public void serializeItineraries(Itinerary itinerary) {
     List<Itinerary> existingItineraries = deSerializeItineraries();
     existingItineraries.add(itinerary);
@@ -30,6 +34,10 @@ public class SaveItinerary implements Serializable {
     }
   }
 
+  /**
+   * Deserializes the itinerary.
+   * @return The deserialized itinerary.
+   */
   public List<Itinerary> deSerializeItineraries() {
     List<Itinerary> loadedItineraries = new ArrayList<>();
     try {
@@ -46,18 +54,16 @@ public class SaveItinerary implements Serializable {
         fileIn.close();
       }
     } catch (IOException | ClassNotFoundException e) {
-      System.err.printf(e.getMessage() + "\n");
-      System.out.println("File corrupted, please delete itineraries.txt and run program again.");
 
-      System.out.println("Closing program...");
-      System.exit(0);
     }
 
     return loadedItineraries;
   }
 
   /**
-   *
+   * Deletes the itinerary.
+   * @param index The index of the itinerary to be deleted.
+   * @param itinerariesList The list of itineraries.
    */
   public void deleteItinerary(int index, List<Itinerary> itinerariesList) {
     for(int a = 0; a<itinerariesList.size(); a++) {
@@ -79,6 +85,10 @@ public class SaveItinerary implements Serializable {
     }
   }
 
+  /**
+   * Deletes all the itineraries.
+   * @param itinerariesList The list of itineraries.
+   */
   public void deleteAll(List<Itinerary> itinerariesList) {
     itinerariesList.clear();
 

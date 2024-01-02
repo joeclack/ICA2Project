@@ -6,7 +6,11 @@ package D3981791.phase_1.Model;
 
 import java.io.Serializable;
 
-public class ItineraryAddOn extends AddOn implements Serializable {
+/**
+ * ItineraryAddOn class that stores information about an itinerary add-on.
+ */
+
+public class ItineraryAddOn extends AddOn {
 
   public ItineraryAddOn(String name, int baseCost) {
     super(name, baseCost);

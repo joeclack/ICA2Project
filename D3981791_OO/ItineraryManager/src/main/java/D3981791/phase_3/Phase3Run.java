@@ -34,7 +34,6 @@ public class Phase3Run implements Serializable {
         Itinerary newItinerary = ItineraryInput.generateItinerary();
         display.fullItinerary(newItinerary);
         save.serializeItineraries(newItinerary);
-        display.menu();
         break;
       case 2:
         List<Itinerary> itineraries = save.deSerializeItineraries();

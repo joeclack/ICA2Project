@@ -5,10 +5,6 @@ import D3981791.phase_4.GUI.UI.Format;
 
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
-
-/**
- * @author d3981791
- */
 public class PreBuiltActivitiesAddOnsTableModel extends AbstractTableModel {
 
     private String[] columnNames = {"Name", "Base Cost"};

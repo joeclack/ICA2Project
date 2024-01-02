@@ -6,6 +6,9 @@ package D3981791.phase_2.TextUI;
 
 import D3981791.phase_1.Model.*;
 
+/**
+ * ConsoleUI class that handles the console user interface.
+ */
 public class ConsoleUI {
 
   final int MAX_WIDTH = 55;
@@ -17,10 +20,20 @@ public class ConsoleUI {
     return line.length();
   }
 
+  /**
+   * Generates a top or bottom border.
+   * @return The top or bottom border.
+   */
   private String topBottomBorder() {
     return "+" + "-".repeat(Math.max(0, MAX_WIDTH - 2)) + "+";
   }
 
+  /**
+   * Generates a formatted multi line.
+   * @param line1 The first line to format.
+   * @param line2 The second line to format.
+   * @return The formatted multi line.
+   */
   private String generateFormattedMultiLine(String line1, String line2) {
     whiteSpace = new StringBuilder();
 
@@ -31,6 +44,11 @@ public class ConsoleUI {
     return LEFT_BORDER + line1 + whiteSpace + line2 + RIGHT_BORDER;
   }
 
+  /**
+   * Generates a formatted single line.
+   * @param line The line to format.
+   * @return The formatted line.
+   */
   private String generateFormattedSingleLine(String line) {
     whiteSpace = new StringBuilder();
 
@@ -41,6 +59,11 @@ public class ConsoleUI {
     return LEFT_BORDER + line + whiteSpace + RIGHT_BORDER;
   }
 
+  /**
+   * Generates a formatted cost line.
+   * @param line The line to format.
+   * @return The formatted cost line.
+   */
   private String generateFormattedCostLine(String line) {
     whiteSpace = new StringBuilder();
 
@@ -51,16 +74,29 @@ public class ConsoleUI {
     return LEFT_BORDER + whiteSpace + line + RIGHT_BORDER;
   }
 
+  /**
+   * Converts a number to a word.
+   * @param number The number to convert.
+   * @return The word representation of the number.
+   */
   private String wordOrNumeric(int number) {
     return (number <= 5) ? Itinerary.numberToWordConverter(number) : String.valueOf(number);
   }
 
+  /**
+   * Prints the client info section of the itinerary.
+   * @param itinerary The itinerary to print.
+   */
   private void clientInfoSection(Itinerary itinerary) {
     System.out.println(generateFormattedMultiLine(("Client name: " + itinerary.getLeadAttendeeFirstName().charAt(0) + " " + itinerary.getLeadAttendeeLastName()), ("Ref: " + itinerary.getRefNumber())));
     System.out.println(generateFormattedMultiLine(("Total activities: " + wordOrNumeric(itinerary.getTotalActivities())), ("Total attendees: " + wordOrNumeric(itinerary.getTotalAttendees()))));
     System.out.println(generateFormattedSingleLine("Date: " + itinerary.getDate()));
   }
 
+  /**
+   * Prints the itinerary add ons section of the itinerary.
+   * @param itinerary The itinerary to print.
+   */
   private void itineraryAddOnsSection(Itinerary itinerary) {
     System.out.println(generateFormattedSingleLine("Itinerary add ons:"));
     int itineraryAddOnCount = 1;
@@ -72,6 +108,10 @@ public class ConsoleUI {
 
   }
 
+  /**
+   * Prints the activities section of the itinerary.
+   * @param itinerary The itinerary to print.
+   */
   private void activitySection(Itinerary itinerary) {
     System.out.println(generateFormattedSingleLine("Activities"));
     int activityCount = 1;
@@ -95,6 +135,10 @@ public class ConsoleUI {
     System.out.println(generateFormattedCostLine("Total cost after discount applied: £" + String.format("%.2f", (itinerary.getItineraryCost() / 100.0))));
   }
 
+  /**
+   * Prints the full itinerary.
+   * @param itinerary The itinerary to print.
+   */
   public void fullItinerary(Itinerary itinerary) {
 
     System.out.println(topBottomBorder());
@@ -113,6 +157,9 @@ public class ConsoleUI {
     System.out.println(topBottomBorder());
   }
 
+  /**
+   * Prints the menu.
+   */
   public void menu(){
     System.out.println("New itinerary \n" + "1. New itinerary \n" + "2. View itineraries \n" + "3. Exit \n");
   }

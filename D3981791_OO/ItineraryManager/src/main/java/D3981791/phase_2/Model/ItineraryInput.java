@@ -12,9 +12,17 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
+/**
+ * ItineraryInput class that handles user input for creating an itinerary.
+ */
 public class ItineraryInput {
 
   private static final PreBuiltItems preBuiltItems = new PreBuiltItems();
+
+  /**
+   * Generates an itinerary based on user input.
+   * @return The generated itinerary.
+   */
   public static Itinerary generateItinerary() {
 
     Itinerary itinerary = new Itinerary(Validation.stringOnly("Enter first name: "), Validation.stringOnly("Enter last name: "), Validation.intOnly("Enter total attendees: ", 1, 100), Validation.intOnly("Enter total activities: ", 1, preBuiltItems.getAvailableActivities().size()), Validation.getDateInput("Enter a date (DD-MM-YY): "));
@@ -116,6 +124,7 @@ public class ItineraryInput {
     System.out.println();
     boolean validInput = false;
 
+
     while (!validInput) {
       System.out.print("Enter add-on numbers separated by spaces (Enter if none are required): ");
       String itineraryAddOnNumbersInput = scanner.nextLine();
@@ -157,6 +166,12 @@ public class ItineraryInput {
     return itinerary;
   }
 
+  /**
+   * Allows the user to enter the add-on numbers for an activity.
+   * @param listToAddFrom The list of add-ons to add from.
+   * @param selectedActivity The activity to add the add-ons to.
+   * @param scanner The scanner to use for user input.
+   */
   public static void enterActivityAddOnNumbers(List<ActivityAddOn> listToAddFrom, Activity selectedActivity, Scanner scanner) {
     boolean validInput = false;
 

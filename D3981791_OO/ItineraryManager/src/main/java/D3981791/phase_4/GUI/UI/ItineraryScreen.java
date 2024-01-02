@@ -13,14 +13,17 @@ import javax.swing.border.Border;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
 
-import static D3981791.phase_4.GUI.UI.Format.formatItineraryCost;
+import static D3981791.phase_4.GUI.UI.Format.formatCost;
 
 /**
- *
- * @author d3981791
+ * The itinerary screen
  */
 public class ItineraryScreen extends JFrame {
 
+  /**
+   * Creates the itinerary screen
+   * @param selectedItinerary the itinerary to display
+   */
   public ItineraryScreen(Itinerary selectedItinerary) {
     super();
 
@@ -29,7 +32,7 @@ public class ItineraryScreen extends JFrame {
     textArea.append("Lead attendee: " + selectedItinerary.getLeadAttendeeFirstName() + " " + selectedItinerary.getLeadAttendeeLastName() + "\n");
     textArea.append("Total attendees: " + selectedItinerary.getTotalAttendees() + "\n");
     
-    textArea.append("Total cost: " + formatItineraryCost(selectedItinerary) + "\n");
+    textArea.append("Total cost: " + formatCost(selectedItinerary.getItineraryCost()) + "\n");
     textArea.append("Date: " + selectedItinerary.getDate());
 
     JTable itineraryAddOnsTable = new JTable();

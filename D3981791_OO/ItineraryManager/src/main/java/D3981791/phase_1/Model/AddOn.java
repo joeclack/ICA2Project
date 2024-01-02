@@ -6,7 +6,10 @@ package D3981791.phase_1.Model;
 
 import java.io.Serializable;
 
-public class AddOn implements Serializable {
+/**
+ * AddOn class that stores information about an add-on.
+ */
+public class AddOn {
 
   private final String name;
   private final int baseCost;

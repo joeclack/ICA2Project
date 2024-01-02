@@ -22,6 +22,9 @@ import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * The management screen
+ */
 public class ManagementScreen extends JFrame {
 
   private final PreBuiltItems preBuiltItems = new PreBuiltItems();
@@ -32,6 +35,9 @@ public class ManagementScreen extends JFrame {
   private final JScrollPane scrollPane;
   private final List<Itinerary> itineraries;
 
+  /**
+   * Creates the management screen
+   */
   public ManagementScreen() {
     super();
     SaveItinerary save = new SaveItinerary();
@@ -84,6 +90,7 @@ public class ManagementScreen extends JFrame {
     JLabel totalItinerariesLabel = new JLabel("Total Itineraries - (" + itineraries.size() + ")");
 
     JButton deleteAllButton = new JButton("Delete all");
+    // Deletes all itineraries
     deleteAllButton.addActionListener(event -> {
       save.deleteAll(itineraries);
       managementTable.updateUI();
@@ -92,18 +99,7 @@ public class ManagementScreen extends JFrame {
 
     JPanel toolBar = new JPanel();
 
-    JButton addItineraryButton = new JButton("Add itinerary");
-
-
-    addItineraryButton.addActionListener(event -> {
-      Itinerary newItinerary = testWithDifferentAttendeeNames(randomFirstnameGenerator(), randomSurnameGenerator(), randomAttendeeGenerator(), randomDateGenerator());
-      itineraries.add(newItinerary);
-      new SaveItinerary().serializeItineraries(newItinerary);
-      managementTable.setModel(new ItineraryTableModel(itineraries));
-      scrollPane.updateUI();
-      totalItinerariesLabel.setText("Total Itineraries - (" + itineraries.size() + ")");
-
-    });
+    JButton addItineraryButton = getAddItineraryButton(totalItinerariesLabel);
 
 
     Border border = BorderFactory.createLineBorder(Color.BLACK, 1);
@@ -188,6 +184,31 @@ public class ManagementScreen extends JFrame {
 
   }
 
+  /**
+   * Gets the add itinerary button
+   * @param totalItinerariesLabel The total itineraries label
+   * @return The add itinerary button
+   */
+  private JButton getAddItineraryButton(JLabel totalItinerariesLabel) {
+    JButton addItineraryButton = new JButton("Add itinerary");
+
+
+    addItineraryButton.addActionListener(event -> {
+      Itinerary newItinerary = testWithDifferentAttendeeNames(randomFirstnameGenerator(), randomSurnameGenerator(), randomAttendeeGenerator(), randomDateGenerator());
+      itineraries.add(newItinerary);
+      new SaveItinerary().serializeItineraries(newItinerary);
+      managementTable.setModel(new ItineraryTableModel(itineraries));
+      scrollPane.updateUI();
+      totalItinerariesLabel.setText("Total Itineraries - (" + itineraries.size() + ")");
+
+    });
+    return addItineraryButton;
+  }
+
+  /**
+   * Generates a random date
+   * @return The random date
+   */
   public static LocalDate randomDateGenerator() {
     int minDay = (int) LocalDate.of(2023, 12, 19).toEpochDay();
     int maxDay = (int) LocalDate.of(2024, 12, 31).toEpochDay();
@@ -195,24 +216,50 @@ public class ManagementScreen extends JFrame {
     return LocalDate.ofEpochDay(randomDay);
   }
 
+  /**
+   * Generates a random attendee
+   * @return The random attendee
+   */
   public static int randomAttendeeGenerator() {
     return (int) (Math.random() * 10) + 1;
   }
 
+  /**
+   * Generates a random first name
+   * @return The random first name
+   */
   public static String randomFirstnameGenerator() {
     List<String> names = Arrays.asList("John", "Sam", "Jack", "Jill", "James", "Ben", "Henry", "Bobby", "Dave", "Bridget", "Alice", "Sarah", "Jane", "Kate", "Mary", "Emily", "Emma", "Olivia", "Jessica", "Sophie");
     return names.get((int) (Math.random() * names.size()));
   }
 
+  /**
+   * Generates a random surname
+   * @return The random surname
+   */
   public static String randomSurnameGenerator() {
     List<String> surnames = Arrays.asList("Doe", "Smith", "Jones", "Brown", "Wilson", "Taylor", "Johnson", "White", "Martin", "Anderson", "Thompson", "Nguyen", "Thomas", "Walker", "Harris", "Lee", "Ryan", "Robinson");
     return surnames.get((int) (Math.random() * surnames.size()));
   }
 
+  /**
+   * Generates a random number
+   * @param min The minimum number
+   * @param max The maximum number
+   * @return The random number
+   */
   public static int randomNumGenerator(int min, int max) {
     return (int) (Math.random() * (max - min)) + min;
   }
 
+  /**
+   * Tests with different attendee names
+   * @param firstName The first name
+   * @param lastName The last name
+   * @param attendees The number of attendees
+   * @param date The date
+   * @return The itinerary
+   */
   public Itinerary testWithDifferentAttendeeNames(String firstName, String lastName, int attendees, LocalDate date) {
     PreBuiltItems preBuiltItems = new PreBuiltItems();
 

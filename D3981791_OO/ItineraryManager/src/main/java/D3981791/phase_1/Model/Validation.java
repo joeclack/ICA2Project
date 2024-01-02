@@ -10,8 +10,19 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
-public class Validation implements Serializable {
+/**
+ * Validation class that contains methods for validating user input.
+ */
 
+public class Validation {
+
+  /**
+   * Validates user input to ensure it is an integer.
+   * @param prompt
+   * @param min
+   * @param max
+   * @return
+   */
   public static int intOnly(String prompt, int min, int max) {
     Scanner scanner = new Scanner(System.in);
     int input = 0;
@@ -37,6 +48,13 @@ public class Validation implements Serializable {
     return input;
   }
 
+  /**
+   * Validates user input to ensure it is a double.
+   * @param prompt
+   * @param min
+   * @param max
+   * @return
+   */
   public static String stringOnly(String prompt) {
     Scanner scanner = new Scanner(System.in);
     String input;
@@ -54,6 +72,13 @@ public class Validation implements Serializable {
     return input;
   }
 
+  /**
+   * Validates user input to ensure it is a double.
+   * @param prompt
+   * @param min
+   * @param max
+   * @return
+   */
   public static LocalDate getDateInput(String prompt) {
     Scanner scanner = new Scanner(System.in);
     LocalDate inputDate = null;

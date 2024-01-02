@@ -9,9 +9,11 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Activity class that stores information about an activity.
+ */
 
-public class Activity implements Serializable {
-
+public class Activity {
   private final int baseCost;
   private final String title;
   private final String description;
@@ -22,6 +24,16 @@ public class Activity implements Serializable {
   private int totalCost;
   private final boolean requireInsurance;
   private boolean thirdPartyInsurance;
+
+  /**
+   * Constructor for Activity class.
+   * @param baseCost The base cost of the activity.
+   * @param title The title of the activity.
+   * @param description The description of the activity.
+   * @param location The location of the activity.
+   * @param expectedDuration The expected duration of the activity.
+   * @param requireInsurance Whether the activity requires insurance.
+   */
 
   public Activity(int baseCost, String title, String description,
                   String location, int expectedDuration, boolean requireInsurance) {

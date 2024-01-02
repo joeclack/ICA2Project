@@ -10,6 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Itinerary class that stores information about an itinerary.
+ */
+
 public class Itinerary implements Serializable {
 
   private int totalAttendees;
@@ -25,8 +29,14 @@ public class Itinerary implements Serializable {
   private double discountDecimal;
   private String numberInWordFormat;
 
-
-
+  /**
+   * Constructor for Itinerary class.
+   * @param leadAttendeeFirstName The first name of the lead attendee.
+   * @param leadAttendeeLastName The last name of the lead attendee.
+   * @param totalAttendees The total number of attendees.
+   * @param totalActivities The total number of activities.
+   * @param date The date of the itinerary.
+   */
 
   public Itinerary(String leadAttendeeFirstName, String leadAttendeeLastName, int totalAttendees, int totalActivities, LocalDate date) {
     this.totalAttendees = totalAttendees;
@@ -38,6 +48,9 @@ public class Itinerary implements Serializable {
     this.itineraryAddOnsList = new ArrayList<>();
   }
 
+  /**
+   * Calculates the total cost of the itinerary add-ons.
+   */
   public void calculateTotalItineraryAddOnsCost() {
     int cost = 0;
 
@@ -48,6 +61,9 @@ public class Itinerary implements Serializable {
     this.totalItineraryAddOnsCost = cost * this.totalAttendees;
   }
 
+  /**
+   * Calculates the total cost of the itinerary.
+   */
   public void calculateItineraryCost() {
     int cost = 0;
 
@@ -64,6 +80,9 @@ public class Itinerary implements Serializable {
     this.itineraryCost = (int) (cost * (1.0 - this.discountDecimal));
   }
 
+  /**
+   * Generates a reference number for the itinerary.
+   */
   public void generateRefNum() {
     Random random = new Random();
     String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -74,6 +93,9 @@ public class Itinerary implements Serializable {
     this.refNumber = this.leadAttendeeFirstName.charAt(0) + String.valueOf(this.leadAttendeeLastName.charAt(0)) + threeNums + lastChar;
   }
 
+    /**
+     * Calculates the discount for the itinerary.
+     */
   public void calculateDiscount() {
     double[][] discountTable = {
       {0.0, 0.05, 0.08},
@@ -105,6 +127,9 @@ public class Itinerary implements Serializable {
     this.discountDecimal = discountTable[colIndex][rowIndex];
   }
 
+  /**
+   * Converts the itinerary cost to a word format.
+   */
   public static String numberToWordConverter(int numToConvert) {
 
     String wordVersionNumber = "";

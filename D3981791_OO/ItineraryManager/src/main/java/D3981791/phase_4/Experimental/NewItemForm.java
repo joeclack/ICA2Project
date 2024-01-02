@@ -18,6 +18,9 @@ public class NewItemForm extends JFrame{
     private final List<String> types = List.of(new String[]{"Activity", "Activity Add-On", "Itinerary Add-On"});
 
 
+    /**
+     * Constructor for objects of class NewItemForm
+     */
     public NewItemForm() {
         super();
 
