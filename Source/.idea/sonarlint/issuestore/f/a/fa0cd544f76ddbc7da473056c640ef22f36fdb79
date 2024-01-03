@@ -1,0 +1,29 @@
+
+K
+java:S3740"/Provide the parametrized type for this generic.(ÓËÚQ8øœ×œÉ1
+Q
+java:S3740."/Provide the parametrized type for this generic.(ùò©£ıÿÿÿÿ8ùëœÉ1
+>
+java:S1170"!Make this final field static too.(Ï³‘Ÿ8„×œÉ1
+i
+java:S1659"GDeclare "titleField" and all following declarations on a separate line.(”é«µúÿÿÿÿ8„×œÉ1
+i
+java:S1659"GDeclare "titleLabel" and all following declarations on a separate line.(¡ÕšÊÿÿÿÿÿ8…×œÉ1
+C
+java:S1948"&Make "type" transient or serializable.(Ï³‘Ÿ8…×œÉ1
+Z
+java:S3878"8Remove this array creation and simply pass the elements.(Ã¶Òßùÿÿÿÿ8‡×œÉ1
+U
+java:S1117J"8Rename "type" which hides the field declared at line 12.(¨×Ï‡8‘‘ëœÉ1
+f
+java:S3252a"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(ªßßÏ8•‘ëœÉ1
+S
+java:S1068"1Remove this unused "preBuiltItems" private field.(Œóùïşÿÿÿÿ8×œÉ1
+E
+java:S1068"(Remove this unused "type" private field.(Ï³‘Ÿ8×œÉ1
+T
+java:S1068"2Remove this unused "insuranceField" private field.(”é«µúÿÿÿÿ8¶‰ØœÉ1
+[
+java:S1068"9Remove this unused "expectedDurationField" private field.(”é«µúÿÿÿÿ8É¼ıœÉ1
+[
+java:S1068"9Remove this unused "expectedDurationLabel" private field.(¡ÕšÊÿÿÿÿÿ8É¼ıœÉ1

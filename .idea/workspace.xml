@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="75031d2d-c761-4c5d-bf67-91a38d8106b0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ICA2Project.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc 2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules 2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/.idea/D3981791_OO.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/.idea/sonarlint/issuestore/1/2/1280246231402f287c47ce0cafe494b1435a88ae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/.idea/sonarlint/issuestore/4/4/44cb39e06f97d98c931a09ded7e1878169478e8b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/.idea/sonarlint/issuestore/6/4/640594fc88f30aad8083d1d5a82ee3dee02f1ff7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/.idea/sonarlint/issuestore/6/e/6ef496e5e758ea901edc0d88828124cff57dd80f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/.idea/sonarlint/issuestore/8/8/88a9255124c95bdc913197c120a8d560edc59c8e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/.idea/sonarlint/issuestore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/.idea/sonarlint/issuestore/f/a/fa0cd544f76ddbc7da473056c640ef22f36fdb79" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/.idea/sonarlint/issuestore/index.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/.idea/sonarlint/securityhotspotstore/1/2/1280246231402f287c47ce0cafe494b1435a88ae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/.idea/sonarlint/securityhotspotstore/4/4/44cb39e06f97d98c931a09ded7e1878169478e8b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/.idea/sonarlint/securityhotspotstore/6/4/640594fc88f30aad8083d1d5a82ee3dee02f1ff7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/.idea/sonarlint/securityhotspotstore/6/e/6ef496e5e758ea901edc0d88828124cff57dd80f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/.idea/sonarlint/securityhotspotstore/8/8/88a9255124c95bdc913197c120a8d560edc59c8e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/.idea/sonarlint/securityhotspotstore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/.idea/sonarlint/securityhotspotstore/f/a/fa0cd544f76ddbc7da473056c640ef22f36fdb79" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/ItineraryManager.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/nbactions.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/src/main/java/D3981791/phase_1/Model/Activity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/src/main/java/D3981791/phase_1/Model/ActivityAddOn.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/src/main/java/D3981791/phase_1/Model/AddOn.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/src/main/java/D3981791/phase_1/Model/Itinerary.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/src/main/java/D3981791/phase_1/Model/ItineraryAddOn.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/src/main/java/D3981791/phase_1/Model/PreBuiltItems.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/src/main/java/D3981791/phase_1/Model/Validation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/src/main/java/D3981791/phase_1/Phase1Run.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/src/main/java/D3981791/phase_2/Model/ItineraryInput.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/src/main/java/D3981791/phase_2/Phase2Run.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/src/main/java/D3981791/phase_2/TextUI/ConsoleUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/src/main/java/D3981791/phase_3/Model/SaveItinerary.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/src/main/java/D3981791/phase_3/Phase3Run.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/src/main/java/D3981791/phase_4/Experimental/NewItemForm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/src/main/java/D3981791/phase_4/GUI/Models/ActivitiesTableModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/src/main/java/D3981791/phase_4/GUI/Models/ItineraryAddOnTableModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/src/main/java/D3981791/phase_4/GUI/Models/ItineraryTableModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/src/main/java/D3981791/phase_4/GUI/Models/PreBuiltActivitiesAddOnsTableModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/src/main/java/D3981791/phase_4/GUI/Models/PreBuiltActivitiesTableModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/src/main/java/D3981791/phase_4/GUI/Models/PreBuiltItineraryAddOnsTableModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/src/main/java/D3981791/phase_4/GUI/UI/Format.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/src/main/java/D3981791/phase_4/GUI/UI/ItineraryScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/src/main/java/D3981791/phase_4/GUI/UI/ManagementScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/src/main/java/D3981791/phase_4/GUI/UI/NewItineraryForm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/src/main/java/D3981791/phase_4/Phase4Run.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/ItineraryManager-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/classes/D3981791/phase_1/Model/Activity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/classes/D3981791/phase_1/Model/ActivityAddOn.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/classes/D3981791/phase_1/Model/AddOn.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/classes/D3981791/phase_1/Model/Itinerary.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/classes/D3981791/phase_1/Model/ItineraryAddOn.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/classes/D3981791/phase_1/Model/PreBuiltItems.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/classes/D3981791/phase_1/Model/Validation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/classes/D3981791/phase_1/Phase1Run.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/classes/D3981791/phase_2/Model/ItineraryInput.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/classes/D3981791/phase_2/Phase2Run.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/classes/D3981791/phase_2/TextUI/ConsoleUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/classes/D3981791/phase_3/Model/SaveItinerary.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/classes/D3981791/phase_3/Phase3Run.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/classes/D3981791/phase_4/Experimental/NewItemForm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/classes/D3981791/phase_4/GUI/Models/ActivitiesTableModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/classes/D3981791/phase_4/GUI/Models/ItineraryAddOnTableModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/classes/D3981791/phase_4/GUI/Models/ItineraryTableModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/classes/D3981791/phase_4/GUI/Models/PreBuiltActivitiesAddOnsTableModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/classes/D3981791/phase_4/GUI/Models/PreBuiltActivitiesTableModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/classes/D3981791/phase_4/GUI/Models/PreBuiltItineraryAddOnsTableModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/classes/D3981791/phase_4/GUI/UI/Format.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/classes/D3981791/phase_4/GUI/UI/ItineraryScreen.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/classes/D3981791/phase_4/GUI/UI/ManagementScreen$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/classes/D3981791/phase_4/GUI/UI/ManagementScreen.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/classes/D3981791/phase_4/GUI/UI/NewItineraryForm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/classes/D3981791/phase_4/Phase4Run.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/classes/D3981791/phase_4/SwingUI/NewItineraryForm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/classes/D3981791/phase_4/SwingUI/PreBuiltActivitiesAddOnsTableModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/classes/D3981791/phase_4/SwingUI/PreBuiltActivitiesTableModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/classes/D3981791/phase_4/SwingUI/PreBuiltItineraryAddOnsTableModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3981791_OO/ItineraryManager/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/qodana.yaml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2aRF2SEWTclM7RIzm6N5H4g8lUi" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/joe.clack/OneDrive - Teesside University/Documents/Object-Oriented Programming/ICA Component 2 - Application Development/d3981791_OO/ItineraryManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="75031d2d-c761-4c5d-bf67-91a38d8106b0" name="Changes" comment="" />
+      <created>1704273277982</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1704273277982</updated>
+      <workItem from="1704273278918" duration="55000" />
+      <workItem from="1704273346531" duration="90000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

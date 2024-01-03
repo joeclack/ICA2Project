@@ -1,0 +1,19 @@
+
+N
+java:S1854)"8Remove this useless assignment to local variable "save".(üÎïô
+Q
+java:S1854";Remove this useless assignment to local variable "display".(¶¬à
+V
+java:S1854";Remove this useless assignment to local variable "scanner".(ù ƒ‘üÿÿÿÿ
+G
+java:S1481",Remove this unused "scanner" local variable.(ù ƒ‘üÿÿÿÿ
+B
+java:S1481",Remove this unused "display" local variable.(¶¬à
+Q	java:S125'"<This block of commented-out lines of code should be removed.(¡îê
+?
+java:S1481)")Remove this unused "save" local variable.(üÎïô
+Q	java:S125+"<This block of commented-out lines of code should be removed.(Üû§
+N
+java:S1128"3Remove this unused import 'D3981791.phase_1.Model'.(“¼§Œÿÿÿÿÿ
+]
+java:S1128"BRemove this unused import 'D3981791.phase_2.Model.ItineraryInput'.(§ö¡Æüÿÿÿÿ
