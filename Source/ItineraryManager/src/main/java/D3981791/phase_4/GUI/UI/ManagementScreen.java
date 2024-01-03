@@ -6,10 +6,10 @@ package D3981791.phase_4.GUI.UI;
 
 import D3981791.phase_1.Model.*;
 import D3981791.phase_3.Model.SaveItinerary;
-import D3981791.phase_4.GUI.Models.ItineraryTableModel;
-import D3981791.phase_4.GUI.Models.PreBuiltActivitiesAddOnsTableModel;
-import D3981791.phase_4.GUI.Models.PreBuiltActivitiesTableModel;
-import D3981791.phase_4.GUI.Models.PreBuiltItineraryAddOnsTableModel;
+import D3981791.phase_4.GUI.Models.ItineraryListModel;
+import D3981791.phase_4.GUI.Models.AvailableActivitiesAddOnModel;
+import D3981791.phase_4.GUI.Models.AvailableActivitiesModel;
+import D3981791.phase_4.GUI.Models.AvailableItineraryAddOnModel;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -43,7 +43,7 @@ public class ManagementScreen extends JFrame {
     SaveItinerary save = new SaveItinerary();
     itineraries = save.deSerializeItineraries();
     managementTable = new JTable();
-    managementTable.setModel(new ItineraryTableModel(itineraries));
+    managementTable.setModel(new ItineraryListModel(itineraries));
 
     managementTable.setBackground(Color.LIGHT_GRAY);
     managementTable.setGridColor(Color.DARK_GRAY);
@@ -59,19 +59,19 @@ public class ManagementScreen extends JFrame {
     setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 
     preBuiltActivitiesTable = new JTable();
-    preBuiltActivitiesTable.setModel(new PreBuiltActivitiesTableModel(preBuiltItems.getAvailableActivities()));
+    preBuiltActivitiesTable.setModel(new AvailableActivitiesModel(preBuiltItems.getAvailableActivities()));
     JTableHeader header2 = preBuiltActivitiesTable.getTableHeader();
     header2.setBackground(Color.DARK_GRAY);
     header2.setForeground(Color.white);
 
     preBuiltActivityAddOnsTable = new JTable();
-    preBuiltActivityAddOnsTable.setModel(new PreBuiltActivitiesAddOnsTableModel(preBuiltItems.getAvailableActivityAddOns()));
+    preBuiltActivityAddOnsTable.setModel(new AvailableActivitiesAddOnModel(preBuiltItems.getAvailableActivityAddOns()));
     JTableHeader header3 = preBuiltActivityAddOnsTable.getTableHeader();
     header3.setBackground(Color.DARK_GRAY);
     header3.setForeground(Color.white);
 
     preBuiltItineraryAddOnsTable = new JTable();
-    preBuiltItineraryAddOnsTable.setModel(new PreBuiltItineraryAddOnsTableModel(preBuiltItems.getAvailableItineraryAddOns()));
+    preBuiltItineraryAddOnsTable.setModel(new AvailableItineraryAddOnModel(preBuiltItems.getAvailableItineraryAddOns()));
     JTableHeader header4 = preBuiltItineraryAddOnsTable.getTableHeader();
     header4.setBackground(Color.DARK_GRAY);
     header4.setForeground(Color.white);
@@ -197,7 +197,7 @@ public class ManagementScreen extends JFrame {
       Itinerary newItinerary = testWithDifferentAttendeeNames(randomFirstnameGenerator(), randomSurnameGenerator(), randomAttendeeGenerator(), randomDateGenerator());
       itineraries.add(newItinerary);
       new SaveItinerary().serializeItineraries(newItinerary);
-      managementTable.setModel(new ItineraryTableModel(itineraries));
+      managementTable.setModel(new ItineraryListModel(itineraries));
       scrollPane.updateUI();
       totalItinerariesLabel.setText("Total Itineraries - (" + itineraries.size() + ")");
 

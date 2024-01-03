@@ -5,8 +5,8 @@
 package D3981791.phase_4.GUI.UI;
 
 import D3981791.phase_1.Model.Itinerary;
-import D3981791.phase_4.GUI.Models.ActivitiesTableModel;
-import D3981791.phase_4.GUI.Models.ItineraryAddOnTableModel;
+import D3981791.phase_4.GUI.Models.ActivitiesModel;
+import D3981791.phase_4.GUI.Models.SelectedItineraryAddOnModel;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -55,10 +55,10 @@ public class ItineraryScreen extends JFrame {
     activityHeader.setBackground(Color.DARK_GRAY);
     activityHeader.setForeground(Color.white);
 
-    itineraryAddOnsTable.setModel(new ItineraryAddOnTableModel(selectedItinerary.getItineraryAddOnsList()));
+    itineraryAddOnsTable.setModel(new SelectedItineraryAddOnModel(selectedItinerary.getItineraryAddOnsList()));
     JScrollPane scrollPane1 = new JScrollPane(itineraryAddOnsTable);
 
-    activitiesTable.setModel(new ActivitiesTableModel(selectedItinerary.getActivitiesList()));
+    activitiesTable.setModel(new ActivitiesModel(selectedItinerary.getActivitiesList()));
     JScrollPane scrollPane2 = new JScrollPane(activitiesTable);
 
     scrollPane1.setPreferredSize(new Dimension(380, 200));

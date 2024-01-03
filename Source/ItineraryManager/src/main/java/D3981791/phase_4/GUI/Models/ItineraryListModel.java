@@ -10,13 +10,13 @@ import D3981791.phase_4.GUI.UI.Format;
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
 
-public class ItineraryTableModel extends AbstractTableModel {
+public class ItineraryListModel extends AbstractTableModel {
 
   private final String[] columnNames = {"Ref", "Lead", "Attendees", "Activities", "Cost"};
 
   private final List<Itinerary> itineraries;
 
-  public ItineraryTableModel(List<Itinerary> itineraries) {
+  public ItineraryListModel(List<Itinerary> itineraries) {
     this.itineraries = itineraries;
   }
 

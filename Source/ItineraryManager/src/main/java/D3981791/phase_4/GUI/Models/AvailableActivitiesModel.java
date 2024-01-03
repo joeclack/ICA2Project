@@ -6,13 +6,13 @@ import D3981791.phase_4.GUI.UI.Format;
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
 
-public class PreBuiltActivitiesTableModel extends AbstractTableModel {
+public class AvailableActivitiesModel extends AbstractTableModel {
 
     private final String[] columnNames = {"Title", "Description", "Location", "Expected Duration", "Insurance Required", "Base Cost"};
 
     private final List<Activity> activities;
 
-    public PreBuiltActivitiesTableModel(List<Activity> activities) {
+    public AvailableActivitiesModel(List<Activity> activities) {
         this.activities = activities;
     }
 

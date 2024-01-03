@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ItineraryManager.iml" filepath="$PROJECT_DIR$/.idea/ItineraryManager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Source/ItineraryManager/ItineraryManager.iml" filepath="$PROJECT_DIR$/Source/ItineraryManager/ItineraryManager.iml" />
     </modules>
   </component>
 </project>
