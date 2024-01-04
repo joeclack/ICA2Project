@@ -1,17 +1,17 @@
-package D3981791.phase_4.GUI.Models;
+package D3981791.phase_4.Experimental;
 
 import D3981791.phase_1.Model.ActivityAddOn;
 import D3981791.phase_4.GUI.UI.Format;
 
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
-public class AvailableActivitiesAddOnModel extends AbstractTableModel {
+public class AvailableAAddOnModel extends AbstractTableModel {
 
     private String[] columnNames = {"Name", "Base Cost"};
 
     private final List<ActivityAddOn> activityAddOns;
 
-    public AvailableActivitiesAddOnModel(List<ActivityAddOn> activityAddOns) {
+    public AvailableAAddOnModel(List<ActivityAddOn> activityAddOns) {
         this.activityAddOns = activityAddOns;
 
     }

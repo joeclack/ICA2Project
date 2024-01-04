@@ -1,4 +1,4 @@
-package D3981791.phase_4.GUI.Models;
+package D3981791.phase_4.Experimental;
 
 import D3981791.phase_1.Model.ItineraryAddOn;
 import D3981791.phase_4.GUI.UI.Format;
@@ -6,13 +6,13 @@ import D3981791.phase_4.GUI.UI.Format;
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
 
-public class AvailableItineraryAddOnModel extends AbstractTableModel {
+public class AvailableIAddOnModel extends AbstractTableModel {
 
     private String[] columnNames = {"Name", "Base Cost"};
 
     private final List<ItineraryAddOn> itineraryAddOns;
 
-    public AvailableItineraryAddOnModel(List<ItineraryAddOn> itineraryAddOns) {
+    public AvailableIAddOnModel(List<ItineraryAddOn> itineraryAddOns) {
         this.itineraryAddOns = itineraryAddOns;
     }
 
