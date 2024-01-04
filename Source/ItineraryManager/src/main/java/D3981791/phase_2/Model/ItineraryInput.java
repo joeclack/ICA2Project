@@ -6,6 +6,7 @@ package D3981791.phase_2.Model;
 
 import D3981791.phase_1.Model.*;
 
+import java.io.Serializable;
 import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.stream.Collectors;
 /**
  * ItineraryInput class that handles user input for creating an itinerary.
  */
-public class ItineraryInput {
+public class ItineraryInput implements Serializable {
 
   private static final PreBuiltItems preBuiltItems = new PreBuiltItems();
 

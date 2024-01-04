@@ -10,7 +10,7 @@ import java.io.Serializable;
  * ItineraryAddOn class that stores information about an itinerary add-on.
  */
 
-public class ItineraryAddOn extends AddOn {
+public class ItineraryAddOn extends AddOn implements Serializable{
 
   public ItineraryAddOn(String name, int baseCost) {
     super(name, baseCost);

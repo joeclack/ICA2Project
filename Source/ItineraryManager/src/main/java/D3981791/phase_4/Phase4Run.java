@@ -4,9 +4,11 @@
  */
 package D3981791.phase_4;
 
+import D3981791.phase_1.Model.Itinerary;
+import D3981791.phase_2.Model.ItineraryInput;
 import D3981791.phase_2.TextUI.*;
 import D3981791.phase_4.GUI.UI.ManagementScreen;
-import D3981791.phase_4.GUI.UI.NewItineraryForm;
+import D3981791.phase_3.Model.SaveItinerary;
 
 import java.io.Serializable;
 import java.util.Scanner;
@@ -41,9 +43,12 @@ public class Phase4Run implements Serializable{
     System.out.print(">");
     int menuOption = scanner.nextInt();
 
+
     switch (menuOption) {
       case 1:
-        java.awt.EventQueue.invokeLater(() -> new NewItineraryForm().setVisible(true));
+        Itinerary newItinerary = ItineraryInput.generateItinerary();
+        display.fullItinerary(newItinerary);
+        new SaveItinerary().serializeItineraries(newItinerary);
         break;
       case 2:
         java.awt.EventQueue.invokeLater(() -> new ManagementScreen().setVisible(true));
@@ -56,5 +61,7 @@ public class Phase4Run implements Serializable{
         break;
     }
   }
+
+
 
 }

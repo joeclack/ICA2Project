@@ -9,7 +9,7 @@ import java.io.Serializable;
 /**
  * AddOn class that stores information about an add-on.
  */
-public class AddOn {
+public class AddOn implements Serializable{
 
   private final String name;
   private final int baseCost;

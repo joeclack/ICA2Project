@@ -14,7 +14,7 @@ import java.util.Scanner;
  * Validation class that contains methods for validating user input.
  */
 
-public class Validation {
+public class Validation implements Serializable{
 
   /**
    * Validates user input to ensure it is an integer.

@@ -7,7 +7,7 @@ import java.awt.*;
 import java.util.List;
 import java.util.Objects;
 
-public class NewItemForm extends JFrame{
+public class NewItemForm extends JFrame {
     private final PreBuiltItems preBuiltItems = new PreBuiltItems();
     private final Object type = null;
     private JTextField nameField, titleField , costField, actCostField, locationField, durationField, insuranceField, expectedDurationField, descriptionField;

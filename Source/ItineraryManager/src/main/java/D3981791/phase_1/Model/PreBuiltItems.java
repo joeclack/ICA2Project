@@ -13,7 +13,7 @@ import java.util.List;
  * PreBuiltItems class that stores information about pre-built items
  */
 
-public class PreBuiltItems  {
+public class PreBuiltItems implements Serializable {
   /**
    * List of available activities
    */

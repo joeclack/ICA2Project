@@ -6,10 +6,12 @@ package D3981791.phase_2.TextUI;
 
 import D3981791.phase_1.Model.*;
 
+import java.io.Serializable;
+
 /**
  * ConsoleUI class that handles the console user interface.
  */
-public class ConsoleUI {
+public class ConsoleUI implements Serializable {
 
   final int MAX_WIDTH = 55;
   final String LEFT_BORDER = "| ";

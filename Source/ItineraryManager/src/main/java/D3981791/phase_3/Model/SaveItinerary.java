@@ -7,6 +7,7 @@ package D3981791.phase_3.Model;
 import D3981791.phase_1.Model.Itinerary;
 
 import java.io.*;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +31,7 @@ public class SaveItinerary implements Serializable {
       objOut.close();
       fileOut.close();
     } catch (IOException i) {
-
+      System.out.println("Error: " + i.getMessage());
     }
   }
 
@@ -54,7 +55,7 @@ public class SaveItinerary implements Serializable {
         fileIn.close();
       }
     } catch (IOException | ClassNotFoundException e) {
-
+      System.out.println("Error: " + e.getMessage());
     }
 
     return loadedItineraries;
@@ -78,7 +79,7 @@ public class SaveItinerary implements Serializable {
           objOut.close();
           fileOut.close();
         } catch (IOException i) {
-            throw new RuntimeException(i);
+          System.out.println("Error: " + i.getMessage());
         }
       } 
 
@@ -100,7 +101,7 @@ public class SaveItinerary implements Serializable {
       objOut.close();
       fileOut.close();
     } catch (IOException i) {
-      throw new RuntimeException(i);
+        System.out.println("Error: " + i.getMessage());
     }
   }
 }

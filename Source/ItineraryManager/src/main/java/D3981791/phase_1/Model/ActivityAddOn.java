@@ -10,7 +10,7 @@ import java.io.Serializable;
  * ActivityAddOn class that stores information about an activity add-on.
  */
 
-public class ActivityAddOn extends AddOn {
+public class ActivityAddOn extends AddOn implements Serializable {
 
   public ActivityAddOn(String name, int baseCost) {
     super(name, baseCost);

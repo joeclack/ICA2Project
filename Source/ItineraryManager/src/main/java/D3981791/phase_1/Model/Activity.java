@@ -13,7 +13,7 @@ import java.util.List;
  * Activity class that stores information about an activity.
  */
 
-public class Activity {
+public class Activity implements Serializable {
   private final int baseCost;
   private final String title;
   private final String description;
