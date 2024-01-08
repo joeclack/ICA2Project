@@ -4,8 +4,6 @@
  */
 package D3981791.phase_4.GUI.UI;
 
-import D3981791.phase_1.Model.Itinerary;
-
 import java.text.DecimalFormat;
 
 public class Format {
@@ -22,5 +20,6 @@ public class Format {
 
     return decimalFormat.format(costDouble);
   }
+
 
 }

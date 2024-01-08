@@ -6,10 +6,10 @@ package D3981791.phase_4.GUI.UI;
 
 import D3981791.phase_1.Model.*;
 import D3981791.phase_3.Model.SaveItinerary;
-import D3981791.phase_4.GUI.Models.ItineraryListModel;
 import D3981791.phase_4.Experimental.AvailableAAddOnModel;
 import D3981791.phase_4.Experimental.AvailableActivitiesModel;
 import D3981791.phase_4.Experimental.AvailableIAddOnModel;
+import D3981791.phase_4.GUI.Models.ItineraryListModel;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -28,33 +28,29 @@ import java.util.List;
 public class ManagementScreen extends JFrame {
 
   private final PreBuiltItems preBuiltItems = new PreBuiltItems();
-  private final JTable managementTable;
-  private final JTable preBuiltActivitiesTable;
-  private final JTable preBuiltActivityAddOnsTable;
-  private final JTable preBuiltItineraryAddOnsTable;
-  private final JScrollPane scrollPane;
-  private final List<Itinerary> itineraries;
+  private final JTable managementTable, preBuiltActivitiesTable, preBuiltActivityAddOnsTable, preBuiltItineraryAddOnsTable;
+  private final JScrollPane itinerariesScrollPane;
+  private final JPanel preBuiltItemsTablePanel;
+  SaveItinerary save = new SaveItinerary();
+  private final List<Itinerary> itineraries = save.deSerializeItineraries();;
 
   /**
    * Creates the management screen
    */
   public ManagementScreen() {
     super();
-    SaveItinerary save = new SaveItinerary();
-    itineraries = save.deSerializeItineraries();
+
     managementTable = new JTable();
     managementTable.setModel(new ItineraryListModel(itineraries));
-
     managementTable.setBackground(Color.LIGHT_GRAY);
     managementTable.setGridColor(Color.DARK_GRAY);
     managementTable.setSelectionBackground(new Color(192, 217, 237));
-
     JTableHeader header = managementTable.getTableHeader();
     header.setBackground(Color.DARK_GRAY);
     header.setForeground(Color.white);
     managementTable.getTableHeader().setReorderingAllowed(false);
 
-    scrollPane = new JScrollPane(managementTable);
+    itinerariesScrollPane = new JScrollPane(managementTable);
 
     setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 
@@ -76,25 +72,33 @@ public class ManagementScreen extends JFrame {
     header4.setBackground(Color.DARK_GRAY);
     header4.setForeground(Color.white);
 
-    JPanel preBuiltItemsTablePanel = new JPanel();
+    preBuiltItemsTablePanel = new JPanel();
     preBuiltItemsTablePanel.setLayout(new BoxLayout(preBuiltItemsTablePanel, BoxLayout.X_AXIS));
     preBuiltItemsTablePanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 5, 0));
     preBuiltItemsTablePanel.add(new JScrollPane(preBuiltActivitiesTable));
     preBuiltItemsTablePanel.add(new JScrollPane(preBuiltActivityAddOnsTable));
     preBuiltItemsTablePanel.add(new JScrollPane(preBuiltItineraryAddOnsTable));
 
-
-
-
-
     JLabel totalItinerariesLabel = new JLabel("Total Itineraries - (" + itineraries.size() + ")");
 
     JButton deleteAllButton = new JButton("Delete all");
     // Deletes all itineraries
     deleteAllButton.addActionListener(event -> {
-      save.deleteAll(itineraries);
-      managementTable.updateUI();
-      totalItinerariesLabel.setText("Total Itineraries - (" + itineraries.size() + ")");
+      if(itineraries.isEmpty()) {
+        JOptionPane.showMessageDialog(getContentPane(), "There are no itineraries to delete", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+      } else {
+        int confirmation = JOptionPane.showConfirmDialog(getContentPane(), "Are you sure you want to delete all itineraries?", "Confirmation", JOptionPane.YES_NO_OPTION);
+
+        if (confirmation == JOptionPane.NO_OPTION) {
+          return;
+        } else if (confirmation == JOptionPane.YES_OPTION) {
+          save.deleteAll(itineraries);
+          managementTable.updateUI();
+          totalItinerariesLabel.setText("Total Itineraries - (" + itineraries.size() + ")");
+        }
+      }
+
     });
 
     JPanel toolBar = new JPanel();
@@ -110,11 +114,24 @@ public class ManagementScreen extends JFrame {
 
     toolBar.setLayout(new BoxLayout(toolBar, BoxLayout.X_AXIS));
     toolBar.add(deleteAllButton);
-    toolBar.add(totalItinerariesLabel);
     toolBar.add(addItineraryButton);
-    toolBar.setBackground(Color.LIGHT_GRAY);
 
 
+    JButton togglePreBuiltItemsButton = new JButton("Show pre-built items");
+    togglePreBuiltItemsButton.addActionListener(event -> {
+      if (preBuiltItemsTablePanel.isVisible()) {
+        preBuiltItemsTablePanel.setVisible(false);
+        togglePreBuiltItemsButton.setText("Show pre-built items");
+      } else {
+        preBuiltItemsTablePanel.setVisible(true);
+        togglePreBuiltItemsButton.setText("Hide pre-built items");
+      }
+    });
+
+    preBuiltItemsTablePanel.setVisible(false);
+    toolBar.add(togglePreBuiltItemsButton);
+
+//    toolBar.setBackground(Color.LIGHT_GRAY);
 
     managementTable.addMouseListener(new MouseAdapter() {
       @Override
@@ -126,7 +143,7 @@ public class ManagementScreen extends JFrame {
 
             for (Itinerary selectedItinerary : itineraries) {
               if (selectedItinerary.getRefNumber().equals(itineraryAtRow0)) {
-                new ItineraryScreen(selectedItinerary).setVisible(true);
+                new ItineraryScreen(selectedItinerary, itineraries, managementTable).setVisible(true);
                 managementTable.clearSelection();
                 break;
               }
@@ -157,25 +174,12 @@ public class ManagementScreen extends JFrame {
       }
     });
 
-    JButton togglePreBuiltItemsButton = new JButton("Show pre-built items");
-    togglePreBuiltItemsButton.addActionListener(event -> {
-      if (preBuiltItemsTablePanel.isVisible()) {
-        preBuiltItemsTablePanel.setVisible(false);
-        togglePreBuiltItemsButton.setText("Show pre-built items");
-      } else {
-        preBuiltItemsTablePanel.setVisible(true);
-        togglePreBuiltItemsButton.setText("Hide pre-built items");
-      }
-    });
-
-    preBuiltItemsTablePanel.setVisible(false);
-    toolBar.add(togglePreBuiltItemsButton);
-    add(scrollPane, BorderLayout.NORTH);
-    add(toolBar, BorderLayout.CENTER);
+    toolBar.add(totalItinerariesLabel);
+    toolBar.add(Box.createHorizontalGlue());
+    add(toolBar, BorderLayout.NORTH);
+    add(itinerariesScrollPane, BorderLayout.CENTER);
     add(preBuiltItemsTablePanel, BorderLayout.SOUTH);
-
     setSize(1000, 500);
-
     setTitle("Management Screen");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
     setAlwaysOnTop(true);
@@ -198,7 +202,7 @@ public class ManagementScreen extends JFrame {
       itineraries.add(newItinerary);
       new SaveItinerary().serializeItineraries(newItinerary);
       managementTable.setModel(new ItineraryListModel(itineraries));
-      scrollPane.updateUI();
+      itinerariesScrollPane.updateUI();
       totalItinerariesLabel.setText("Total Itineraries - (" + itineraries.size() + ")");
 
     });

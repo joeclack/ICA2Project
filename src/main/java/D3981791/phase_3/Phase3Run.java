@@ -4,9 +4,10 @@
  */
 package D3981791.phase_3;
 
-import D3981791.phase_1.Model.*;
+import D3981791.phase_1.Model.Itinerary;
+import D3981791.phase_1.Model.Validation;
 import D3981791.phase_2.Model.ItineraryInput;
-import D3981791.phase_2.TextUI.*;
+import D3981791.phase_2.TextUI.ConsoleUI;
 import D3981791.phase_3.Model.SaveItinerary;
 
 import java.io.Serializable;

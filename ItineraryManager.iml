@@ -3,4 +3,9 @@
   <component name="SonarLintModuleSettings">
     <option name="uniqueId" value="aadd05f7-94b2-42cd-ae3a-13cc12af0b84" />
   </component>
+  <dependency>
+    <groupId>com.formdev</groupId>
+    <artifactId>flatlaf-intellij-themes</artifactId>
+    <version>3.2.5</version>
+  </dependency>
 </module>

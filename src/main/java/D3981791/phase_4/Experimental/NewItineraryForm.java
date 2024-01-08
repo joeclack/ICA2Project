@@ -148,7 +148,7 @@ public class NewItineraryForm extends JFrame {
             itinerary.calculateItineraryCost();
             itinerary.generateRefNum();
             new SaveItinerary().serializeItineraries(itinerary);
-            java.awt.EventQueue.invokeLater(() -> new ItineraryScreen(itinerary).setVisible(true));
+//            java.awt.EventQueue.invokeLater(() -> new ItineraryScreen(itinerary).setVisible(true));
 
             // clear all fields
             firstNameField.setText("");

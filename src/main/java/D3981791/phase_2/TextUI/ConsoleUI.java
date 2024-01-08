@@ -4,7 +4,10 @@
  */
 package D3981791.phase_2.TextUI;
 
-import D3981791.phase_1.Model.*;
+import D3981791.phase_1.Model.Activity;
+import D3981791.phase_1.Model.ActivityAddOn;
+import D3981791.phase_1.Model.Itinerary;
+import D3981791.phase_1.Model.ItineraryAddOn;
 
 import java.io.Serializable;
 

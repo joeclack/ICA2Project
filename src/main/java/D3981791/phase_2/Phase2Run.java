@@ -4,9 +4,8 @@
  */
 package D3981791.phase_2;
 
-import D3981791.phase_1.Model.*;
-import D3981791.phase_2.Model.*;
-import D3981791.phase_2.TextUI.*;
+import D3981791.phase_2.Model.ItineraryInput;
+import D3981791.phase_2.TextUI.ConsoleUI;
 
 public class Phase2Run {
 

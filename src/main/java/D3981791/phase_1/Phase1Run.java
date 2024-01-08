@@ -4,11 +4,7 @@
  */
 package D3981791.phase_1;
 
-import D3981791.phase_1.Model.PreBuiltItems;
-import D3981791.phase_1.Model.Activity;
-import D3981791.phase_1.Model.ActivityAddOn;
-import D3981791.phase_1.Model.Itinerary;
-import D3981791.phase_1.Model.ItineraryAddOn;
+import D3981791.phase_1.Model.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;

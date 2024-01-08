@@ -180,6 +180,9 @@ public class Itinerary implements Serializable {
   }
 
   public void setTotalAttendees(int totalAttendees) {
+    if(totalAttendees < 1 || totalAttendees > 100) {
+      throw new IllegalArgumentException("Total attendees must be greater than 0 and less than 100.");
+    }
     this.totalAttendees = totalAttendees;
   }
 
@@ -188,6 +191,9 @@ public class Itinerary implements Serializable {
   }
 
   public void setTotalActivities(int totalActivities) {
+    if(totalActivities < 1 || totalActivities > new PreBuiltItems().getAvailableActivities().size()) {
+      throw new IllegalArgumentException("Total activities must be between 1 and " + new PreBuiltItems().getAvailableActivities().size() + " inclusive.");
+    }
     this.totalActivities = totalActivities;
   }
 

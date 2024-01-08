@@ -7,7 +7,6 @@ package D3981791.phase_3.Model;
 import D3981791.phase_1.Model.Itinerary;
 
 import java.io.*;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -6,18 +6,23 @@ package D3981791.phase_4;
 
 import D3981791.phase_1.Model.Itinerary;
 import D3981791.phase_2.Model.ItineraryInput;
-import D3981791.phase_2.TextUI.*;
-import D3981791.phase_4.GUI.UI.ManagementScreen;
+import D3981791.phase_2.TextUI.ConsoleUI;
 import D3981791.phase_3.Model.SaveItinerary;
+import D3981791.phase_4.GUI.UI.ManagementScreen;
 
 import java.io.Serializable;
 import java.util.Scanner;
 
 import static java.lang.System.exit;
 
+
+
+
 public class Phase4Run implements Serializable{
 
   public static void main(String[] args) {
+
+
 
     Scanner scanner = new Scanner(System.in);
 

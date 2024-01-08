@@ -6,13 +6,14 @@ package D3981791.phase_4.GUI.Models;
 
 import D3981791.phase_1.Model.Activity;
 import D3981791.phase_1.Model.ActivityAddOn;
+import D3981791.phase_4.GUI.UI.Format;
 
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
 
 public class ActivitiesModel extends AbstractTableModel {
 
-  private final String[] columnNames = {"Activities", "Add-Ons"};
+  private final String[] columnNames = {"Activities", "Add-Ons", "Cost"};
 
   private final List<Activity> selectedItineraryActivitiesList;
 
@@ -65,6 +66,8 @@ public class ActivitiesModel extends AbstractTableModel {
           }
         }
         return listOfActivityAddOns;
+      case 2:
+        return Format.formatCost(a.getTotalCost());
       default:
         return null;
     }
