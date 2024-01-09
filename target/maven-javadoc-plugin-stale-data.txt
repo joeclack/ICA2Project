@@ -1,0 +1,60 @@
+@options
+@packages
+-encoding
+'UTF-8'
+-protected
+-source
+'11'
+-sourcepath
+'C:/Users/joe.clack/OneDrive - Teesside University/Documents/Object-Oriented Programming/ICA Component 2 - Application Development/d3981791_OO/ItineraryManager/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2024. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/joe.clack/OneDrive - Teesside University/Documents/Object-Oriented Programming/ICA Component 2 - Application Development/d3981791_OO/ItineraryManager/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'ItineraryManager 1.0-SNAPSHOT API'
+-linkoffline
+'https://docs.oracle.com/en/java/javase/11/docs/api' 'C:/Users/joe.clack/OneDrive - Teesside University/Documents/Object-Oriented Programming/ICA Component 2 - Application Development/d3981791_OO/ItineraryManager/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'ItineraryManager 1.0-SNAPSHOT API'
+d3981791.phase1.model
+d3981791.phase1
+d3981791.phase2.model
+d3981791.phase2
+d3981791.phase2.UI
+d3981791.phase3.model
+d3981791.phase3
+d3981791.phase4.experimental
+d3981791.phase4
+d3981791.phase4.swing.frames
+d3981791.phase4.swing.model
+C:\Users\joe.clack\OneDrive - Teesside University\Documents\Object-Oriented Programming\ICA Component 2 - Application Development\d3981791_OO\ItineraryManager\src\main\java = 1704725093302
+C:\Users\joe.clack\OneDrive - Teesside University\Documents\Object-Oriented Programming\ICA Component 2 - Application Development\d3981791_OO\ItineraryManager\target\site\apidocs\allclasses-index.html = 1704821351592
+C:\Users\joe.clack\OneDrive - Teesside University\Documents\Object-Oriented Programming\ICA Component 2 - Application Development\d3981791_OO\ItineraryManager\target\site\apidocs\allclasses.html = 1704821351609
+C:\Users\joe.clack\OneDrive - Teesside University\Documents\Object-Oriented Programming\ICA Component 2 - Application Development\d3981791_OO\ItineraryManager\target\site\apidocs\allpackages-index.html = 1704821351597
+C:\Users\joe.clack\OneDrive - Teesside University\Documents\Object-Oriented Programming\ICA Component 2 - Application Development\d3981791_OO\ItineraryManager\target\site\apidocs\constant-values.html = 1704821351290
+C:\Users\joe.clack\OneDrive - Teesside University\Documents\Object-Oriented Programming\ICA Component 2 - Application Development\d3981791_OO\ItineraryManager\target\site\apidocs\deprecated-list.html = 1704821351604
+C:\Users\joe.clack\OneDrive - Teesside University\Documents\Object-Oriented Programming\ICA Component 2 - Application Development\d3981791_OO\ItineraryManager\target\site\apidocs\element-list = 1704821351204
+C:\Users\joe.clack\OneDrive - Teesside University\Documents\Object-Oriented Programming\ICA Component 2 - Application Development\d3981791_OO\ItineraryManager\target\site\apidocs\help-doc.html = 1704821351626
+C:\Users\joe.clack\OneDrive - Teesside University\Documents\Object-Oriented Programming\ICA Component 2 - Application Development\d3981791_OO\ItineraryManager\target\site\apidocs\index-all.html = 1704821351584
+C:\Users\joe.clack\OneDrive - Teesside University\Documents\Object-Oriented Programming\ICA Component 2 - Application Development\d3981791_OO\ItineraryManager\target\site\apidocs\index.html = 1704821351616
+C:\Users\joe.clack\OneDrive - Teesside University\Documents\Object-Oriented Programming\ICA Component 2 - Application Development\d3981791_OO\ItineraryManager\target\site\apidocs\jquery-ui.overrides.css = 1704821351697
+C:\Users\joe.clack\OneDrive - Teesside University\Documents\Object-Oriented Programming\ICA Component 2 - Application Development\d3981791_OO\ItineraryManager\target\site\apidocs\member-search-index.js = 1704821351578
+C:\Users\joe.clack\OneDrive - Teesside University\Documents\Object-Oriented Programming\ICA Component 2 - Application Development\d3981791_OO\ItineraryManager\target\site\apidocs\member-search-index.zip = 1704821351581
+C:\Users\joe.clack\OneDrive - Teesside University\Documents\Object-Oriented Programming\ICA Component 2 - Application Development\d3981791_OO\ItineraryManager\target\site\apidocs\overview-summary.html = 1704821351621
+C:\Users\joe.clack\OneDrive - Teesside University\Documents\Object-Oriented Programming\ICA Component 2 - Application Development\d3981791_OO\ItineraryManager\target\site\apidocs\overview-tree.html = 1704821351526
+C:\Users\joe.clack\OneDrive - Teesside University\Documents\Object-Oriented Programming\ICA Component 2 - Application Development\d3981791_OO\ItineraryManager\target\site\apidocs\package-search-index.js = 1704821351553
+C:\Users\joe.clack\OneDrive - Teesside University\Documents\Object-Oriented Programming\ICA Component 2 - Application Development\d3981791_OO\ItineraryManager\target\site\apidocs\package-search-index.zip = 1704821351567
+C:\Users\joe.clack\OneDrive - Teesside University\Documents\Object-Oriented Programming\ICA Component 2 - Application Development\d3981791_OO\ItineraryManager\target\site\apidocs\script.js = 1704821351637
+C:\Users\joe.clack\OneDrive - Teesside University\Documents\Object-Oriented Programming\ICA Component 2 - Application Development\d3981791_OO\ItineraryManager\target\site\apidocs\search.js = 1704821351641
+C:\Users\joe.clack\OneDrive - Teesside University\Documents\Object-Oriented Programming\ICA Component 2 - Application Development\d3981791_OO\ItineraryManager\target\site\apidocs\serialized-form.html = 1704821351308
+C:\Users\joe.clack\OneDrive - Teesside University\Documents\Object-Oriented Programming\ICA Component 2 - Application Development\d3981791_OO\ItineraryManager\target\site\apidocs\stylesheet.css = 1704821351632
+C:\Users\joe.clack\OneDrive - Teesside University\Documents\Object-Oriented Programming\ICA Component 2 - Application Development\d3981791_OO\ItineraryManager\target\site\apidocs\type-search-index.js = 1704821351571
+C:\Users\joe.clack\OneDrive - Teesside University\Documents\Object-Oriented Programming\ICA Component 2 - Application Development\d3981791_OO\ItineraryManager\target\site\apidocs\type-search-index.zip = 1704821351574

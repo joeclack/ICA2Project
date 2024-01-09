@@ -1,0 +1,11 @@
+
+‡
+java:S1192u"FDefine a constant instead of duplicating this literal "Error" 6 times.(¶ª·’øÿÿÿÿJ$27cc7a59-d8ad-4317-b8b4-b48342574620
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ü¥¼ÂJ$26f21900-35fc-4783-9c7e-c9c5410cfc55
+“
+java:S3776%"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(¢—ßùÿÿÿÿJ$4274f579-3b10-488b-a54b-ee1ec2564b34
+Š
+java:S3252-"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(Õû»öşÿÿÿÿJ$c7f1235a-9888-42b8-9bed-c1a0c31c748e
+l	java:S106«"+Replace this use of System.out by a logger.(İ›Ğ¯úÿÿÿÿJ$5102f3e7-fbc8-4ad2-815b-b3fb7debb2b7
+g	java:S106‡"+Replace this use of System.out by a logger.(¢—ŒJ$8f7c168d-0b7b-4439-a6e6-b2c3e81ec587
+g	java:S106"+Replace this use of System.out by a logger.(ĞÈ§¿J$72e371b8-4274-4aea-b9ff-f69d4ed96068

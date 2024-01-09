@@ -4,56 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75031d2d-c761-4c5d-bf67-91a38d8106b0" name="Changes" comment="cleaned up code">
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/a/2a86a79382fef77789ff7fa13919c831209d0648" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/6/36904bc10a0f95f8e7b77cf62ba3cefcf8f2b005" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/a/2a86a79382fef77789ff7fa13919c831209d0648" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/6/36904bc10a0f95f8e7b77cf62ba3cefcf8f2b005" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/ItineraryManager/ItineraryManager.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="75031d2d-c761-4c5d-bf67-91a38d8106b0" name="Changes" comment="extracted code into methods - ItineraryInput">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/d3981791/phase_1/model/Itinerary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/d3981791/phase_1/model/Itinerary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/d3981791/phase_1/model/Validation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/d3981791/phase_1/model/Validation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/d3981791/phase_2/model/ItineraryInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/d3981791/phase_2/model/ItineraryInput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ItineraryManager-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/ItineraryManager-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/D3981791/phase_1/Model/Activity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/D3981791/phase_1/Model/Activity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/D3981791/phase_1/Model/ActivityAddOn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/D3981791/phase_1/Model/ActivityAddOn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/D3981791/phase_1/Model/AddOn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/D3981791/phase_1/Model/AddOn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/D3981791/phase_1/Model/Itinerary.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/D3981791/phase_1/Model/Itinerary.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/D3981791/phase_1/Model/ItineraryAddOn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/D3981791/phase_1/Model/ItineraryAddOn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/D3981791/phase_1/Model/PreBuiltItems.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/D3981791/phase_1/Model/PreBuiltItems.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/D3981791/phase_1/Model/Validation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/D3981791/phase_1/Model/Validation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/D3981791/phase_1/Phase1Run.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/D3981791/phase_1/Phase1Run.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/D3981791/phase_2/Model/ItineraryInput.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/D3981791/phase_2/Model/ItineraryInput.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/D3981791/phase_2/Phase2Run.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/D3981791/phase_2/Phase2Run.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/D3981791/phase_2/TextUI/ConsoleUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/D3981791/phase_2/TextUI/ConsoleUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/D3981791/phase_3/Model/SaveItinerary.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/D3981791/phase_3/Model/SaveItinerary.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/D3981791/phase_3/Phase3Run.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/D3981791/phase_3/Phase3Run.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/D3981791/phase_4/Experimental/AvailableAAddOnModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/D3981791/phase_4/Experimental/AvailableAAddOnModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/D3981791/phase_4/Experimental/AvailableActivitiesModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/D3981791/phase_4/Experimental/AvailableActivitiesModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/D3981791/phase_4/Experimental/AvailableIAddOnModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/D3981791/phase_4/Experimental/AvailableIAddOnModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/D3981791/phase_4/Experimental/NewItemForm.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/D3981791/phase_4/Experimental/NewItineraryForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/D3981791/phase_4/Experimental/NewItineraryForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/D3981791/phase_4/GUI/Models/ActivitiesModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/D3981791/phase_4/GUI/Models/AvailableActivitiesAddOnModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/D3981791/phase_4/GUI/Models/AvailableActivitiesModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/D3981791/phase_4/GUI/Models/AvailableItineraryAddOnModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/D3981791/phase_4/GUI/Models/ItineraryListModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/D3981791/phase_4/GUI/Models/SelectedItineraryAddOnModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/D3981791/phase_4/GUI/UI/Format.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/D3981791/phase_4/GUI/UI/ItineraryScreen.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/D3981791/phase_4/GUI/UI/ManagementScreen$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/D3981791/phase_4/GUI/UI/ManagementScreen.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/D3981791/phase_4/Phase4Run.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/D3981791/phase_4/Phase4Run.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/itineraries.txt" beforeDir="false" afterPath="$PROJECT_DIR$/itineraries.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbactions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/nbactions.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/d3981791/phase_1/Phase1Run.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/d3981791/phase1/Phase1Run.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/d3981791/phase_1/model/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/d3981791/phase1/model/Activity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/d3981791/phase_1/model/ActivityAddOn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/d3981791/phase1/model/ActivityAddOn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/d3981791/phase_1/model/AddOn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/d3981791/phase1/model/AddOn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/d3981791/phase_1/model/Itinerary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/d3981791/phase1/model/Itinerary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/d3981791/phase_1/model/ItineraryAddOn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/d3981791/phase1/model/ItineraryAddOn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/d3981791/phase_1/model/PreBuiltItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/d3981791/phase1/model/PreBuiltItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/d3981791/phase_1/model/Validation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/d3981791/phase1/model/Validation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/d3981791/phase_2/Phase2Run.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/d3981791/phase2/Phase2Run.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/d3981791/phase_2/model/ItineraryInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/d3981791/phase2/model/ItineraryInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/d3981791/phase_2/textUI/ConsoleUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/d3981791/phase2/UI/ConsoleOutput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/d3981791/phase_3/Phase3Run.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/d3981791/phase3/Phase3Run.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/d3981791/phase_3/model/SaveItinerary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/d3981791/phase3/model/SaveItinerary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/d3981791/phase_4/Phase4Run.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/d3981791/phase4/Phase4Run.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/d3981791/phase_4/experimental/AvailableAAddOnModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/d3981791/phase4/swing/model/AvailableAAddOnModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/d3981791/phase_4/experimental/AvailableActivitiesModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/d3981791/phase4/swing/model/AvailableActivitiesModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/d3981791/phase_4/experimental/AvailableIAddOnModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/d3981791/phase4/swing/model/AvailableIAddOnModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/d3981791/phase_4/experimental/NewItineraryForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/d3981791/phase4/experimental/NewItineraryForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/d3981791/phase_4/swing/frames/ItineraryScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/d3981791/phase4/swing/frames/ItineraryScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/d3981791/phase_4/swing/frames/ManagementScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/d3981791/phase4/swing/frames/ManagementScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/d3981791/phase_4/swing/model/ActivitiesModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/d3981791/phase4/swing/model/ActivitiesModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/d3981791/phase_4/swing/model/Format.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/d3981791/phase4/swing/model/Format.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/d3981791/phase_4/swing/model/ItineraryListModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/d3981791/phase4/swing/model/ItineraryListModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/d3981791/phase_4/swing/model/SelectedItineraryAddOnModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/d3981791/phase4/swing/model/SelectedItineraryAddOnModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +72,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
@@ -128,7 +109,7 @@
       <module name="ItineraryManager" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="d3981791.phase_4.experimental.*" />
+          <option name="PATTERN" value="d3981791.phase4.swing.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -137,11 +118,11 @@
       </method>
     </configuration>
     <configuration name="Phase1Run" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="d3981791.phase_1.Phase1Run" />
+      <option name="MAIN_CLASS_NAME" value="d3981791.phase1.Phase1Run" />
       <module name="ItineraryManager" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="d3981791.phase_1.*" />
+          <option name="PATTERN" value="d3981791.phase1.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -150,11 +131,11 @@
       </method>
     </configuration>
     <configuration name="Phase2Run" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="d3981791.phase_2.Phase2Run" />
+      <option name="MAIN_CLASS_NAME" value="d3981791.phase2.Phase2Run" />
       <module name="ItineraryManager" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="d3981791.phase_2.*" />
+          <option name="PATTERN" value="d3981791.phase2.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -163,11 +144,11 @@
       </method>
     </configuration>
     <configuration name="Phase3Run" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="d3981791.phase_3.Phase3Run" />
+      <option name="MAIN_CLASS_NAME" value="d3981791.phase3.Phase3Run" />
       <module name="ItineraryManager" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="d3981791.phase_3.*" />
+          <option name="PATTERN" value="d3981791.phase3.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -176,11 +157,11 @@
       </method>
     </configuration>
     <configuration name="Phase4Run" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="d3981791.phase_4.Phase4Run" />
+      <option name="MAIN_CLASS_NAME" value="d3981791.phase4.Phase4Run" />
       <module name="ItineraryManager" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="d3981791.phase_4.*" />
+          <option name="PATTERN" value="d3981791.phase4.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -221,7 +202,7 @@
       <workItem from="1704374847759" duration="12000" />
       <workItem from="1704813685862" duration="33000" />
       <workItem from="1704813731977" duration="237000" />
-      <workItem from="1704813985741" duration="3604000" />
+      <workItem from="1704813985741" duration="7487000" />
     </task>
     <task id="LOCAL-00001" summary="moved package">
       <option name="closed" value="true" />
@@ -287,7 +268,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704725488073</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="extracted code into methods - ItineraryInput">
+      <option name="closed" value="true" />
+      <created>1704817661203</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1704817661203</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,6 +302,7 @@
     <MESSAGE value="unversioned files?" />
     <MESSAGE value="shortened names and moved to experimental" />
     <MESSAGE value="cleaned up code" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleaned up code" />
+    <MESSAGE value="extracted code into methods - ItineraryInput" />
+    <option name="LAST_COMMIT_MESSAGE" value="extracted code into methods - ItineraryInput" />
   </component>
 </project>
