@@ -6,6 +6,7 @@ package d3981791.phase_1.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Scanner;
@@ -97,6 +98,27 @@ public class Validation implements Serializable {
         } while (!isValid);
 
         return inputDate;
+    }
+
+    public static LocalTime getTimeInput(String prompt) {
+        Scanner scanner = new Scanner(System.in);
+        LocalTime inputTime = null;
+        boolean isValid = false;
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
+
+        do {
+            System.out.print(prompt);
+            String userInput = scanner.nextLine().trim();
+
+            try {
+                inputTime = LocalTime.parse(userInput, timeFormatter);
+                isValid = true;
+            } catch (DateTimeParseException e) {
+                System.err.println("Invalid input. Please enter a time in the format HH:MM.");
+            }
+        } while (!isValid);
+
+        return inputTime;
     }
 
 }

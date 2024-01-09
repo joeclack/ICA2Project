@@ -27,6 +27,7 @@ public class Itinerary implements Serializable {
     private int totalItineraryAddOnsCost;
     private int itineraryCost;
     private double discountDecimal;
+    private final Random random;
 
     /**
      * Constructor for Itinerary class.
@@ -46,6 +47,7 @@ public class Itinerary implements Serializable {
         this.date = date;
         this.activitiesList = new ArrayList<>();
         this.itineraryAddOnsList = new ArrayList<>();
+        this.random = new Random();
     }
 
     /**
@@ -124,7 +126,7 @@ public class Itinerary implements Serializable {
      * Generates a reference number for the itinerary.
      */
     public void generateRefNum() {
-        Random random = new Random();
+
         String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         int threeNums = random.nextInt(999) + 100;
         int randLetterIndex = random.nextInt(alphabet.length());
