@@ -43,6 +43,7 @@ public class ItineraryListModel extends AbstractTableModel {
 
         Itinerary i = itineraries.get(rowIndex);
 
+        // Return the itinerary details
         switch (columnIndex) {
             case 0:
                 return i.getRefNumber();

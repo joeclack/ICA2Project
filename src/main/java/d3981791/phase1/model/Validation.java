@@ -100,6 +100,12 @@ public class Validation implements Serializable {
         return inputDate;
     }
 
+    /**
+     * Validates user input to ensure it is a time.
+     *
+     * @param prompt The prompt to be displayed to the user.
+     * @return The time input.
+     */
     public static LocalTime getTimeInput(String prompt) {
         Scanner scanner = new Scanner(System.in);
         LocalTime inputTime = null;

@@ -1,0 +1,25 @@
+
+q
+java:S1192R"VDefine a constant instead of duplicating this literal "Total Itineraries - (" 4 times.(™ÂÓ·ùÿÿÿÿ
+W
+java:S2184Û"@Cast one of the operands of this addition operation to a "long".(ßÑØû
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(æú‚
+j
+java:S1659"TDeclare "preBuiltActivitiesTable" and all following declarations on a separate line.(»ì—°
+7
+java:S1116#"Remove this empty statement.(»óà¥øÿÿÿÿ
+h
+java:S3776("RRefactor this method to reduce its Cognitive Complexity from 29 to the 15 allowed.(ÆÚÅ
+W	java:S125†"<This block of commented-out lines of code should be removed.(ãÀƒöøÿÿÿÿ
+@
+java:S2140Û")Use "java.util.Random.nextInt()" instead.(ßÑØû
+?
+java:S2140ä")Use "java.util.Random.nextInt()" instead.(²Éy
+@
+java:S2140í")Use "java.util.Random.nextInt()" instead.(ê‘œÆ
+@
+java:S2140ö")Use "java.util.Random.nextInt()" instead.(½Èè½
+E
+java:S2140€")Use "java.util.Random.nextInt()" instead.(µ«Îøÿÿÿÿ
+X
+java:S1117Œ"ARename "preBuiltItems" which hides the field declared at line 30.(¯´÷·

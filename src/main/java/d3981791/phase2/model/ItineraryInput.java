@@ -99,6 +99,13 @@ public class ItineraryInput implements Serializable {
         }
     }
 
+    /**
+     * Validates the add-on numbers entered by the user.
+     *
+     * @param itinerary             The itinerary to add the add-ons to.
+     * @param itineraryAddOnNumbers The add-on numbers entered by the user.
+     * @return Whether the add-on numbers are valid.
+     */
     private static boolean validItineraryAddOnInput(Itinerary itinerary, String[] itineraryAddOnNumbers) {
         boolean validInputNumbers = true;
 

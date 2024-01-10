@@ -1,0 +1,10 @@
+
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¿¨Äó8¥¯îŸÏ1J$517bedab-710a-4af9-b32f-a10b789da3c9
+m	java:S1060"+Replace this use of System.out by a logger.(äìÎÆ8ø¯îŸÏ1J$ecd5b025-62a8-4b9f-8dae-8982596b4242
+r	java:S1061"+Replace this use of System.out by a logger.(î‡ó©ùÿÿÿÿ8ø¯îŸÏ1J$95f4887b-386a-41b7-b3b0-cd6cdb08f142
+†
+java:S11559">Use isEmpty() to check whether the collection is empty or not.(Àê§šþÿÿÿÿ8ù¯îŸÏ1J$b8cd0850-b0fb-4fec-9515-de26be832769
+m	java:S106="+Replace this use of System.out by a logger.(¡«…ï8ù¯îŸÏ1J$e8be3164-0e47-4f95-9b3b-f00caf53b458
+r	java:S106?"+Replace this use of System.out by a logger.(ùë•Õüÿÿÿÿ8ù¯îŸÏ1J$8698fb07-71aa-4711-b2b8-ade653084052
+r	java:S106I"+Replace this use of System.out by a logger.(î‡ó©ùÿÿÿÿ8ú¯îŸÏ1J$668bd690-edf9-477c-bba5-bcd257c136a7
+m	java:S106M"+Replace this use of System.out by a logger.(‹À¡‰8ú¯îŸÏ1J$60a149cc-f21f-4b6a-8559-be9a8fd3c73e

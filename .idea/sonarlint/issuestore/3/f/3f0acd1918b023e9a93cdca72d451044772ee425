@@ -1,0 +1,20 @@
+
+}
+java:S1141B"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8¸¦ŸÏ1J$a371a422-6ac1-4d4c-94f2-a067e3d83e3a
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(å˜æÿÿÿÿÿ8¹¦ŸÏ1J$0805f7c6-1c87-4bfb-b5ba-5bd985264863
+–
+java:S2095"NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(İâ«òûÿÿÿÿ8Æ¦ŸÏ1J$a49e4349-2cad-4838-aa5f-6de2450adc94
+•
+java:S2095C"MUse try-with-resources or close this "FileInputStream" in a "finally" clause.(êà¢›ùÿÿÿÿ8ëšŸÏ1J$b76aeb51-5865-45e6-86b0-bfb884da2b02
+’
+java:S2095D"OUse try-with-resources or close this "ObjectInputStream" in a "finally" clause.(—¢È¢8ãÓ¡ŸÏ1J$0862d60a-2496-4511-a502-5b84b22ea923
+˜
+java:S2095"PUse try-with-resources or close this "ObjectOutputStream" in a "finally" clause.(ĞÛÅøÿÿÿÿ8Æ¦ŸÏ1J$4fcb113b-fc65-4d0f-b7a5-3a029d5de641
+d
+java:S1170"!Make this final field static too.(ùÃ­˜8Æ¦ŸÏ1J$df921f98-090c-4ac0-b0ab-eb5f0a2d6083
+r	java:S106#"+Replace this use of System.out by a logger.(‹’†ıÿÿÿÿ8Ë¦ŸÏ1J$8e70ee74-ca0e-4bac-bc16-7a8c699bdc31
+m	java:S106V"+Replace this use of System.err by a logger.(˜ŸÚá8×¦ŸÏ1J$a6c49ab0-d4bd-445b-bc75-b7215db242a7
+q
+java:S5413f")Verify that "remove()" is used correctly.(òÖÊùÿÿÿÿ8Ú¦ŸÏ1J$6d762a52-252d-447a-a697-bd09ae7d1fc4
+u
+java:S1128"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ8Ü¦ŸÏ1J$f9645316-4c9a-4c29-87c2-85d3cb18a938

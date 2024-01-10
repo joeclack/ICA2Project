@@ -1,0 +1,14 @@
+
+a
+java:S1192t"FDefine a constant instead of duplicating this literal "Error" 6 times.(¶ª·’øÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(£¢Õô
+m
+java:S3776$"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(Ž¢—ßùÿÿÿÿ
+d
+java:S3252,"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(Õû»öþÿÿÿÿ
+W	java:S125—"<This block of commented-out lines of code should be removed.(ä¯øÏþÿÿÿÿ
+F	java:S106©"+Replace this use of System.out by a logger.(Ý›Ð¯úÿÿÿÿ
+A	java:S106€"+Replace this use of System.out by a logger.(¢—žŒ
+A	java:S106ˆ"+Replace this use of System.out by a logger.(ÐÈ§¿
+Y
+java:S1128"DRemove this unused import 'D3981791.phase_4.GUI.UI.ItineraryScreen'.(ˆšé7

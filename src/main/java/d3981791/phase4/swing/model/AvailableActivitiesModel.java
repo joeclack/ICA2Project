@@ -40,6 +40,7 @@ public class AvailableActivitiesModel extends AbstractTableModel {
 
         Activity a = activities.get(rowIndex);
 
+        // Return the activity details
         switch (columnIndex) {
             case 0:
                 return a.getTitle();

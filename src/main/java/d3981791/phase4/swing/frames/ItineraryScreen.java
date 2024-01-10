@@ -22,7 +22,12 @@ public class ItineraryScreen extends JFrame {
     private final Itinerary itinerary;
     private final JTable itineraryAddOnsTable;
     private final JTable activitiesTable;
-    
+
+    /**
+     * Constructor for the itinerary screen
+     *
+     * @param itinerary The itinerary to display
+     */
     public ItineraryScreen(Itinerary itinerary) {
         super();
 
@@ -36,6 +41,7 @@ public class ItineraryScreen extends JFrame {
 
     }
 
+    // Set up the frame properties and add the panels
     private void setupItineraryFrame() {
         setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 
@@ -49,6 +55,7 @@ public class ItineraryScreen extends JFrame {
         setAlwaysOnTop(true);
     }
 
+    // Set up the panel containing the tables
     private JPanel itineraryItemsTablePanel() {
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(1, 2, 10, 10));
@@ -58,6 +65,7 @@ public class ItineraryScreen extends JFrame {
         return panel;
     }
 
+    // Set up the activities table
     private JTable setupActivitiesTable() {
         JTable table = new JTable();
         table.setModel(new ActivitiesModel(itinerary.getActivitiesList()));
@@ -73,6 +81,7 @@ public class ItineraryScreen extends JFrame {
         return table;
     }
 
+    // Set up the itinerary add-ons table
     private JTable setupItineraryAddOnsTable() {
         JTable table = new JTable();
         table.setModel(new SelectedItineraryAddOnModel(itinerary.getItineraryAddOnsList()));
@@ -88,10 +97,12 @@ public class ItineraryScreen extends JFrame {
         return table;
     }
 
+    // Set up the panel containing the itinerary info
     private JPanel setupItineraryInfoPanel() {
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(5, 2, 10, 10));
 
+        // Set up the text fields
         JTextField nameField = new JTextField(itinerary.getLeadAttendeeFirstName() + " " + itinerary.getLeadAttendeeLastName());
         nameField.setEditable(false);
         JTextField totalAttendeesField = new JTextField(String.valueOf(itinerary.getTotalAttendees()));

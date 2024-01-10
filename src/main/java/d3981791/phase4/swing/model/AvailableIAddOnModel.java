@@ -40,6 +40,7 @@ public class AvailableIAddOnModel extends AbstractTableModel {
 
         ItineraryAddOn i = itineraryAddOns.get(rowIndex);
 
+        // Return the itinerary add-on details
         switch (columnIndex) {
             case 0:
                 return i.getName();

@@ -51,7 +51,10 @@ public class Itinerary implements Serializable {
     }
 
     /**
-     * Converts the itinerary cost to a word format.
+     * Converts a number to its word version.
+     *
+     * @param numToConvert The number to convert.
+     * @return The word version of the number.
      */
     public static String numberToWordConverter(int numToConvert) {
 
@@ -91,7 +94,10 @@ public class Itinerary implements Serializable {
     }
 
     /**
-     * Calculates the total cost of the itinerary add-ons.
+     * Calculates the length of a line.
+     *
+     * @param line The line to calculate the length of.
+     * @return The length of the line.
      */
     public void calculateTotalItineraryAddOnsCost() {
         int cost = 0;
@@ -173,24 +179,12 @@ public class Itinerary implements Serializable {
         return date;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
     public int getTotalAttendees() {
         return totalAttendees;
     }
 
-    public void setTotalAttendees(int totalAttendees) {
-        this.totalAttendees = totalAttendees;
-    }
-
     public int getTotalActivities() {
         return totalActivities;
-    }
-
-    public void setTotalActivities(int totalActivities) {
-        this.totalActivities = totalActivities;
     }
 
     public String getRefNumber() {
@@ -201,16 +195,8 @@ public class Itinerary implements Serializable {
         return leadAttendeeFirstName;
     }
 
-    public void setLeadAttendeeFirstName(String leadAttendeeFirstName) {
-        this.leadAttendeeFirstName = leadAttendeeFirstName;
-    }
-
     public String getLeadAttendeeLastName() {
         return leadAttendeeLastName;
-    }
-
-    public void setLeadAttendeeLastName(String leadAttendeeLastName) {
-        this.leadAttendeeLastName = leadAttendeeLastName;
     }
 
     public List<Activity> getActivitiesList() {

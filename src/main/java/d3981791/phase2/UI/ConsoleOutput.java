@@ -163,6 +163,11 @@ public class ConsoleOutput implements Serializable {
         }
     }
 
+    /**
+     * Prints the total costs section of the itinerary.
+     *
+     * @param itinerary The itinerary to print.
+     */
     private void totalCostsSection(Itinerary itinerary) {
         System.out.println(generateFormattedCostLine("Total cost before discount applied: £" + String.format("%.2f", ((itinerary.getItineraryCost() / 100.0) / (1 - itinerary.getDiscountDecimal())))));
 
@@ -175,8 +180,11 @@ public class ConsoleOutput implements Serializable {
     /**
      * Prints the menu.
      */
-    public void menu() {
-        System.out.println("New itinerary \n" + "1. New itinerary \n" + "2. View itineraries \n" + "3. Exit \n");
+    public void menu(int phaseNumber) {
+        System.out.println("Phase: " + phaseNumber);
+        System.out.println("1. Create itinerary");
+        System.out.println("2. View itinerary");
+        System.out.println("3. Exit");
     }
 
 }

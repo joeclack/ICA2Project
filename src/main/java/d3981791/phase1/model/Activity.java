@@ -82,10 +82,6 @@ public class Activity implements Serializable {
         return totalCost;
     }
 
-    public void setTotalCost(int totalCost) {
-        this.totalCost = totalCost;
-    }
-
     public boolean isRequireInsurance() {
         return requireInsurance;
     }

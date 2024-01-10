@@ -42,6 +42,7 @@ public class SelectedItineraryAddOnModel extends AbstractTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
         ItineraryAddOn i = selectedItineraryAddOnsList.get(rowIndex);
 
+        // Return the itinerary add-on details
         switch (columnIndex) {
             case 0:
                 return i.getName();

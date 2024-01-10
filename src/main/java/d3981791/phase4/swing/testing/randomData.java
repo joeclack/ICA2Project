@@ -12,6 +12,7 @@ public class randomData {
      * @return The random date
      */
     public LocalDate dateGenerator() {
+        // Generate a random date between 19/12/2023 and 31/12/2024
         int minDay = (int) LocalDate.of(2023, 12, 19).toEpochDay();
         int maxDay = (int) LocalDate.of(2024, 12, 31).toEpochDay();
         long randomDay = minDay + (int) (Math.random() * (maxDay - minDay));

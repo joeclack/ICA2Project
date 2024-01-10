@@ -22,5 +22,4 @@ public class Format {
         return decimalFormat.format(costDouble);
     }
 
-
 }

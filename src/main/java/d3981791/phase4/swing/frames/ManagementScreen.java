@@ -4,10 +4,10 @@
  */
 package d3981791.phase4.swing.frames;
 
-import d3981791.phase1.Phase1Run;
+import d3981791.phase1.RunPhase1;
 import d3981791.phase1.model.Itinerary;
 import d3981791.phase1.model.PreBuiltItems;
-import d3981791.phase3.model.SaveItinerary;
+import d3981791.phase3.model.DataPersistence;
 import d3981791.phase4.swing.model.*;
 import d3981791.phase4.swing.testing.*;
 
@@ -32,27 +32,32 @@ public class ManagementScreen extends JFrame {
     private final JTable managementTable;
     private final List<Itinerary> itinerariesList;
     private final JLabel totalItinerariesLabel;
-    private final SaveItinerary save;
+    private final DataPersistence save;
     private final PreBuiltItems preBuiltItems;
     private final JPanel preBuiltItemsTablePanel;
     private final JPanel toolBarPanel;
 
     /**
-     * Creates the management screen
+     * Constructor for the management screen
      */
     public ManagementScreen() {
         super();
 
-        save = new SaveItinerary();
+        save = new DataPersistence();
 
+        // Set up the pre-built items object to retrieve activities and add-ons
         preBuiltItems = new PreBuiltItems();
 
+        // Set up the list of itineraries
         itinerariesList = save.deSerializeItineraries();
 
+        // Set up the total itineraries label
         totalItinerariesLabel = new JLabel(setTotalItinerariesText());
 
+        // Set up the management table with all itineraries loaded
         managementTable = createManagementTable();
 
+        // Set up the panel containing the pre-built items tables
         preBuiltItemsTablePanel = setupAvailableItemsPanel(setupAvailableAddOnsTable(), setupAvailableActivityAddOnsTable(), setupAvailableActivitiesTable());
 
         toolBarPanel = setupToolBarPanel();
@@ -71,7 +76,7 @@ public class ManagementScreen extends JFrame {
 
         setSize(1000, 500);
         setTitle("Management Screen");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
         setResizable(true);
         setLocationRelativeTo(null);
@@ -206,9 +211,9 @@ public class ManagementScreen extends JFrame {
         JButton button = new JButton("Add itinerary");
         button.addActionListener(event -> {
             randomData randomData = new randomData();
-            Itinerary newItinerary = new Phase1Run().createItinerary(randomData.firstNameGenerator(), randomData.lastNameGenerator(), randomData.attendeesGenerator(), randomData.dateGenerator());
+            Itinerary newItinerary = new RunPhase1().createItinerary(randomData.firstNameGenerator(), randomData.lastNameGenerator(), randomData.attendeesGenerator(), randomData.dateGenerator());
             itinerariesList.add(newItinerary);
-            new SaveItinerary().serializeItineraries(newItinerary);
+            new DataPersistence().serializeItineraries(newItinerary);
             managementTable.setModel(new ItineraryListModel(itinerariesList));
             managementTable.updateUI();
             totalItinerariesLabel.setText(setTotalItinerariesText());
