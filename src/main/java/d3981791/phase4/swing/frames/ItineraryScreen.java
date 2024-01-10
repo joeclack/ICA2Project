@@ -20,13 +20,23 @@ import static d3981791.phase4.swing.model.Format.formatCost;
  */
 public class ItineraryScreen extends JFrame {
 
-    /**
-     * Creates the itinerary screen
-     *
-     * @param selectedItinerary the itinerary to display
-     */
     public ItineraryScreen(Itinerary selectedItinerary) {
         super();
+
+        JPanel itineraryInfoForm = new JPanel();
+        itineraryInfoForm.setLayout(new GridLayout(5, 2, 10, 10));
+
+        JLabel nameLabel = new JLabel("Name");
+        JLabel totalAttendeesLabel = new JLabel("Total attendees");
+        JLabel totalCostLabel = new JLabel("Total cost");
+        JLabel discountLabel = new JLabel("Discount");
+        JLabel dateLabel = new JLabel("Date");
+
+        JTextField nameField = new JTextField();
+        JTextField totalAttendeesField = new JTextField();
+        JTextField totalCostField = new JTextField();
+        JTextField discountField = new JTextField();
+        JTextField dateField = new JTextField();
 
         JTextArea textArea = new JTextArea();
         textArea.setEditable(false);
