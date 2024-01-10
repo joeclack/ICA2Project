@@ -16,7 +16,7 @@ import static java.lang.System.exit;
 
 public class DataPersistence implements Serializable {
 
-    private final String filePath = "tineraries.txt";
+    private final String filePath = "itineraries.txt";
 
     /**
      * Writes the object to the file.
