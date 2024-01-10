@@ -1,24 +1,4 @@
 
-c
-3src/main/java/d3981791/phase_1/model/Itinerary.java,2\a\2a86a79382fef77789ff7fa13919c831209d0648
-q
-Asrc/main/java/d3981791/phase_4/experimental/NewItineraryForm.java,3\6\36904bc10a0f95f8e7b77cf62ba3cefcf8f2b005
-]
--src/main/java/d3981791/phase_1/Phase1Run.java,f\7\f79e01a611ac666bb8dd742163ff80d8b90dfd59
-h
-8src/main/java/d3981791/phase_1/model/ItineraryAddOn.java,b\7\b7ebb03da4cbefca0e6085d119e56c38d100eaba
-d
-4src/main/java/d3981791/phase_1/model/Validation.java,f\0\f08d616789ebce04f41e52cbcb6e41355b119f7a
-b
-2src/main/java/d3981791/phase_1/model/Activity.java,7\d\7d26b0f69a92807d7edd8df13475cd73c62e4b71
-h
-8src/main/java/d3981791/phase_2/model/ItineraryInput.java,2\6\26bfadc85ef3f21112093b1b6a5d76a254400535
-g
-7src/main/java/d3981791/phase_1/model/ActivityAddOn.java,b\7\b76160bfab7a8ee19e5656403f7e1187927f3f98
-_
-/src/main/java/d3981791/phase_1/model/AddOn.java,0\d\0de84796fd1d836860598a8b912e098b95e8191f
-g
-7src/main/java/d3981791/phase_1/model/PreBuiltItems.java,2\8\28ae83d7aa83a6ff69a0eaa3b3473deda34a00b5
 ]
 -.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
 Å
@@ -27,10 +7,6 @@ Q.idea/sonarlint/securityhotspotstore/3/6/36904bc10a0f95f8e7b77cf62ba3cefcf8f2b0
 ,Source/ItineraryManager/ItineraryManager.iml,c\d\cdc4a779038bc05ee5e57da8f2eee5530471872b
 S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
-d
-4src/main/java/d3981791/phase_2/textUI/ConsoleUI.java,2\c\2c26a7a6e9988c81142bf0545cd456ba9c246835
-c
-3src/main/java/d3981791/phase2/textUI/ConsoleUI.java,6\e\6ebbba5c7120951ecbf934ea80f6a9ab294bd4ce
 g
 7src/main/java/d3981791/phase2/model/ItineraryInput.java,8\b\8be1af8fa0ccbd01089d4c51009782b674ec1b3d
 g
@@ -49,8 +25,6 @@ a
 .src/main/java/d3981791/phase1/model/AddOn.java,c\3\c3452aa495b670d2cdd0e001a7a11efac41f3dfa
 f
 6src/main/java/d3981791/phase1/model/ActivityAddOn.java,c\f\cf7c6e388da13641b13d847e23d4f29bf7b28f74
-_
-/src/main/java/d3981791/phase2/UI/ConsoleUI.java,a\b\ab595f195d5e59f74d6059cebc9d7977b1ad604a
 c
 3src/main/java/d3981791/phase2/UI/ConsoleOutput.java,9\1\910cc23f6a6f702cf641a1195efdf2a143b37d62
 p
@@ -149,8 +123,6 @@ Q.idea/sonarlint/securityhotspotstore/0/d/0de84796fd1d836860598a8b912e098b95e819
 Q.idea/sonarlint/securityhotspotstore/b/7/b76160bfab7a8ee19e5656403f7e1187927f3f98,6\0\6096890425a678508831d6e03a5ef67f54f6fc31
 Å
 Q.idea/sonarlint/securityhotspotstore/2/8/28ae83d7aa83a6ff69a0eaa3b3473deda34a00b5,6\8\68fc172ce9068793e83d547fdadc33171d1957f9
-m
-=src/main/java/d3981791/phase4/swing/testing/newItinerary.java,8\4\8486dd62aa4cb672b773d59b8f8654cf8dc65950
 k
 ;src/main/java/d3981791/phase4/swing/testing/randomData.java,9\4\94d3628bdebfe59cc645198ab54a7ce29c0a47ec
 w

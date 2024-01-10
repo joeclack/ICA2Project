@@ -11,7 +11,7 @@ import java.util.List;
 
 public class SelectedItineraryAddOnModel extends AbstractTableModel {
 
-    private final String[] columnNames = {"Itinerary Add-Ons"};
+    private final String[] columnNames = {"Itinerary Add-Ons", "Cost"};
 
     private final List<ItineraryAddOn> selectedItineraryAddOnsList;
 
@@ -42,10 +42,14 @@ public class SelectedItineraryAddOnModel extends AbstractTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
         ItineraryAddOn i = selectedItineraryAddOnsList.get(rowIndex);
 
-        if (columnIndex == 0) {
-            return i.getName();
+        switch (columnIndex) {
+            case 0:
+                return i.getName();
+            case 1:
+                return Format.formatCost(i.getBaseCost());
+            default:
+                return null;
         }
-        return null;
     }
 
 }

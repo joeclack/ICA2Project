@@ -9,7 +9,6 @@ import d3981791.phase4.swing.model.ActivitiesModel;
 import d3981791.phase4.swing.model.SelectedItineraryAddOnModel;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
 
@@ -20,83 +19,101 @@ import static d3981791.phase4.swing.model.Format.formatCost;
  */
 public class ItineraryScreen extends JFrame {
 
-    public ItineraryScreen(Itinerary selectedItinerary) {
+    private final Itinerary itinerary;
+    private final JTable itineraryAddOnsTable;
+    private final JTable activitiesTable;
+    
+    public ItineraryScreen(Itinerary itinerary) {
         super();
 
-        JPanel itineraryInfoForm = new JPanel();
-        itineraryInfoForm.setLayout(new GridLayout(5, 2, 10, 10));
+        this.itinerary = itinerary;
 
-        JLabel nameLabel = new JLabel("Name");
-        JLabel totalAttendeesLabel = new JLabel("Total attendees");
-        JLabel totalCostLabel = new JLabel("Total cost");
-        JLabel discountLabel = new JLabel("Discount");
-        JLabel dateLabel = new JLabel("Date");
+        itineraryAddOnsTable = setupItineraryAddOnsTable();
 
-        JTextField nameField = new JTextField();
-        JTextField totalAttendeesField = new JTextField();
-        JTextField totalCostField = new JTextField();
-        JTextField discountField = new JTextField();
-        JTextField dateField = new JTextField();
+        activitiesTable = setupActivitiesTable();
 
-        JTextArea textArea = new JTextArea();
-        textArea.setEditable(false);
-        textArea.append("Lead attendee: " + selectedItinerary.getLeadAttendeeFirstName() + " " + selectedItinerary.getLeadAttendeeLastName() + "\n");
-        textArea.append("Total attendees: " + selectedItinerary.getTotalAttendees() + "\n");
+        setupItineraryFrame();
 
-        textArea.append("Total cost: " + formatCost(selectedItinerary.getItineraryCost()) + "\n");
-        textArea.append("Date: " + selectedItinerary.getDate());
+    }
 
-        JTable itineraryAddOnsTable = new JTable();
-        itineraryAddOnsTable.setBackground(Color.LIGHT_GRAY);
-        itineraryAddOnsTable.setGridColor(Color.DARK_GRAY);
-        itineraryAddOnsTable.setSelectionBackground(new Color(192, 217, 237));
-        itineraryAddOnsTable.getTableHeader().setReorderingAllowed(false);
+    private void setupItineraryFrame() {
+        setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 
-        JTableHeader addOnHeader = itineraryAddOnsTable.getTableHeader();
-        addOnHeader.setBackground(Color.DARK_GRAY);
-        addOnHeader.setForeground(Color.white);
+        add(setupItineraryInfoPanel(), BorderLayout.NORTH);
+        add(itineraryItemsTablePanel(), BorderLayout.SOUTH);
 
-        JTable activitiesTable = new JTable();
-        activitiesTable.setBackground(Color.LIGHT_GRAY);
-        activitiesTable.setGridColor(Color.DARK_GRAY);
-        activitiesTable.setSelectionBackground(new Color(192, 217, 237));
-        activitiesTable.getTableHeader().setReorderingAllowed(false);
-
-        JTableHeader activityHeader = activitiesTable.getTableHeader();
-        activityHeader.setBackground(Color.DARK_GRAY);
-        activityHeader.setForeground(Color.white);
-
-        itineraryAddOnsTable.setModel(new SelectedItineraryAddOnModel(selectedItinerary.getItineraryAddOnsList()));
-        JScrollPane scrollPane1 = new JScrollPane(itineraryAddOnsTable);
-
-        activitiesTable.setModel(new ActivitiesModel(selectedItinerary.getActivitiesList()));
-        JScrollPane scrollPane2 = new JScrollPane(activitiesTable);
-
-        scrollPane1.setPreferredSize(new Dimension(380, 200));
-        scrollPane2.setPreferredSize(new Dimension(380, 200));
-
-        itineraryAddOnsTable.setPreferredScrollableViewportSize(new Dimension(360, 180));
-        activitiesTable.setPreferredScrollableViewportSize(new Dimension(360, 180));
-
-        JPanel panel = new JPanel();
-        panel.setLayout(new BorderLayout());
-
-        panel.add(textArea, BorderLayout.NORTH);
-        panel.add(scrollPane1, BorderLayout.CENTER);
-        panel.add(scrollPane2, BorderLayout.SOUTH);
-
-        Border border = BorderFactory.createLineBorder(Color.BLACK, 1);
-        ((JComponent) getContentPane()).setBorder(BorderFactory.createCompoundBorder(border,
-                BorderFactory.createEmptyBorder(10, 10, 10, 10)));
-
-        setLayout(new BoxLayout(getContentPane(), BoxLayout.X_AXIS));
-        setTitle(selectedItinerary.getRefNumber());
         setResizable(true);
-        add(panel);
-
+        setTitle(itinerary.getRefNumber());
         setSize(800, 400);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
+    }
 
+    private JPanel itineraryItemsTablePanel() {
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(1, 2, 10, 10));
+        panel.add(new JScrollPane(itineraryAddOnsTable));
+        panel.add(new JScrollPane(activitiesTable));
+
+        return panel;
+    }
+
+    private JTable setupActivitiesTable() {
+        JTable table = new JTable();
+        table.setModel(new ActivitiesModel(itinerary.getActivitiesList()));
+        table.setBackground(Color.LIGHT_GRAY);
+        table.setGridColor(Color.DARK_GRAY);
+        table.setSelectionBackground(new Color(192, 217, 237));
+        table.getTableHeader().setReorderingAllowed(false);
+
+        JTableHeader header = table.getTableHeader();
+        header.setBackground(Color.DARK_GRAY);
+        header.setForeground(Color.white);
+
+        return table;
+    }
+
+    private JTable setupItineraryAddOnsTable() {
+        JTable table = new JTable();
+        table.setModel(new SelectedItineraryAddOnModel(itinerary.getItineraryAddOnsList()));
+        table.setBackground(Color.LIGHT_GRAY);
+        table.setGridColor(Color.DARK_GRAY);
+        table.setSelectionBackground(new Color(192, 217, 237));
+        table.getTableHeader().setReorderingAllowed(false);
+
+        JTableHeader addOnHeader = table.getTableHeader();
+        addOnHeader.setBackground(Color.DARK_GRAY);
+        addOnHeader.setForeground(Color.white);
+
+        return table;
+    }
+
+    private JPanel setupItineraryInfoPanel() {
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(5, 2, 10, 10));
+
+        JTextField nameField = new JTextField(itinerary.getLeadAttendeeFirstName() + " " + itinerary.getLeadAttendeeLastName());
+        nameField.setEditable(false);
+        JTextField totalAttendeesField = new JTextField(String.valueOf(itinerary.getTotalAttendees()));
+        totalAttendeesField.setEditable(false);
+        JTextField totalCostField = new JTextField(formatCost(itinerary.getItineraryCost()));
+        totalCostField.setEditable(false);
+        JTextField discountField = new JTextField(itinerary.getDiscountDecimal()*100 + "%");
+        discountField.setEditable(false);
+        JTextField dateField = new JTextField(String.valueOf(itinerary.getDate()));
+        dateField.setEditable(false);
+
+        panel.add(new JLabel("Name"));
+        panel.add(nameField);
+        panel.add(new JLabel("Total attendees"));
+        panel.add(totalAttendeesField);
+        panel.add(new JLabel("Total cost"));
+        panel.add(totalCostField);
+        panel.add(new JLabel("Discount"));
+        panel.add(discountField);
+        panel.add(new JLabel("Date"));
+        panel.add(dateField);
+
+        return panel;
     }
 }

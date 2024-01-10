@@ -4,13 +4,45 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75031d2d-c761-4c5d-bf67-91a38d8106b0" name="Changes" comment="cleaned up code and extracted into methods in ManagementScreen.java">
+    <list default="true" id="75031d2d-c761-4c5d-bf67-91a38d8106b0" name="Changes" comment="untracked">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/d/0de84796fd1d836860598a8b912e098b95e8191f" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/2/12ff75439bfabfd25297e2a993eecbec66dde172" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/2/12ff75439bfabfd25297e2a993eecbec66dde172" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/3/237ef68055b4b54bad01db0df93a17964ae3e3c2" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/3/237ef68055b4b54bad01db0df93a17964ae3e3c2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/6/26bfadc85ef3f21112093b1b6a5d76a254400535" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/8/28ae83d7aa83a6ff69a0eaa3b3473deda34a00b5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/a/2a86a79382fef77789ff7fa13919c831209d0648" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/c/2c26a7a6e9988c81142bf0545cd456ba9c246835" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/6/36904bc10a0f95f8e7b77cf62ba3cefcf8f2b005" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/e/6ebbba5c7120951ecbf934ea80f6a9ab294bd4ce" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/d/7d26b0f69a92807d7edd8df13475cd73c62e4b71" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/4/8486dd62aa4cb672b773d59b8f8654cf8dc65950" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/7/871aaf2b9dcc316c841265a1b3f3dbb00448c0d5" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/7/871aaf2b9dcc316c841265a1b3f3dbb00448c0d5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/b/ab595f195d5e59f74d6059cebc9d7977b1ad604a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/7/b76160bfab7a8ee19e5656403f7e1187927f3f98" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/7/b7ebb03da4cbefca0e6085d119e56c38d100eaba" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/e/ce94aa890347dbfed881ef414a2c0c12da2e1286" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/e/ce94aa890347dbfed881ef414a2c0c12da2e1286" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/0/f08d616789ebce04f41e52cbcb6e41355b119f7a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/7/f79e01a611ac666bb8dd742163ff80d8b90dfd59" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/d/0de84796fd1d836860598a8b912e098b95e8191f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/6/26bfadc85ef3f21112093b1b6a5d76a254400535" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/8/28ae83d7aa83a6ff69a0eaa3b3473deda34a00b5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/a/2a86a79382fef77789ff7fa13919c831209d0648" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/c/2c26a7a6e9988c81142bf0545cd456ba9c246835" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/6/36904bc10a0f95f8e7b77cf62ba3cefcf8f2b005" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/6/e/6ebbba5c7120951ecbf934ea80f6a9ab294bd4ce" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/7/d/7d26b0f69a92807d7edd8df13475cd73c62e4b71" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/4/8486dd62aa4cb672b773d59b8f8654cf8dc65950" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/b/ab595f195d5e59f74d6059cebc9d7977b1ad604a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/b/7/b76160bfab7a8ee19e5656403f7e1187927f3f98" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/b/7/b7ebb03da4cbefca0e6085d119e56c38d100eaba" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/f/0/f08d616789ebce04f41e52cbcb6e41355b119f7a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/f/7/f79e01a611ac666bb8dd742163ff80d8b90dfd59" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/d3981791/phase4/swing/frames/ItineraryScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/d3981791/phase4/swing/frames/ItineraryScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/D3981791/phase4/swing/frames/ItineraryScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/D3981791/phase4/swing/frames/ItineraryScreen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/D3981791/phase4/swing/frames/ManagementScreen$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/D3981791/phase4/swing/frames/ManagementScreen$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/D3981791/phase4/swing/frames/ManagementScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/D3981791/phase4/swing/frames/ManagementScreen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/d3981791/phase4/swing/model/Format.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/d3981791/phase4/swing/model/Format.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/d3981791/phase4/swing/model/SelectedItineraryAddOnModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/d3981791/phase4/swing/model/SelectedItineraryAddOnModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +90,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "WebServerToolWindowFactoryState": "false",
+    "extract.method.default.visibility": "private",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/joe.clack/OneDrive - Teesside University/Documents/Object-Oriented Programming/ICA Component 2 - Application Development/d3981791_OO/ItineraryManager",
@@ -71,18 +104,6 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="QodanaHighlightedReportService">
-    <option name="localRunNotPublishedPersistedInfo">
-      <LocalReportPersistedInfo>
-        <option name="path" value="C:\Users\joe.clack\AppData\Local\Temp\qodana_output\qodana.sarif.json" />
-        <option name="reportGuid" value="133c4490-69e5-4583-bf5f-96a4baaff523" />
-        <option name="reportName" value="ItineraryManager/qodana/2024-01-10" />
-      </LocalReportPersistedInfo>
-    </option>
-  </component>
-  <component name="QodanaIsSelectedPersistenceService">
-    <option name="selectedOrLoading" value="true" />
-  </component>
   <component name="QodanaReportsService">
     <option name="descriptions">
       <ReportDescription localRun="true" path="C:\Users\joe.clack\AppData\Local\Temp\qodana_output\qodana.sarif.json" reportGuid="133c4490-69e5-4583-bf5f-96a4baaff523" reportId="ItineraryManager/qodana/2024-01-10" />
@@ -168,9 +189,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Phase4Run" />
+        <item itemvalue="Application.Phase3Run" />
         <item itemvalue="Application.Phase2Run" />
         <item itemvalue="Application.Phase1Run" />
-        <item itemvalue="Application.Phase3Run" />
         <item itemvalue="Application.NewItemForm" />
       </list>
     </recent_temporary>
@@ -199,6 +220,7 @@
       <workItem from="1704813685862" duration="33000" />
       <workItem from="1704813731977" duration="237000" />
       <workItem from="1704813985741" duration="15762000" />
+      <workItem from="1704884038981" duration="2471000" />
     </task>
     <task id="LOCAL-00001" summary="moved package">
       <option name="closed" value="true" />

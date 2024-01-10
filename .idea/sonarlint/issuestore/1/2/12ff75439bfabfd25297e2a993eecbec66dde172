@@ -1,22 +1,2 @@
 
-›	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‡…™u8κώδ—Ο1J$d319c1d9-b3ad-4ba4-9108-ae31f35653db
-v
-java:S1481".Remove this unused "nameLabel" local variable.(¤ΦΚϋÿÿÿÿ8τώδ—Ο1J$f04fed29-806e-491b-b6a9-7b77f64cae99
-€
-java:S1481"8Remove this unused "totalAttendeesLabel" local variable.(ώττόÿÿÿÿ8τώδ—Ο1J$93907ddf-3986-44f7-b62b-b7977eb1ad03
-v
-java:S1481"3Remove this unused "totalCostLabel" local variable.(Α§ήζ8υώδ—Ο1J$32d897c8-1d3a-4e7d-8a9c-8f59faca5c84
-z
-java:S1481 "2Remove this unused "discountLabel" local variable.(μ™δΔψÿÿÿÿ8υώδ—Ο1J$24e78a25-862a-479d-a77e-60e19c1d93e6
-v
-java:S1481!".Remove this unused "dateLabel" local variable.(®Ω£Οϋÿÿÿÿ8υώδ—Ο1J$870790ef-eb45-4e34-b29a-12c296d2374b
-q
-java:S1481#".Remove this unused "nameField" local variable.(Ζ¶ƒ¦8υώδ—Ο1J$178e26fe-18a6-4cab-8c05-a5a9b12dff28
-€
-java:S1481$"8Remove this unused "totalAttendeesField" local variable.(„“έÿÿÿÿÿ8υώδ—Ο1J$42a6a806-c815-46ec-b29c-75c8ce63aa5e
-{
-java:S1481%"3Remove this unused "totalCostField" local variable.(„®ƒωÿÿÿÿ8υώδ—Ο1J$f9bcac60-99d8-4ced-9829-ef842dead093
-z
-java:S1481&"2Remove this unused "discountField" local variable.(™‹Δϊÿÿÿÿ8υώδ—Ο1J$c1c26629-cb1d-4599-9712-f6e3ce4561c1
-p
-java:S1481'".Remove this unused "dateField" local variable.(Ò v8φώδ—Ο1J$9c1fe212-8671-48f7-887c-67f97af7bfad
+›	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‡…™u8Λ™Ο1J$6e2593c0-19d5-47c2-94aa-52f72f2823a3
