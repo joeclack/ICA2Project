@@ -8,29 +8,34 @@ import d3981791.phase1.Phase1Run;
 import d3981791.phase1.model.Itinerary;
 import d3981791.phase1.model.PreBuiltItems;
 import d3981791.phase3.model.SaveItinerary;
-import d3981791.phase4.swing.model.AvailableAAddOnModel;
-import d3981791.phase4.swing.model.AvailableActivitiesModel;
-import d3981791.phase4.swing.model.AvailableIAddOnModel;
-import d3981791.phase4.swing.model.ItineraryListModel;
+import d3981791.phase4.swing.model.*;
+import d3981791.phase4.swing.testing.*;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.time.LocalDate;
-import java.util.Arrays;
 import java.util.List;
 
 /**
- * The management screen
+ * The management screen will include
+ * - A table of all itineraries
+ * - A button to add a new itinerary
+ * - A button to delete all itineraries
+ * - A button to delete a single itinerary
+ * - A button to show/hide pre-built items
+ * - A table of all pre-built items
  */
 public class ManagementScreen extends JFrame {
 
     private final JTable managementTable;
-    private final JScrollPane scrollPane;
-    private final List<Itinerary> itineraries;
+    private final List<Itinerary> itinerariesList;
+    private final JLabel totalItinerariesLabel;
+    private final SaveItinerary save;
+    private final PreBuiltItems preBuiltItems;
+    private final JPanel preBuiltItemsTablePanel;
+    private final JPanel toolBarPanel;
 
     /**
      * Creates the management screen
@@ -38,254 +43,237 @@ public class ManagementScreen extends JFrame {
     public ManagementScreen() {
         super();
 
-        SaveItinerary save = new SaveItinerary();
+        save = new SaveItinerary();
 
-        itineraries = save.deSerializeItineraries();
+        preBuiltItems = new PreBuiltItems();
+
+        itinerariesList = save.deSerializeItineraries();
+
+        totalItinerariesLabel = new JLabel(setTotalItinerariesText());
 
         managementTable = createManagementTable();
 
-        scrollPane = new JScrollPane(managementTable);
+        preBuiltItemsTablePanel = setupAvailableItemsPanel(setupAvailableAddOnsTable(), setupAvailableActivityAddOnsTable(), setupAvailableActivitiesTable());
 
+        toolBarPanel = setupToolBarPanel();
 
-        PreBuiltItems preBuiltItems = new PreBuiltItems();
-
-        JTable preBuiltActivitiesTable = setBuiltItemsActivitiesTable(preBuiltItems);
-
-        JTable preBuiltActivityAddOnsTable = setBuiltItemsActivityAddOnsTable(preBuiltItems);
-
-        JTable preBuiltItineraryAddOnsTable = setBuiltAddOnsTable(preBuiltItems);
-
-        JPanel preBuiltItemsTablePanel = getBuiltItemsTablePanel(preBuiltActivitiesTable, preBuiltActivityAddOnsTable, preBuiltItineraryAddOnsTable);
-
-
-        JLabel totalItinerariesLabel = new JLabel("Total Itineraries - (" + itineraries.size() + ")");
-
-        JButton deleteAllButton = setDeleteAllButton(save, totalItinerariesLabel);
-
-        JPanel toolBar = new JPanel();
-
-        JButton addItineraryButton = addNewItineraryButton(totalItinerariesLabel);
-
-        Border border = BorderFactory.createLineBorder(Color.BLACK, 1);
-        ((JComponent) getContentPane()).setBorder(BorderFactory.createCompoundBorder(border,
-                BorderFactory.createEmptyBorder(10, 10, 10, 10)));
-
-        toolBar.setLayout(new BoxLayout(toolBar, BoxLayout.X_AXIS));
-        toolBar.add(deleteAllButton);
-        toolBar.add(totalItinerariesLabel);
-        toolBar.add(addItineraryButton);
-        toolBar.setBackground(Color.LIGHT_GRAY);
-
-        itinerarySelectEvent(save, totalItinerariesLabel);
-
-        JButton togglePreBuiltItemsButton = setToggleButton(preBuiltItemsTablePanel);
-
-        preBuiltItemsTablePanel.setVisible(false);
-        toolBar.add(togglePreBuiltItemsButton);
-
-        setupManagementFrame(toolBar, preBuiltItemsTablePanel);
+        setupManagementFrame();
 
     }
 
-    private void setupManagementFrame(JPanel toolBar, JPanel preBuiltItemsTablePanel) {
+    // Creates the frame, adding components to it and setting its properties
+    private void setupManagementFrame() {
         setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
-        add(scrollPane, BorderLayout.NORTH);
-        add(toolBar, BorderLayout.CENTER);
+
+        add(new JScrollPane(managementTable), BorderLayout.NORTH);
+        add(toolBarPanel, BorderLayout.CENTER);
         add(preBuiltItemsTablePanel, BorderLayout.SOUTH);
+
         setSize(1000, 500);
         setTitle("Management Screen");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
         setResizable(true);
         setLocationRelativeTo(null);
+
+        rowSelectionEventHandler();
     }
 
-    private static JButton setToggleButton(JPanel preBuiltItemsTablePanel) {
-        JButton togglePreBuiltItemsButton = new JButton("Show pre-built items");
-        togglePreBuiltItemsButton.addActionListener(event -> {
-            if (preBuiltItemsTablePanel.isVisible()) {
-                preBuiltItemsTablePanel.setVisible(false);
-                togglePreBuiltItemsButton.setText("Show pre-built items");
-            } else {
-                preBuiltItemsTablePanel.setVisible(true);
-                togglePreBuiltItemsButton.setText("Hide pre-built items");
-            }
-        });
-        return togglePreBuiltItemsButton;
-    }
-
-    private void itinerarySelectEvent(SaveItinerary save, JLabel totalItinerariesLabel) {
+    // Handles the row/itinerary selection event
+    private void rowSelectionEventHandler() {
         managementTable.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                if (e.getButton() == MouseEvent.BUTTON1) { // Left mouse button clicked
-                    int selectedRow = managementTable.getSelectedRow();
-                    if (selectedRow != -1) {
-                        Object itineraryAtRow0 = managementTable.getValueAt(selectedRow, 0);
-
-                        for (Itinerary selectedItinerary : itineraries) {
-                            if (selectedItinerary.getRefNumber().equals(itineraryAtRow0)) {
-                                new ItineraryScreen(selectedItinerary).setVisible(true);
-                                managementTable.clearSelection();
-                                break;
-                            }
-                        }
-                    }
+                if (SwingUtilities.isLeftMouseButton(e)) {
+                    expandItineraryOnLeftClick();
                 } else if (SwingUtilities.isRightMouseButton(e)) {
-                    int row = managementTable.rowAtPoint(e.getPoint());
-                    int column = managementTable.columnAtPoint(e.getPoint());
-
-                    if (row >= 0 && column >= 0) {
-                        managementTable.setRowSelectionInterval(row, row);
-                        managementTable.setColumnSelectionInterval(column, column);
-
-                        JPopupMenu popupMenu = setDeletePopUpMenu();
-
-                        popupMenu.show(managementTable, e.getX(), e.getY());
-                    }
+                    deleteItineraryOnRightClick(e);
                 }
             }
-
-            private JPopupMenu setDeletePopUpMenu() {
-                JPopupMenu popupMenu = new JPopupMenu();
-                JMenuItem deleteMenuItem = new JMenuItem("Delete");
-                deleteMenuItem.addActionListener(event -> {
-                    int selectedRow = managementTable.getSelectedRow();
-                    save.deleteItinerary(selectedRow, itineraries);
-                    managementTable.updateUI();
-                    managementTable.clearSelection();
-                    totalItinerariesLabel.setText("Total Itineraries - (" + itineraries.size() + ")");
-                });
-                popupMenu.add(deleteMenuItem);
-                return popupMenu;
-            }
         });
     }
 
-    private JButton setDeleteAllButton(SaveItinerary save, JLabel totalItinerariesLabel) {
-        JButton deleteAllButton = new JButton("Delete all");
-        // Deletes all itineraries
-        deleteAllButton.addActionListener(event -> {
-            save.deleteAll(itineraries);
-            managementTable.updateUI();
-            totalItinerariesLabel.setText("Total Itineraries - (" + itineraries.size() + ")");
-        });
-        return deleteAllButton;
-    }
-
-    private static JTable setBuiltItemsActivitiesTable(PreBuiltItems preBuiltItems) {
-        JTable preBuiltActivitiesTable = new JTable();
-        preBuiltActivitiesTable.setModel(new AvailableActivitiesModel(preBuiltItems.getAvailableActivities()));
-        JTableHeader header2 = preBuiltActivitiesTable.getTableHeader();
-        header2.setBackground(Color.DARK_GRAY);
-        header2.setForeground(Color.white);
-        return preBuiltActivitiesTable;
-    }
-
-    private static JTable setBuiltItemsActivityAddOnsTable(PreBuiltItems preBuiltItems) {
-        JTable preBuiltActivityAddOnsTable = new JTable();
-        preBuiltActivityAddOnsTable.setModel(new AvailableAAddOnModel(preBuiltItems.getAvailableActivityAddOns()));
-        JTableHeader header3 = preBuiltActivityAddOnsTable.getTableHeader();
-        header3.setBackground(Color.DARK_GRAY);
-        header3.setForeground(Color.white);
-        return preBuiltActivityAddOnsTable;
-    }
-
-    private static JTable setBuiltAddOnsTable(PreBuiltItems preBuiltItems) {
-        JTable preBuiltItineraryAddOnsTable = new JTable();
-        preBuiltItineraryAddOnsTable.setModel(new AvailableIAddOnModel(preBuiltItems.getAvailableItineraryAddOns()));
-        JTableHeader header4 = preBuiltItineraryAddOnsTable.getTableHeader();
-        header4.setBackground(Color.DARK_GRAY);
-        header4.setForeground(Color.white);
-        return preBuiltItineraryAddOnsTable;
-    }
-
-    private static JPanel getBuiltItemsTablePanel(JTable preBuiltActivitiesTable, JTable preBuiltActivityAddOnsTable, JTable preBuiltItineraryAddOnsTable) {
-        JPanel preBuiltItemsTablePanel = new JPanel();
-        preBuiltItemsTablePanel.setLayout(new BoxLayout(preBuiltItemsTablePanel, BoxLayout.X_AXIS));
-        preBuiltItemsTablePanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 5, 0));
-        preBuiltItemsTablePanel.add(new JScrollPane(preBuiltActivitiesTable));
-        preBuiltItemsTablePanel.add(new JScrollPane(preBuiltActivityAddOnsTable));
-        preBuiltItemsTablePanel.add(new JScrollPane(preBuiltItineraryAddOnsTable));
-        return preBuiltItemsTablePanel;
-    }
-
+    // Creates the management table
     private JTable createManagementTable() {
-        final JTable managementTable;
-        managementTable = new JTable();
-        managementTable.setModel(new ItineraryListModel(itineraries));
+        JTable table = new JTable();
+        table.setModel(new ItineraryListModel(itinerariesList));
+        table.setBackground(Color.LIGHT_GRAY);
+        table.setGridColor(Color.DARK_GRAY);
+        table.setSelectionBackground(new Color(192, 217, 237));
 
-        managementTable.setBackground(Color.LIGHT_GRAY);
-        managementTable.setGridColor(Color.DARK_GRAY);
-        managementTable.setSelectionBackground(new Color(192, 217, 237));
-
-        JTableHeader header = managementTable.getTableHeader();
+        JTableHeader header = table.getTableHeader();
         header.setBackground(Color.DARK_GRAY);
         header.setForeground(Color.white);
-        managementTable.getTableHeader().setReorderingAllowed(false);
-        return managementTable;
+        table.getTableHeader().setReorderingAllowed(false);
+
+        return table;
     }
 
-    /**
-     * Generates a random date
-     *
-     * @return The random date
-     */
-    public static LocalDate randomDateGenerator() {
-        int minDay = (int) LocalDate.of(2023, 12, 19).toEpochDay();
-        int maxDay = (int) LocalDate.of(2024, 12, 31).toEpochDay();
-        long randomDay = minDay + (int) (Math.random() * (maxDay - minDay));
-        return LocalDate.ofEpochDay(randomDay);
+    // Creates the available activities table
+    private JTable setupAvailableActivitiesTable() {
+        JTable table = new JTable();
+        table.setModel(new AvailableActivitiesModel(preBuiltItems.getAvailableActivities()));
+
+        JTableHeader header = table.getTableHeader();
+        header.setBackground(Color.DARK_GRAY);
+        header.setForeground(Color.white);
+
+        return table;
     }
 
-    /**
-     * Generates a random attendee
-     *
-     * @return The random attendee
-     */
-    public static int randomAttendeeGenerator() {
-        return (int) (Math.random() * 10) + 1;
+    // Creates the available activity add-ons table
+    private JTable setupAvailableActivityAddOnsTable() {
+        JTable table = new JTable();
+        table.setModel(new AvailableAAddOnModel(preBuiltItems.getAvailableActivityAddOns()));
+
+        JTableHeader header = table.getTableHeader();
+        header.setBackground(Color.DARK_GRAY);
+        header.setForeground(Color.white);
+
+        return table;
     }
 
-    /**
-     * Generates a random first name
-     *
-     * @return The random first name
-     */
-    public static String randomFirstnameGenerator() {
-        List<String> names = Arrays.asList("John", "Sam", "Jack", "Jill", "James", "Ben", "Henry", "Bobby", "Dave", "Bridget", "Alice", "Sarah", "Jane", "Kate", "Mary", "Emily", "Emma", "Olivia", "Jessica", "Sophie");
-        return names.get((int) (Math.random() * names.size()));
+    // Creates the available itinerary add-ons table
+    private JTable setupAvailableAddOnsTable() {
+        JTable table = new JTable();
+        table.setModel(new AvailableIAddOnModel(preBuiltItems.getAvailableItineraryAddOns()));
+
+        JTableHeader header = table.getTableHeader();
+        header.setBackground(Color.DARK_GRAY);
+        header.setForeground(Color.white);
+
+        return table;
     }
 
-    /**
-     * Generates a random surname
-     *
-     * @return The random surname
-     */
-    public static String randomSurnameGenerator() {
-        List<String> surnames = Arrays.asList("Doe", "Smith", "Jones", "Brown", "Wilson", "Taylor", "Johnson", "White", "Martin", "Anderson", "Thompson", "Nguyen", "Thomas", "Walker", "Harris", "Lee", "Ryan", "Robinson");
-        return surnames.get((int) (Math.random() * surnames.size()));
+    // Creates the panel that holds the available items tables
+    private JPanel setupAvailableItemsPanel(JTable preBuiltActivitiesTable, JTable preBuiltActivityAddOnsTable, JTable preBuiltItineraryAddOnsTable) {
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
+        panel.setBorder(BorderFactory.createEmptyBorder(0, 0, 5, 0));
+        panel.add(new JScrollPane(preBuiltActivitiesTable));
+        panel.add(new JScrollPane(preBuiltActivityAddOnsTable));
+        panel.add(new JScrollPane(preBuiltItineraryAddOnsTable));
+        panel.setVisible(false);
+
+        return panel;
     }
 
-    /**
-     * Gets the add itinerary button
-     *
-     * @param totalItinerariesLabel The total itineraries label
-     * @return The add itinerary button
-     */
-    private JButton addNewItineraryButton(JLabel totalItinerariesLabel) {
-        JButton addItineraryButton = new JButton("Add itinerary");
+    // Creates the toolbar panel with the delete all button, total itineraries label, add new itinerary button and show/hide pre-built items button
+    private JPanel setupToolBarPanel() {
+        JPanel panel = new JPanel();
 
-        addItineraryButton.addActionListener(event -> {
-            Itinerary newItinerary = new Phase1Run().test(randomFirstnameGenerator(), randomSurnameGenerator(), randomAttendeeGenerator(), randomDateGenerator());
-            itineraries.add(newItinerary);
-            new SaveItinerary().serializeItineraries(newItinerary);
-            managementTable.setModel(new ItineraryListModel(itineraries));
-            scrollPane.updateUI();
-            totalItinerariesLabel.setText("Total Itineraries - (" + itineraries.size() + ")");
+        panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
 
+        panel.add(deleteAllButton());
+        panel.add(totalItinerariesLabel);
+        panel.add(addNewItineraryButton());
+        panel.add(availableItemsToggleButton());
+        panel.setBackground(Color.LIGHT_GRAY);
+
+        return panel;
+    }
+
+    // Creates the show/hide pre-built items button
+    private JButton availableItemsToggleButton() {
+        JButton button = new JButton("Show pre-built items");
+        button.addActionListener(event -> {
+            if (preBuiltItemsTablePanel.isVisible()) {
+                preBuiltItemsTablePanel.setVisible(false);
+                button.setText("Show pre-built items");
+            } else {
+                preBuiltItemsTablePanel.setVisible(true);
+                button.setText("Hide pre-built items");
+            }
         });
-        return addItineraryButton;
+
+        return button;
     }
 
+    // Creates the delete all button
+    private JButton deleteAllButton() {
+        JButton button = new JButton("Delete all");
+        button.addActionListener(event -> {
+            save.deleteAll(itinerariesList);
+            managementTable.updateUI();
+            totalItinerariesLabel.setText(setTotalItinerariesText());
+        });
+
+        return button;
+    }
+
+    // Creates the add new itinerary button
+    private JButton addNewItineraryButton() {
+        JButton button = new JButton("Add itinerary");
+        button.addActionListener(event -> {
+            randomData randomData = new randomData();
+            Itinerary newItinerary = new Phase1Run().createItinerary(randomData.firstNameGenerator(), randomData.lastNameGenerator(), randomData.attendeesGenerator(), randomData.dateGenerator());
+            itinerariesList.add(newItinerary);
+            new SaveItinerary().serializeItineraries(newItinerary);
+            managementTable.setModel(new ItineraryListModel(itinerariesList));
+            managementTable.updateUI();
+            totalItinerariesLabel.setText(setTotalItinerariesText());
+        });
+
+        return button;
+    }
+
+    // Expands the itinerary on left click, opening the itinerary screen
+    private void expandItineraryOnLeftClick() {
+        int selectedRow = managementTable.getSelectedRow();
+        if (selectedRow != -1) {
+            Object itineraryAtRow0 = managementTable.getValueAt(selectedRow, 0);
+
+            try {
+                for (Itinerary selectedItinerary : itinerariesList) {
+                    if (selectedItinerary.getRefNumber().equals(itineraryAtRow0)) {
+                        new ItineraryScreen(selectedItinerary).setVisible(true);
+                        managementTable.clearSelection();
+                        break;
+                    }
+                }
+            } catch (Exception ex) {
+                System.out.println("Error: " + ex.getMessage());
+            }
+        }
+    }
+
+    // Shows delete itinerary popup menu on right click
+    private void deleteItineraryOnRightClick(MouseEvent e) {
+        int row = managementTable.rowAtPoint(e.getPoint());
+        int column = managementTable.columnAtPoint(e.getPoint());
+
+        try {
+            if (row >= 0 && column >= 0) {
+                managementTable.setRowSelectionInterval(row, row);
+                managementTable.setColumnSelectionInterval(column, column);
+
+                deletePopupMenu().show(managementTable, e.getX(), e.getY());
+            }
+        } catch (Exception ex) {
+            System.out.println("Error: " + ex.getMessage());
+        }
+    }
+
+    // Creates the delete popup menu, allowing a user to delete an itinerary
+    private JPopupMenu deletePopupMenu() {
+        JPopupMenu popupMenu = new JPopupMenu();
+
+        JMenuItem menuItem = new JMenuItem("Delete");
+        menuItem.addActionListener(event -> {
+            int selectedRow = managementTable.getSelectedRow();
+            save.deleteItinerary(selectedRow, itinerariesList);
+            managementTable.updateUI();
+            managementTable.clearSelection();
+            totalItinerariesLabel.setText(setTotalItinerariesText());
+        });
+
+        popupMenu.add(menuItem);
+
+        return popupMenu;
+    }
+
+    // Sets the total itineraries label text, showing the total number of itineraries and call when an itinerary is added or deleted
+    private String setTotalItinerariesText() {
+        return "Total Itineraries - (" + itinerariesList.size() + ")";
+    }
 }

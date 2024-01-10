@@ -13,10 +13,10 @@ import java.util.List;
 public class Phase1Run {
 
     public static void main(String[] args) {
-        System.out.println(new Phase1Run().test("John", "Doe", 10, LocalDate.now()).getRefNumber());
+        System.out.println(new Phase1Run().createItinerary("John", "Doe", 10, LocalDate.now()).getRefNumber());
     }
 
-    public Itinerary test(String firstName, String lastName, int attendees, LocalDate date) {
+    public Itinerary createItinerary(String firstName, String lastName, int attendees, LocalDate date) {
         PreBuiltItems preBuiltItems = new PreBuiltItems();
 
         Itinerary itinerary = new Itinerary(firstName, lastName, attendees, 2, date);

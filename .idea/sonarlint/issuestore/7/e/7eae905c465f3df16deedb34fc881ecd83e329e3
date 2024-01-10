@@ -1,18 +1,4 @@
 
-—
-java:S1192="VDefine a constant instead of duplicating this literal "Total Itineraries - (" 4 times.(™ÂÓ·ùÿÿÿÿJ$c6b0d7e7-0518-400a-8b0d-6ec6d5c5087e
-}
-java:S2184í"@Cast one of the operands of this addition operation to a "long".(ßÑØûJ$6a5d10bc-7637-4c25-8703-55b457caac74
-”	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‡…™uJ$948caf60-a3e2-4a9a-a1b8-a35639e31e5c
-•
-java:S3776u"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(°›¬†8ı¨úÎ1J$a1c4f412-e9a6-4b3b-99ba-c0c28bc4c8a7
-Œ
-java:S1117Ö"CRename "managementTable" which hides the field declared at line 31.(Ù†Ö—üÿÿÿÿ8¾ƒ×øÎ1J$793e8c81-7c07-43e4-bc93-300133492d38
-f
-java:S2140í")Use "java.util.Random.nextInt()" instead.(ßÑØûJ$e114c8d7-55da-44ab-93f2-1d23b197e620
-e
-java:S2140÷")Use "java.util.Random.nextInt()" instead.(²ÉyJ$58b59983-7d45-4f88-afa3-3f6aeb336d4b
-f
-java:S2140")Use "java.util.Random.nextInt()" instead.(ê‘œÆJ$ad4ef589-1ac4-4e17-8d4a-e6be7119ad3e
-f
-java:S2140‹")Use "java.util.Random.nextInt()" instead.(½Èè½J$e9d3c8be-57d4-411d-a83a-8bc5065af32c
+›	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‡…™u8Íä’—Ï1J$6b9ff6ec-2cec-4e50-9392-99820d32c1ac
+p	java:S106ë"+Replace this use of System.out by a logger.(ëöÍš8ãä’—Ï1@J$52d339c9-38b2-42f2-ae4d-918253fdc442
+p	java:S106ı"+Replace this use of System.out by a logger.(ëöÍš8ó‰¼—Ï1@J$527fd6d0-35e0-40e9-94a9-243128e13ea0
